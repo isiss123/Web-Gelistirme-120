@@ -1,0 +1,27 @@
+.items{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .item{
+        overflow: hidden; 
+        position: relative;
+        background-color: $light-color;
+        &::after{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: $primary-color;
+            opacity: .4;
+            transform: translate(-120%,-120%) rotate(45deg);
+            transition: transform 2s cubic-bezier(0.23, 1, 0.320, 1) ;
+        }
+        &:hover::after{
+            transform: translate(-69%,-69%) rotate(45deg) scale(2);
+        }
+    }
+}

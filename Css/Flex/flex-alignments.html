@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            background-color: cadetblue;
+            height: 400px;
+            display: flex;
+            /*flex-direction: row;*/
+            flex-direction: column;
+
+            /*justify-content: flex-start; /*Default : setrde basa getirme*/
+            justify-content: center; /*setrde merkeze getirme*/
+            /*justify-content: flex-end; /*setrde sona getirme*/
+
+            /*justify-content: space-around; /*basdan ve sondan :x ; elementler arasinda :2x bosluq*/
+            /*justify-content: space-between;/*basdan ve sondan :0 ; elementler arasinda :x  bosluq*/
+            /*justify-content: space-evenly;   /*basdan ve sondan :x ; elementler arasinda :x  bosluq*/
+
+            /*align-items: stretch; /*Default : sutunda yuxaridan-ensona*/
+            /*align-items: flex-start; /*Sutunda en basa*/
+            /*align-items: flex-end; /*Sutunda en sona*/
+            align-items: center;
+
+        }
+        .a{
+
+            padding: 20px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="a">item 1</div>
+        <div class="a">item 2</div>
+        <div class="a">item 3</div>
+        <div class="a">item 4</div>
+        <div class="a">item 5</div>
+    </div>
+</body>
+</html>

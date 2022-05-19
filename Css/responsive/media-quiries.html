@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: none;
+            font-size: 40px;
+        }
+        @media (max-width:250px){
+            #phone{
+                display: block;
+                background-color: gray;
+            }
+        }
+        @media (min-width:251px) and (max-width:400px){
+            #tablet{
+                display: block;
+                background-color: aqua;
+            }
+        }
+        @media (min-width:401px) and (max-width:550px){
+            #desktop{
+                display: block;
+                background-color: yellow;
+            }
+        }
+        @media (min-width:551px) and (max-width:700px){
+            #large{
+                display: block;
+                background-color: burlywood;
+            }
+        }
+        @media (min-width:701px){
+            #xLarge{
+                display: block;
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="phone">Phone</div>
+    <div id="tablet">Tablet</div>
+    <div id="desktop">Desktop</div>
+    <div id="large">Large</div>
+    <div id="xLarge">XLarge</div>
+</body>
+</html>

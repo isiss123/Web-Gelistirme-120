@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        a{
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px; 
+
+        }
+        body{
+            margin: 0;
+            font-size: 25px;
+        }
+        h1{
+            font-size: 70px;
+        }
+        .pa{
+            color: #fff;
+            padding: 0 50px;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #pa1{
+            background-color: #2A2550;
+        }
+        #pa2{
+            background-color: #E04D01;
+        }
+        #pa3{
+            background-color: #FF7700;
+        }
+        #pa1 h1{
+            transform: translateY(-800px);
+            animation: a1 1s forwards ease-in;
+        }
+        #pa1 p{
+            transform: translateX(-2000px);
+            animation: a2 1s forwards 1s ease-in;
+        }
+        @keyframes a1{
+            to{
+                transform: translateY(0);
+            }
+        }
+        @keyframes a2{
+            to{
+                transform: translateX(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div  id="pa1" class="pa">
+       <h1>Page 1</h1>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione totam at doloremque iure ullam, consequuntur, ipsa possimus est facere reiciendis, quo aut sint? At autem itaque illum nemo aperiam vel.</p>
+        <div>
+            <a href="#pa2">Next Page</a>
+        </div>
+    </div>
+    <div id="pa2" class="pa">
+        <h1>Page 2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione totam at doloremque iure ullam, consequuntur, ipsa possimus est facere reiciendis, quo aut sint? At autem itaque illum nemo aperiam vel.</p>
+        <div>
+            <a href="#pa1">Previous Page</a>
+            <a href="#pa3">Next Page</a>
+        </div>
+     </div>
+     <div id="pa3" class="pa">
+        <h1>Page 3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione totam at doloremque iure ullam, consequuntur, ipsa possimus est facere reiciendis, quo aut sint? At autem itaque illum nemo aperiam vel.</p>
+        <div>
+            <a href="#pa2">Previous Page</a>
+        </div>
+     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $("a").on('click', function(event) {
+        
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+        
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+        </script>
+</body>
+</html>

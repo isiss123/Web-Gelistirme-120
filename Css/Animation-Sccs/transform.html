@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 100vh;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 3s;
+        }
+        #box{
+            height: 150px;
+            width: 150px;
+            background-color: yellowgreen;
+            transition: all 3s;
+            border-top: 5px white solid;
+
+        }
+        #box:hover{
+            /*transform: skew(-45deg); /*verilen derecede yatirir*/
+            /*transform: scale(2); /*deyer qeder boyudur yada kicildir*/
+            transform: rotate(180deg);/*dondurur*/
+            /*transform: rotateX(90deg); /*x xetti etrafinda dondurur*/
+            /*transform: rotateY(180deg); /*y xetti etrafinda dondurur*/
+            /*transform: translateX(120px); /*x xetti uzerinde saga sola cekir*/
+            /* transform: translateY(-150px); /*y xetti uzerinde yuxari asagi cekir*/
+        } 
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

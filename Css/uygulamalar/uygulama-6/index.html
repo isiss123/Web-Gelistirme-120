@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Whisper&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="buttons.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin:0;
+            padding:0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .ust{
+            margin-top: 20px;
+            background-color: #9FC088;
+            padding-bottom: 6px;
+        }
+        
+        
+        
+        .basliq{
+            font-size: 35px;
+            font-style: large;
+            color:#fff;
+            padding-left: 20px;
+        }
+        .navbar{
+            display: inline-block;
+            text-align: right;
+            width: calc(100% - 155px);
+        }
+        .navbar__items{
+            list-style: none;
+            margin:0;
+            padding: 0;
+            
+        }
+        .navbar__item{
+            display:inline-block;
+            margin: 0 10px;
+            padding:1px 4px;
+            font-size: 20px;
+        }
+        .navbar__item_login{
+            display:inline-block;
+            margin: 0 10px;
+            padding:1px 4px;
+            font-size: 20px;
+        }
+        .navbar__item a{
+            color:#fff;
+        }
+        .navbar__item a:hover{
+            color:black;
+        }
+        
+        .navbar__item a::before{
+            content: '\2022';
+        }
+        #login a::before{
+            content: none;
+        }
+        .basliq__main{
+            background: url(home-bg.jpeg);
+            background-position: center center;
+            height: 500px;
+            width: 100%;
+            padding:10px;
+        }
+        .row h2{
+            font-weight: 600;
+        }
+
+        .orta{
+            text-align: center;
+        }
+        .row{
+            margin-bottom: 20px;
+        }
+        .col{
+            display: inline-block;
+            width: 30%;
+            margin: 8px;
+            padding: 16px;
+        }
+        .row h2{
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .col_2{
+            display: inline-block;
+            height: 350px;
+            width: calc(50% - 2px);
+            background-color: #ededed;
+            vertical-align: top;
+            padding: 20px;
+        }
+        .col_2 h3{
+            font-size: 30px;
+        }
+        .col_2 a{
+            margin-top: 10px;
+
+        }
+        .col_2 p{
+            font-family: 'Ubuntu', sans-serif;
+        }
+        
+        .col_2-image{
+            background: url("features.jpeg");
+            background-size: cover;
+            background-position: top center;
+        }
+        .col_2-right{
+            vertical-align: top;
+            padding: 30px;
+            
+        }
+        .plans{
+            margin: 0px 70px;
+            
+        }
+        .clearfix{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .plans h1{
+            text-align: center;
+        }
+        .col__plans-3{
+            width: 33.3%;
+            float: left;
+            padding: 5px;
+            
+            text-align: center;
+            
+        }
+        .plan{
+            background-color: #dbdbdb;
+            padding: 25px 10px;
+           
+        }
+        .container{
+            margin: 0 auto;
+            width: 1000px;
+            
+        }
+        .plan__badge{
+            color: #9FC088;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .plan__badge_features{
+            background-color: #CC704B !important;/*baskila*/
+            color: #fff;
+            border-radius: 5px;
+        }
+        .col__plans-3 ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .col__plans-3 ul li{
+            margin:4px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header class="ust">
+        <a href="http://istiqlal.cf/" class="basliq">Istiqlal</a>
+        <nav class="navbar">
+            <ul class="navbar__items">
+                <li class="navbar__item"><a href=""> Film</a></li>
+                <li class="navbar__item"><a href=""> Serial</a></li>
+                <li class="navbar__item_login"><a href="" class=" btn btn-secondary"> Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="basliq__main">
+            <h2>Xoş gəldiniz!</h2>
+        </section>
+        <section class="orta">
+            <div class="row">
+                
+                <h2 class="basliq1">Başlıq 1</h2>
+                <p class="basliq1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aspernatur libero at, earum praesentium labore?</p>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <i class="fa-brands fa-buffer fa-xl"></i>
+                    <h3>Başlıq 3</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa enim, quam deleniti voluptatibus molestias temporibus?</p>
+                </div>
+                <div class="col">
+                    <i class="fa-solid fa-angles-down fa-xl"></i>
+                    <h3>Başlıq 4</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa enim, quam deleniti voluptatibus molestias temporibus?</p>
+                </div>
+                <div class="col">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                    <h3>Başlıq 5</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa enim, quam deleniti voluptatibus molestias temporibus?</p>
+                </div>
+            </div>
+        </section>
+        <section class="features">
+            <div class="row">
+                <div class="col_2 col_2-image"></div><div class="col_2 col_2-right">
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptatem aspernatur? Harum ut atque repellendus explicabo vel sit blanditiis nisi, ad, sapiente voluptatibus veritatis libero id ratione laboriosam doloremque distinctio.</p>
+                    <a href="#" class="btn btn-primary">axot yoxdu</a>
+                </div>
+            </div>
+        </section>
+        <section class="plans">
+            <h1>Satışda Olan Paketlər</h1>
+            <div class="row" >
+            <div class="clearfix container" >
+            <div class="col__plans-3" >
+                <div class="plan" >
+                    <h2>Free</h2>
+
+                        <h3>0/month</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit. Lorem.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit. Lorem, ipsum dolor.</li>
+                            <li>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</li>
+                        
+                        </ul>
+                        <div>
+                            <button class="btn btn-primary">Choose</button>
+                        </div>
+                </div>
+            </div>
+            <div class="col__plans-3">
+                <div class="plan plan__badge_features">
+                    <h2 class="plan__badge">Recomended</h2>
+                    <h2 style="margin-top: 0;">Basic</h2>
+                    <h3>$9.99/month</h3>
+                    <ul>
+                    
+                        <li>Lorem ipsum dolor sit. Lorem.</li>
+                        <li>Lorem ipsum dolor sit.</li>
+                        <li>Lorem ipsum dolor sit. Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                    <div>
+                        <button class="btn btn-primary">Choose</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col__plans-3">
+                <div class="plan">
+                    <h2>Premium</h2>
+
+                    <h3>$19.99/month</h3>
+                    <ul>
+                        <li>Lorem ipsum dolor sit. Lorem.</li>
+                        <li>Lorem ipsum dolor sit.</li>
+                        <li>Lorem ipsum dolor sit. Lorem, ipsum dolor.</li>
+                        <li>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                    <div>
+                        <button class="btn btn-primary">Choose</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*ilk setr */
+        p::first-line{
+            color: red;
+        }
+        /*ilk element*/
+        p::first-letter{
+            font-size: 40px;
+        }
+        /*cursor ile secilen yer*/
+        p::selection{
+            background-color: gray;
+        }
+        /*sonuna*/
+        p::after{
+            font-size: 40px;
+            content: '\1F497';
+            padding:15px;
+        }
+        p.axot::after{
+            background-color: blue;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, minima?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ullam, quis animi, sit blanditiis minus eligendi esse nostrum itaque quam quisquam a accusamus! Explicabo voluptatum deleniti, odit dicta nulla voluptate vero? Architecto error commodi beatae quod officiis id facere aliquid, sed quidem, magnam quia hic accusantium voluptatibus in blanditiis explicabo. Quod modi veritatis amet repellat nam porro sunt ullam dolorem eum impedit, perferendis rerum vel cumque? Ullam totam, vero quis accusamus vel perferendis pariatur et inventore tempore? Reiciendis autem, possimus qui adipisci hic doloremque error ut culpa atque nisi repellendus excepturi blanditiis nobis optio sed ipsa accusantium voluptatibus, ad reprehenderit earum! Alias perferendis adipisci voluptates iste repellat aut incidunt minima molestias numquam. Quam, corrupti architecto pariatur sunt laborum iusto a, autem dolor nemo velit esse officiis nisi error? Ut voluptates dolorum voluptatum amet. Ut tempora expedita nostrum voluptatem dolorem omnis delectus eligendi quo consequatur hic? Expedita optio temporibus exercitationem repellat.</p>
+    <p id="axot">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum libero dolorum necessitatibus minus laborum?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur vel reiciendis maxime voluptas, culpa eveniet suscipit quae veniam ullam corporis et iusto magnam, nemo debitis, quisquam dicta aliquam error cumque! Quod numquam nisi doloremque similique libero consequuntur velit quibusdam mollitia illum vero necessitatibus perspiciatis error beatae iure, nemo unde tempora corrupti sit, assumenda at ratione consectetur nostrum! Cumque inventore, quo veniam dolorem esse soluta nihil quia laboriosam qui illo animi itaque beatae assumenda vero eos quae rem alias nisi consectetur et reprehenderit. Magnam dolorum quam quos sequi in nihil porro totam? Vero, soluta quis nisi quas deleniti iste quasi labore incidunt, quo quam rerum maiores voluptatum libero quae porro! Tempora placeat, culpa nostrum atque porro quo illo recusandae? Ut, maxime qui. Architecto, distinctio natus. Obcaecati fugit impedit modi eligendi odio voluptatibus dolorum minus, dicta rem? Vel velit, repudiandae sed cupiditate obcaecati alias suscipit veritatis quibusdam quod blanditiis mollitia iusto deserunt!</p>
+</body>
+</html>

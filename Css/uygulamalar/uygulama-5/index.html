@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        header, footer{
+            background-color: #A85CF9;
+            color:#6FDFDF;
+            padding: 10px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            background-color: #5534A5;
+            color: #FFFFFF;
+            padding: 5px;
+            margin: 10px 10px 10px 0;
+        }
+        li:hover{
+            cursor: pointer;
+            background-color: #4B7BE5;
+        }
+        #links{
+            padding: 15px 15px 15px 0;
+            width: 25%;
+            float: left;
+        }
+        #contents{
+            padding: 15px 15px 15px 0;
+            width: 75%;
+            float: left;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 40px;">Header</h1>
+    </header>
+    <main class="clearfix">
+        <div id="links">
+            <ul >
+                <li>Html</li>
+                <li>Css</li>
+                <li>JavaScript</li>
+            </ul>
+
+        </div>
+        <div id="contents">
+            <h1 style="margin: 0;">WEb Geliştirmə</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio, rem officia in commodi consequuntur nam nobis ullam ut asperiores voluptates ipsum ipsa? Quae cupiditate tempore nostrum exercitationem quibusdam delectus. Suscipit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis fugiat illo nostrum unde dolorem officiis voluptatum itaque, voluptatibus provident! Aperiam ipsam corporis omnis aliquid facere, minus perferendis deleniti quos quae.</p>
+        </div>
+    </main>
+    <footer>
+        <h3 style="font-size: 30px;">Footer</h3>
+    </footer>
+</body>
+</html>

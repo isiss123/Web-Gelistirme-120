@@ -1,0 +1,286 @@
+@import url(button.css);
+@import url(base.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Ubuntu:wght@300;400&family=Whisper&display=swap');
+
+
+.fa-solid{
+    font-size: 40px;
+    color: #82A284;
+    transition: all 0.6s;
+
+}
+
+p{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+a{
+    text-decoration: none;
+}
+header{
+    background-color: #446A46;
+    position: fixed;
+    width: 100%;
+    z-index: +1;
+    top: 0;
+    display: block;
+}
+
+
+.basliq{
+    font-size: 3rem;
+    color: #fff;
+    display: inline-block;
+    margin: 1rem 0;
+    margin-left: 3rem;
+
+}
+
+
+
+.navbar{
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 15rem);
+}
+.navbar__items{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.navbar__items-item{
+    display: inline-block;
+    list-style-type: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+}
+.navbar__items-item a{
+    color: #fff;
+}
+
+#giris{
+    background:linear-gradient(rgba(159, 192, 136,0.3),rgba(175, 202, 155,0.3)) , url("./images/giris.jpeg");
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+}
+.giris__info{
+    position: absolute;
+    background-color: rgba(51, 133, 255,0.3);
+    border-radius: 1rem;
+    top: 60%;
+    left: 50%;
+    width: 60%;
+    padding: 2rem;
+    font-size:1.1em;
+    color: #fff;
+    transform: translate(-50%,-50%);
+}
+@media (min-width:576px){
+    html{
+        font-size: 67%;
+    }
+    #giris{
+        height: 50vh;
+    }
+
+}
+@media (min-width:768px){
+    html{
+        font-size: 69%;
+    }
+    #giris{
+        height: 60vh;
+    }
+
+}
+@media (min-width:992px){
+    html{
+        font-size: 77%;
+    }
+    #giris{
+        height: 70vh;
+    }
+
+}
+@media (min-width:1200px){
+    html{
+        font-size: 80%;
+    }
+    #giris{
+        height: 80vh;
+        background-attachment: fixed;
+    }
+
+}
+
+
+#info{
+    text-align: center;
+}
+.bolum-basliq{
+    font-size: 4rem;
+    text-align: center;
+}
+
+#info p{
+    margin: 0;
+}
+
+#info .col-3{
+    text-align: center;
+    padding: 0 1rem;
+    margin: 5rem 0;
+}
+
+
+.features__left{
+    background:linear-gradient(rgba(159, 192, 136,0.3),rgba(175, 202, 155,0.3)) , url("images/features.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 35rem;
+    padding: 3rem;
+}
+.features__right{
+
+    background:rgba(159, 192, 136,0.1) ;
+    height: 35rem;
+    padding: 3rem;
+}
+.features__right h3{
+    font-size: 3rem;
+}
+.plan{
+    padding:2.5rem 1rem;
+    border-radius:0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+    transition: all 0.6s;
+}
+.plan:hover{
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+}
+.plan h2{
+    font-size: 2rem;
+}
+.plan ul{
+    margin: 0;
+    padding: 0;
+}
+.plan li{
+    list-style-type: none;
+    margin: 0.5rem 0;
+    padding: 0.1rem;
+}
+.low{
+    background-color: #f2f2f2;
+
+}
+.high{
+    background-color: #73a576;
+    color: #fff;
+}
+.plan_high{
+    margin: 0;
+    background-color: #fff;
+    color:#73a576 ;
+    border-radius: 5px;
+}
+.high h2{
+    margin-top: 0;
+}
+.pad{
+    padding: 0 0.5rem;
+}
+#user{
+    text-align: center;
+    background: linear-gradient(rgba(80, 124, 82,0.5),rgba(115, 165, 118,0.5));
+}
+#user .col-3{
+    padding: 40px;
+}
+#user h1, #user p{
+    margin: 0;
+    color: #fff;
+}
+.card-head{
+    max-height: 33rem;
+    width: 100%;
+}
+.card-body h2{
+    font-size: 4rem;
+}
+.card{
+    background-color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    transition: all 0.6s;
+}
+.card:hover{
+    box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.75) 0px 50px 100px -20px, rgba(0, 0, 0, 0.8) 0px 30px 60px -30px;
+    transform: translateY(-10px);
+}
+.card-body{
+    padding: 3rem;
+}
+
+#movies .col-3{
+    padding: 1.6rem;
+}
+footer{
+    padding: 3rem;
+    background: #E4AEC5;
+    margin-top: 30px;
+    position: relative;
+    bottom: -20rem;
+}
+footer ul{
+    margin: 0;
+    padding: 0;
+}
+footer li{
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 0.5rem;
+}
+#footer-links{
+    font-size: 1.8rem;
+
+}
+.iletisim{
+    color: #fff;
+}
+#sosial-links{
+    text-align: right;
+}
+.fa-brands{
+    font-size: 2.5rem;
+    padding: 1.5rem;
+    color: #fff;
+    border-radius: 3rem;
+}
+.fa-facebook{
+    background-color: #1877F2;
+}
+.fa-instagram{
+    background-color: #E4405F;
+}
+.fa-twitter{
+    background-color: #1DA1F2;
+}
+.fa-circle-chevron-up{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: +1;
+    
+}
+.fa-circle-chevron-up:hover{
+    color: #577559;
+}

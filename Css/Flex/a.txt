@@ -1,0 +1,19 @@
+flex-alignments
+
+flex-direction : row 
+    justify-content  : x xetti = setr  = sag-sol
+    align-items      : y xetti = sutun = yuxari - asagi
+    
+flex-direction :column
+    justify-content  : y xetti = sutun  = yuxari - asagi
+    align-items      : x xetti = setr   = sag-sol
+
+
+
+flex-item-properties
+    flex-grow     : qalan alani verilen deyerlere gore bolur  (a1{flex-grow:3}a2{flex-grow:2}) 
+    flex-basis    : baslangic deyer .Seyfe balacalasanda verilen deyerde balacalasir
+        flex-shirink  : 0 (sifir) deyeri verende hecvaxt verilen deyerin altina enmir
+    flex          : 3 deyer alir [grow][shirink][basis]
+    flex          : ...% verilen class deyer qeder yer tutur
+    order         : yer belirtmek ucun. Default degeri 0-dir

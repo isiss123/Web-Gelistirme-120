@@ -1,0 +1,89 @@
+boxe sizing ;  BORDER-BOX  : margin + padding+ icerik = 100% olacaq dasmayacaq
+               CONTENT-BOX : margin +padding +icerik = 100%+ olsa dasacaq ve bir alt setire kececek
+               https://www.w3schools.com/css/css3_box-sizing.asp
+               https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
+
+HTML emoji ve sembollar : https://www.w3schools.com/html/html_symbols.asp
+
+inline  : icerigi qeder yer tutur yukseklik ve genislik vermek olmur
+block   : butun setri tutur yukseklik ve genislik vermek olmur
+inline - block : icerigi qeder yer tutur ve genislik ve yukseklik vermek olur
+display : none  ; silinir ve sagdaki onun yerine kecir
+Visibility: hidden  ; silinir ama sagdaki onun yerine kecmir 
+FLOAT   : https://www.udemy.com/course/komple-web-developer-kursu/learn/lecture/10235288#questions
+          https://developer.mozilla.org/en-US/docs/Web/CSS/float
+
+
+viport   : gorunur ekran
+overflow(hidden) : daşmanı gizlədir
+
+Pseudo Classes  : Bir öğenin özel durumunu tanımlamak için sözde sınıf kullanılır.
+
+                            Örneğin, aşağıdakiler için kullanılabilir:
+
+                            Bir kullanıcı fareyle üzerine geldiğinde bir öğeye stil verin
+                            Ziyaret edilen ve ziyaret edilmeyen bağlantıları farklı şekilde stillendirin
+                            Odaklandığında bir öğeye stil veri
+
+                            :(iki) noqte ile
+                            https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+                        
+Pseudo Elements : Bir öğenin belirtilen bölümlerine stil vermek için bir CSS         sözde                           öğesi kullanılır.
+                            Örneğin, aşağıdakiler için kullanılabilir:
+                            Bir öğenin ilk harfini veya satırını stilize edin
+                            Bir öğenin içeriğinden önce veya sonra içerik ekleme
+
+                            :: (2x iki) noqte ile
+                            https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+
+
+Elementlerin yerini deyisme : 
+
+                            text-align : İNLİNE və İNLİNE-BLOCK elemanları hərəkət etdirmək
+
+                            floating     : BLOCK elemanları hərəkət etdirmək üçündür
+
+
+
+
+
+Box SHADOW  : gölgələndirmə vermək üçün  ( [sag +.px/ sol -.px] [asagi+.px/yuxari -.px] [.px blur] [.px spread] [color] )
+spread : rengin dagitilmasi https://getcssscan.com/css-box-shadow-examples
+
+transition   : etiket  saniye     verilen etikete hover bilgisi nece saniyede oturulecey
+
+
+POSITIONS  
+         varsayilan deger  : static
+         ABSULUTE :  akis disina cixaraq ust etikete relative olur eger yoxdursa BODY e gore yer deyisir
+
+                    diger elemanlar ABSULUTE olan elemani gormur
+                    inline-block elemana cevrilir
+        RELATIVE  :  oldugu yerden yer deyisir
+
+        FIXED     : seyfe yuxari asagi getsede FIXED verilen elemanlar oldugu yerde qalir
+        STICKY    : seyfe uzerinde STICKY etiketi olan element cursor vasitesi ile verilen konuma gelende FIXED kimi yuxarida qalir
+
+        positions verilen elemanlarin hansini one cixartm istesek  z-index :+1 
+                                               arxaya aparmaq istesek  z-index: -1
+
+
+
+BACKGROUND
+    SIZE  : cover  - Görüntüyü uzatması veya kenarlarından birini biraz kesmesi gerekse bile, 
+                    tüm kapsayıcıyı  kapsayacak şekilde arka plan görüntüsünü yeniden boyutlandırın
+            contain - 	Resmin tamamen görünür olduğundan emin olmak için arka plan 
+                        resmin yeniden boyutlandırın
+
+    CLIP PATH  : arxa plana sablon uygulamaq, maskelemek https://bennettfeely.com/clippy/
+    CSS GRADIENTS :https://www.w3schools.com/css/css3_gradients.asp  arxa planin uzerine seth cekme
+
+
+
+a*4{Link$}
+4 eded a etiketinde Link1 link2 link3 link4 yaradir
+
+    
+                            

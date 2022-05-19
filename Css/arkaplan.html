@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+        body{
+            margin: 0px;
+        }
+        #header{
+            height: 100vh; /*viport 100%ni tutur*/
+            background-size: cover;
+            background-image:linear-gradient(to bottom,
+                          rgba(77, 255, 77,0.4),rgba(153, 255, 153,0.5)),
+                            url("bg.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .logo{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+
+        }
+        #header h1{
+            margin: 0;
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: red;
+            transform: translate(-50%,-50%);
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="logo.png" alt="" class="logo">
+        <h1>ARXA PLAN</h1>
+        <!-- <div class="cover"></div> -->
+    </div>
+</body>
+</html>

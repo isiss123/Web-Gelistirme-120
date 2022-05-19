@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --or : #d7bc8e;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        #basliq{
+            display: flex;
+            background: #F0A500;
+            justify-content: center;
+            padding: 30px;
+            color: #fff;
+            text-align: center;
+        }
+        #basliq p{
+            padding-top: 10px;
+        }
+        nav{
+            display: flex;
+            flex-direction: row;
+            background: black;
+        }
+        nav ul{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+        }
+        nav a{
+            display: block;
+            padding: 15px;
+            color: #fff;
+            font-size: 19px;
+            border-right: 1px solid rgba(255, 255, 255,0.3);
+            border-left:1px solid rgba(240, 165, 0,0.3) ;
+            
+        }
+        nav a:hover{
+            background: #999999;
+        }
+        .ara{
+            height: 150px;
+            background: var(--or);
+
+        }
+        section{
+            display: flex;
+            margin: 10px;
+        }
+        #icerik{
+            flex: 70%;
+            padding:0 20px;
+        }
+        #link{
+            display: flex;
+            flex: 30%;
+            background: #f2e9d9;
+            flex-direction: column;
+            padding:0 20px;
+
+        }
+        .icerik_item h2, .icerik_item p, #link h2 , #link p{
+            margin: 20px 0;
+        }
+        .ara_1{
+            height: 50px;
+            width: 90%; 
+            margin: 5px auto;
+            background: var(--or);
+        }
+        .ara_item{
+            width: 100%;
+            margin-right:  auto;
+            margin-left: auto;
+        }
+        @media (max-width: 590px){
+            /*nav{
+                display: block;
+            }
+            nav ul{
+                display: block;
+            }*/
+
+            nav a{
+                text-align: center;
+                border-top: 1px solid rgba(255, 255, 255,0.3);
+                border-bottom:1px solid rgba(240, 165, 0,0.3) ;
+            }
+            section, nav, nav ul{
+                flex-direction: column;
+            }
+            #icerik{
+                width: 100%;
+            }
+            #link{
+                width: 100%;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="basliq">
+        <div>
+            <h1>Lorem, ipsum.</h1>
+            <p>Lorem, ipsum dolor.</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href=""> Link 1</a></li>
+            <li><a href=""> Link 2</a></li>
+            <li><a href=""> Link 3</a></li>
+            <li><a href=""> Link 4</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div id="icerik">
+            <div class="icerik_item">
+                <h2>Lorem, ipsum.</h2>
+                <div class="ara"></div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, esse.</p>
+            </div>
+            <div class="icerik_item">
+                <h2>Lorem, ipsum.</h2>
+                <div class="ara"></div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, esse.</p>
+            </div>
+            <div class="icerik_item">
+                <h2>Lorem, ipsum.</h2>
+                <div class="ara"></div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, esse.</p>
+            </div>
+            <div class="icerik_item">
+                <h2>Lorem, ipsum.</h2>
+                <div class="ara"></div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, esse.</p>
+            </div>
+        </div>
+        <div id="link">
+            <h2>Lorem, ipsum.</h2>
+            <div class="ara ara_item"></div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda ipsa accusamus expedita ab inventore nihil. Ullam sit optio quia non modi voluptates, ?</p>
+            <div class="ara_1 ara_item"></div>
+            <div class="ara_1 ara_item"></div>
+            <div class="ara_1 ara_item"></div>
+        </div>
+    </section>
+</body>
+</html>

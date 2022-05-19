@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            margin:0;
+        }
+        header{
+            background-color:#6FDFDF;
+            padding: 5px 10px;
+        }
+        .basliq{
+            font-size: 21px;
+            color: #fff;
+            text-decoration:none;
+            font-weight: bold;
+            
+        }
+        
+        .navbar{
+            display: inline-block;
+            text-align: right;
+            width: calc(100% - 89px);
+        }
+        .navbar__items{
+            list-style: none;
+            margin:0;
+            padding: 0;
+            
+        }
+        .navbar__item{
+            display:inline-block;
+            padding:1px 4px;
+        }
+        .navbar__item::before{
+            content:'\2022';
+            color: #fff;
+        }
+        .navbar__item:hover::before, .navbar__item a:hover{
+            color: violet;
+        }
+        
+        .navbar__item a{
+            text-decoration: none;
+            margin: 0 5px;
+            color: #fff;
+        }
+        #giris{
+            background-color:violet;
+            height: 500px;
+            width: 100%;
+            padding:10px;
+        }
+        #son{
+            background-color:purple;
+            padding: 10px;
+        }
+        #login{
+            border-radius: 10px;
+            border: 2px solid #fff;
+            background-color: violet;
+        }
+        #login:hover{
+            background-color: #fff;
+            border: 2px solid violet;
+            border-radius: 10px;
+        }
+        #login::before{
+            content: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="basliq">Istiqlal</a>
+        <nav class="navbar">
+            <ul class="navbar__items">
+                <li class="navbar__item"><a href="">Film</a></li>
+                <li class="navbar__item"><a href="">Serial</a></li>
+                <li class="navbar__item" id="login"><a href="">Login</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <main>
+        <section id="giris">
+            <h1>Salam xos geldiniz</h1>
+        </section>
+        <section id="son">
+            <h2>Axot yoxdu</h2>
+        </section>
+    </main>
+</body>
+</html>

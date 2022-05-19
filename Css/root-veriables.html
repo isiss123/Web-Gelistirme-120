@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --mavi:#C4DDFF;
+            --goy:#7FB5FF;
+            --ag:#fff;
+        }
+        body{
+            background-color: var(--mavi);
+            
+        }
+        #container{
+            /*--mavi:red;*/ /*Kapsayici elemanda rengi deyissek deyisir*/
+
+            background-color: var(--ag);
+            padding: 30px;
+            color:var(--goy);
+        }
+        #container .bt button{
+            padding: 10px;
+            background-color: var(--ag);
+            color: var(--goy);
+            border: 1px solid var(--mavi);
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <div id="container">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aut harum sunt molestiae excepturi odio nesciunt, voluptatibus esse, quae delectus doloremque eum deleniti repellat mollitia quia, maiores dolorem adipisci voluptatem!</p>
+        <div class="bt">
+            <button>Ok</button>
+            <button>Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            background: #0093AB;
+        }
+        nav a{
+            font-size: 20px;
+            padding: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .link{
+            list-style: none;
+            display: flex;
+        }
+        .link li:last-child{
+            display: none;
+
+        }
+        .link a{
+            display: block;
+            padding: 20px;
+        }
+        .link a:hover {
+            background: #00AFC1;
+        }
+        @media (max-width: 570px){
+            nav {
+                flex-direction: column;
+                position: relative;
+            }
+            .link li:last-child{
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .is a:hover {
+                background: none;
+            }
+            .link {
+                flex-direction: column;
+            }
+            .link a{
+                border-top:1px solid rgba(255, 255,255, 0.3);
+                border-bottom: 1px solid rgba(0,0,0,0.2);
+                text-align: center;
+            }
+            .responsive .link li:not(:last-child) {
+                display: none;
+            }
+        }
+
+    </style>
+    <script>
+        function displayMenu(){
+            var link = document.getElementById("bas");
+            link.classList.toggle("responsive");
+        }
+    </script>
+</head>
+<body>
+    <nav id="bas" class="responsive">
+        <a href="#">Logo</a>
+        <ul class="link">
+            <li> <a href="#">Axot</a> </li>
+            <li> <a href="#">Yoxdu</a> </li>
+            <li> <a href="#">Bekar</a> </li>
+            <li> <a href="#">Isi</a> </li>
+            <li class="is"><a href="#" onclick="displayMenu()" style="border: none;"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+</body>
+</html>

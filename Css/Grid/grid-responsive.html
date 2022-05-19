@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 5px;
+            grid-template-areas: "head head head"
+                                "nav content content"
+                                "nav box2 box3"
+                                "box1 box1 box1"
+                                ". fut fut";
+        }
+        .header{
+            grid-area: head;
+            text-align: center;
+        }
+        .side-bar{
+            grid-area: nav;
+        }
+        .content{
+            grid-area: content;
+        }
+        .box-1{
+            grid-area: box1;
+        }
+        .box-2{
+            grid-area: box2;
+        }
+        .box-3{
+            grid-area: box3;
+        }
+        .footer{
+            grid-area: fut;
+        }
+
+        .header, .content, .side-bar, .box-1, .box-2, .box-3, .footer{
+            border: 1px solid #ccc;
+        }
+
+        @media (max-width:768px){
+            .container{
+                grid-template-columns: 1fr;
+                grid-template-areas: "head"
+                                    "nav"
+                                    "content"
+                                    "box1"
+                                    "box2"
+                                    "box3"
+                                    "fut";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Axot yoxdu</h1>
+        </header>
+        <div class="content">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates unde, dicta, consequuntur distinctio ratione officiis, quae eos atque asperiores dolores impedit dolorum! Libero, tenetur ab. Dolorem sapiente placeat neque praesentium.</p>
+        </div>
+        <div class="side-bar">
+            <h2>Lorem, ipsum.</h2>
+            <ul>
+                <li>axot 1</li>
+                <li>axot 2</li>
+                <li>axot 3</li>
+                <li>axot 4</li>
+            </ul>
+        </div>
+        <div class="box-1">
+            <h3>Box 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure earum id sit voluptate, eaque aspernatur explicabo sapiente ipsa. Tempore officiis sunt ea. Labore debitis sit perferendis atque nihil, obcaecati ipsa.</p>
+        </div>
+        <div class="box-2">
+            <h3>Box 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure earum id sit voluptate, eaque aspernatur explicabo sapiente ipsa. Tempore officiis sunt ea. Labore debitis sit perferendis atque nihil, obcaecati ipsa.</p>
+        </div>
+        <div class="box-3">
+            <h3>Box 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure earum id sit voluptate, eaque aspernatur explicabo sapiente ipsa. Tempore officiis sunt ea. Labore debitis sit perferendis atque nihil, obcaecati ipsa.</p>
+        </div>
+        <footer class="footer">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </footer>
+    </div>
+    <div>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi dolorem quasi natus iusto qui, id ullam vel iure culpa rerum consequuntur, debitis facere reprehenderit voluptatibus error esse. Hic, omnis!</p>
+    </div>
+</body>
+</html>

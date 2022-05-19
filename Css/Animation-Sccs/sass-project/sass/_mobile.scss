@@ -1,0 +1,127 @@
+// TABLETS
+@media (max-width: 768px){
+    #header{
+        &__home{
+            height: 30rem;
+            .header-content{
+                padding-top: 7rem;
+            }
+            h1{
+                font-size: 2.7rem;
+            }
+        }
+    }
+    #home__a .skills,
+    #home__b .profile,
+    #home__c .process,
+    #about-c .about-logos,
+    .items{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+
+// PHONE
+@media (max-width: 550px){
+    .lead{
+        font-size: 1rem;
+        word-spacing: 1px;
+        margin-bottom: 0.7rem;
+        text-align: center;
+    }
+    
+    .main-nav{
+        flex-direction: column;
+        align-items: center;
+        &__items li {
+            padding: 2rem 10px;
+        }
+
+    }
+    .agot{
+        position: fixed;
+        z-index: 5;
+        width: 100%;
+    }
+    #contact-a,
+    #home__a,
+    #about-a,
+    #project{
+        padding-top: 11rem;
+    }
+
+    #header{
+        
+        &__home{
+            @extend .agot;
+            background: $bg-image no-repeat 0 0/cover;
+            height: 10rem;
+            border-bottom: 3px solid $primary-color;
+            .header-content{
+               display: none;
+            }
+        }
+        &__inner{
+            @extend .agot; 
+            border-bottom: 3px solid $primary-color;
+            background: $bg-image no-repeat 0 0/cover;
+            height: 10rem;
+        }
+    }
+    #home__a .skills div{
+        border-bottom: 2px solid $light-color;
+        padding-bottom: 1rem;
+        &:last-child{
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    #home__a .skills,
+    #home__b .profile,
+    #home__c .process,
+    #contact-b .contact-info,
+    #about-a .info,
+    .items{
+        grid-template-columns: 1fr;
+    }
+    #main-footer{ 
+        height: 7rem;
+        .footer-content{
+            flex-direction: column;
+            height: 5rem;
+            padding: 1rem;
+            .social{
+                padding-top: 1rem;
+            }
+        }
+    }
+    #contact{
+        &-a{
+            .form-fields{
+                display: grid;
+                grid-template-areas:
+                'fullname'
+                'email'
+                'phone'
+                'subject'
+                'message'
+                'button';
+            }
+        }
+        &-b{
+            padding: 2rem 0;
+            div{
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 2px #fff dashed;
+                &:last-child{
+                    border-bottom: none;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+
+}

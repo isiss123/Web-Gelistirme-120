@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #666;
+            height: 100vh;
+        }
+        #box{
+            animation: a1 6s forwards ease-in;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+        h1{
+            position:relative;
+            animation: a2 5s forwards ease-out;
+        }
+        @keyframes a1{
+            25%{
+                top: 100px;
+                left: 0;
+                background-color: aqua;
+            }
+            50%{
+                top: 100px;
+                left: 100px;
+                background-color: red;
+            }
+            75%{
+                top: 200px;
+                left: 100px;
+                background-color: green
+            }
+            100%{
+                top: 200px;
+                left: 200px;
+                background-color: black;
+            }
+        }
+        @keyframes a2{
+            from{
+                transform: translateX(-100%);
+            }
+            to{
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <div id="box">
+    </div>
+</body>
+</html>

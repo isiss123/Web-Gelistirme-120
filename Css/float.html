@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container{
+            background-color: violet;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: aqua;
+            float: right;
+        }
+        #box_1 {
+            float: left;    
+        }
+        /*Float ozelliyini temizlemek ucun*/
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;/* her iki terefden floati silir*/
+        }
+        p{
+            border: 2px solid red;
+            padding: 5px;
+        }
+        p img{
+            width: 250px;
+            float: left;
+            margin-right: 5px;
+        }
+       .axot::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="container" class="clearfix">
+        <div class="box" id="box_1">Qutu 1</div>
+        <div class="box">Qutu 2</div>
+        <div class="box">Qutu 3</div>
+        <!-- Float ozelliyini temizlemek ucun -->
+            <!-- <div style="clear: both;"></div> -->
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex dolore numquam qui et, aut excepturi esse obcaecati ut molestias mollitia eaque delectus adipisci, sed accusamus impedit, quasi pariatur minima! Maxime.</p>
+
+    <p class="axot">
+        <img src="rowing.jpeg" alt="">
+        <span>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio illum non itaque aliquid temporibus doloribus perferendis veniam illo eveniet, a impedit commodi accusamus molestias culpa. Similique repellendus ipsa quisquam consequatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptatem veniam libero ad nisi voluptates aspernatur debitis ullam. Eaque ab reprehenderit est, quis, fugiat nesciunt delectus dolor eligendi dolorum incidunt nulla sequi exercitationem minus. Illo error porro ipsum quasi 
+        </span>
+        <span>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio illum non itaque aliquid temporibus doloribus perferendis veniam illo eveniet, a impedit commodi accusamus molestias culpa. Similique repellendus ipsa quisquam consequatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptatem veniam libero ad nisi voluptates aspernatur debitis ullam. Eaque ab reprehenderit est, quis, fugiat nesciunt delectus dolor eligendi dolorum incidunt nulla sequi exercitationem minus. Illo error porro ipsum quasi 
+        </span>
+        
+    </p>
+</body>
+</html>

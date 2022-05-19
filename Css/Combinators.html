@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*div p{
+            background-color: red;
+        } */
+        /*div > p{
+            background-color: red;
+        }*/
+        /*div +p{
+            background-color: red;
+        }*/
+        div ~p{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    Descendant Selector ( ) : bolumun altindaki butun p(veya basqa etiket)leri goturur
+    Chils Selector (>) : oz altindaki  p leri goturur ama altindaki basqa bir bolumdeki p(veya basqa etiket)leri goturmur
+    Adjacent Sibling Selector (+) : bolum bittikten sonra  gelen ilk p(veya basqa etiket)ni goturur
+    General Sibling Selector (~) : bolum bittikten sonra gelen butun p(veya basqa etiket)leri goturur
+    <p>1.Axot</p>
+    <div>
+        <p>2.Axot</p>
+        <p>3.Axot</p>
+        <section>
+            <p>4.Axot</p>
+        </section>
+    </div>
+    <p>5.Axot</p>
+    <p>6.Axot</p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /*DEFAULT oldugu yeri tam tutur*/
+            /*align-items: stretch;
+            justify-items: stretch;*/
+
+
+            display: grid;
+            gap: 10px;
+            /*items ucun*/
+            /*grid-template-columns: repeat(3,1fr);*/
+            /*content ucun*/
+            grid-template-columns: repeat(3,20%);
+            grid-template-rows: repeat(2,20%);
+
+            /*containerin icinde hereket etdirmek ucun CONTENT*/
+            justify-content: start;
+            align-content: start;
+            /*justify-content: end;
+            align-content: end;*/
+            /*justify-content: center;
+            align-content: center;*/
+
+
+            /*Oz icinde hereket etdirmek ucun items*/
+            /*justify-items: start;
+            align-items: start;*/
+            /*justify-items: end;
+            align-items: end;*/
+            /*align-items: center;
+            justify-items: center;*/
+
+            height: 500px;
+            background: #68A7AD;
+        }
+        .item:first-child{
+            align-self: center;
+            justify-self: center;
+        }
+        .item{
+            background: #E5CB9F;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Box 1</div>
+        <div class="item">Box 2</div>
+        <div class="item">Box 3</div>
+        <div class="item">Box 4</div>
+        <div class="item">Box 5</div>
+        <div class="item">Box 6</div>
+    </div>
+</body>
+</html>

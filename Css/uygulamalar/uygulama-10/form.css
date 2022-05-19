@@ -1,0 +1,48 @@
+
+
+
+.singup-title{
+    text-align: center;
+    font-size: 40px;
+}
+.singup-form{
+    width: 500px;
+    margin: auto;
+}
+.singup-form label,
+.singup-form select,
+.singup-form input:not([type="checkbox"]){
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+.singup-form input[type="checkbox"],
+.singup-form input[type="checkbox"] + label{
+    display: inline-block;
+    width: auto;
+}
+.singup-form button[type="submit"]{
+    display: block;
+    margin-top: 15px;
+}
+.singup-form input:not([type="checkbox"]),
+.singup-form select{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.singup-form input:not([type="checkbox"]):focus{
+    outline: none;
+    border-color: red;
+    background-color: #f4f4f4;
+}
+.singup-form input[type="checkbox"]{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: solid 1px gray;
+    border-radius: 50%;
+    vertical-align:bottom;
+}
+.singup-form input[type="checkbox"]:checked{
+    background-color: #446A46;
+}
