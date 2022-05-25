@@ -1,5 +1,14 @@
 && and  || or
+ 
+			DƏYİŞKƏN TANIMLAMALARI
+
+var    : global 
+const  : private (dəyiştiriləməyən)
+let    : private
+
+
 string methods : https://www.w3schools.com/jsref/jsref_obj_string.asp
+dizi methods   : https://www.w3schools.com/jsref/jsref_obj_array.asp
 
 dəğişkən tanımlamaq üçün önünə :  VAR ve LET etiketi gəlməlidir
 
@@ -11,17 +20,29 @@ karşılaştırma operotorları  : === həm type həmdə dəğər kontorlu edir
 				3 === "3" false
 				3 == "3" true
 
-			-----------------------------------------------------
-			-						MATH					 	-
-			-	MATH MATH MATH MATH MATH MATH MATH MATH MATH	-
------------------------------------------------------------------------------------------
-		Math.round(...); yuvarlayir														-
-		Math.ceil(...); yuxari yuvarlayir												-
-		Math.floor(...); asagi yuvarlayir												-
-		Math.sqrt(...); kokalti															-
-		Math.pow(...,...); ... ustu ...													-
-		Math.abs(...); modul 															-
-		Math.min(...,...,...); verilen ededlerden minimum olani tapir					-
-		Math.max(...,...,...); verilen ededlerden maximum olani tapir					-
-		Math.floor(Math.random() * 100) + 50; 50 ve 150 arasinda random eded yaradir	-
------------------------------------------------------------------------------------------
+			---------------------------------------------------------
+			-						MATH							-
+			-	MATH MATH MATH MATH MATH MATH MATH MATH MATH		-
+-------------------------------------------------------------------------------------------------
+		Math.round(...); yuvarlayir																-
+		Math.ceil(...); yuxari yuvarlayir														-
+		Math.floor(...); asagi yuvarlayir														-
+		Math.sqrt(...); kokalti																	-
+		Math.pow(...,...); ... ustu ...															-
+		Math.abs(...); modul 																	-
+		Math.min(...,...,...); verilen ededlerden minimum olani tapir							-
+		Math.max(...,...,...); verilen ededlerden maximum olani tapir							-
+		Math.floor(Math.random() * 100) + 50; 50 ve 150 arasinda random eded yaradir			-
+-------------------------------------------------------------------------------------------------
+
+
+								DONGULER
+
+-------------------------------------------------------------------------------------------------
+for(i in sayi){
+	i : index nomresi olaraq gelir	
+}
+
+for(i of sayi){
+	i : sayi listesinin icindeki reqem olaraq gelir
+}
