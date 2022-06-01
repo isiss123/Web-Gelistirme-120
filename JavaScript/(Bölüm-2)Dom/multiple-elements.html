@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="title-1">
+        <li class="title">Axot 1</li>
+        <li class="title">Axot 2</li>
+        <li class="title">Axot 3</li>
+    </ul>
+
+    <ul id="title-2">
+        <li class="title">Axot 1</li>
+        <li class="title">Axot 2</li>
+        <li class="title">Axot 3</li>
+    </ul>
+
+    <script>
+        let sonuc;
+        sonuc = document.getElementsByClassName("title"); //hamisi
+        sonuc = document.getElementsByClassName("title")[0]; 
+        sonuc = document.getElementsByClassName("title")[5]; 
+
+        titleList1 = document.getElementsByClassName("title");
+        for(let title of titleList1){
+            title.style.color = "red";
+        }
+
+        ul = document.getElementById("title-2");
+        titleList2 = ul.getElementsByTagName("li");
+        //titleList2 = document.querySelectorAll("#title-2 li");
+        for(let i = 0;i<titleList2.length;i++){
+            titleList2[i].style.fontSize = "20px";
+        }
+        console.log(sonuc);
+    </script>
+    
+</body>
+</html>

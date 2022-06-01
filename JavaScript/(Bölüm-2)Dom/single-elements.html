@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card-header">
+        <h1 id="title" class="class-title h2">
+            Axotsuz Bekar
+        </h1>
+
+        <ul>
+            <li>Axot 1</li>
+            <li>Axot 2</li>
+            <li>Axot 3</li>
+        </ul>
+    </div>
+
+
+    <script>
+        let sonuc;
+        sonuc = document.getElementById("title");
+        sonuc = document.getElementById("title").id;
+        sonuc = document.getElementById("title").className;
+        sonuc = document.getElementById("title").classList;
+
+        document.getElementById("title").style.color = "blue";
+        document.getElementById("title").style.fontSize = "40px";
+        
+        document.getElementById("title").innerText="<p>Axotsuz Bekar 1</p>"
+        document.getElementById("title").innerHTML="<p>Axotsuz Bekar 2</p>";
+
+        sonuc = document.querySelector("#title");
+        sonuc = document.querySelector(".card-header");
+        sonuc = document.querySelector("div");
+
+        // teklikde yalniz 1 element secir
+        sonuc = document.querySelector("li");
+        sonuc = document.querySelector("li:first-child");
+        sonuc = document.querySelector("li:last-child");
+        sonuc = document.querySelector("li:nth-child(2)");
+
+        
+
+
+        console.log(sonuc);
+    </script>
+</body>
+</html>
