@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .btn_start,
+        .quiz_box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .quiz_box{
+            width:550px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%,-50%)scale(0.7);
+            transition: all 0.8s ease;
+        }
+        .quiz_box.active{
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%,-50%)scale(1);
+        }
+        .quiz_box header .title{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .quiz_box .option_list{
+            padding: 18px 0;
+        }
+        .quiz_box .option_list .option{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border: 2px solid #5B4B8A;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin-bottom:10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .quiz_box .option_list .option:hover{
+            background-color: #fac213;
+            color: #4C3575;
+        }
+        .quiz_box .option_list .option.correct{
+            background-color: #ccffdd;
+            color: #00802b;
+        }
+        .quiz_box .option_list .option.incorrect{
+            background-color: #ffcccc;
+            color: #800000;
+        }
+        .question_text{
+            font-weight: 600;
+        }
+        .quiz_box .option_list .option.disabled{
+            pointer-events: none;
+        }
+        .btn_next.show{
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+        .btn_next{
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+            transition: all 0.5s;
+        }
+    </style>
+
+
+    <title>Document</title>
+</head>
+<body>  
+    <div class="btn_start">
+        <button type="button" class="btn btn-warning btn-lg">Sualları Göstər</button>
+    </div>
+    <div class="card quiz_box">
+        <header class="card-header">
+           <div class="title"> Bekarlar</div></header>
+        <section class="card-body">
+            <div class="question_text">
+            </div>
+            <div class="option_list">
+            </div>
+        </section>
+        <footer class="card-footer">
+            <button type="button" class="btn_next show btn btn-secondary btn-sm" onclick="next_question()">Növbəti Sual</button>
+        </footer>
+    </div>
+
+    <script>
+        const option_list = document.querySelector(".option_list");
+        const correctIcon = '<i class="fa-solid fa-check"></i>';
+        const incorrectIcon = '<i class="fa-solid fa-xmark"></i>'
+
+
+        function Sual(sualMetni,cavablar,dogruCavab){
+            this.sualMetni = sualMetni;
+            this.cavablar = cavablar;
+            this.dogruCavab = dogruCavab;
+        };
+        Sual.prototype.cavabYoxlama = function(verilenCavab){
+            return verilenCavab == this.dogruCavab;
+        }
+        let sual1 = new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d");
+        var suallar=[
+            new Sual("1-Axot yoxdu?",{a:"Hə",b:"Yox",c:"Belədə",d:"Var"},"b"),
+            new Sual("2-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d"),
+            new Sual("3-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("4-Axot yoxduaaa?",{a:"a",b:"b",c:"c"},"c")
+        ];
+        function Quiz(suallar){
+            this.suallar = suallar;
+            this.sualIndex = 0;
+        }
+        Quiz.prototype.sualGetir = function(){
+            return this.suallar[this.sualIndex];
+        }
+        function sulaGoster(sual){
+            let question = `<span>${sual.sualMetni}</span>`;
+            let options   = '';
+            for(cavab in sual.cavablar){
+                options += `<div class="option">
+                                <span><b>${cavab}</b> ) ${sual.cavablar[cavab]}</span>
+                            </div>`
+            }
+            document.querySelector(".question_text").innerHTML = question;
+            option_list.innerHTML = options;
+
+            const option = option_list.querySelectorAll(".option");
+            for(let opt of option){
+                opt.setAttribute("onclick","optionSelected(this)");
+            }
+        }
+        const quiz = new Quiz(suallar);
+        document.querySelector(".btn_start").addEventListener("click",function(){
+                document.querySelector(".quiz_box").classList.add("active");
+                sulaGoster(quiz.sualGetir());
+                document.querySelector(".btn_next").classList.remove("show");
+        });
+        function next_question(){
+            if(quiz.suallar.length != quiz.sualIndex + 1){
+                quiz.sualIndex += 1;
+                sulaGoster(quiz.sualGetir());
+                document.querySelector(".btn_next").classList.remove("show");
+            }else{
+                console.log("Sual bitdi");
+            }
+        };
+
+        //cavabi secmek
+        function optionSelected(option){
+            let cavab = option.querySelector("span b").textContent;
+            let sual  = quiz.sualGetir();
+            if(sual.cavabYoxlama(cavab)==true){
+                option.classList.add("correct");
+                option.insertAdjacentHTML("beforeend",correctIcon);
+            }else{
+                option.classList.add("incorrect");
+                option.insertAdjacentHTML("beforeend",incorrectIcon);
+            }
+            for(let i =0 ; i<option_list.children.length;i++){
+                option_list.children[i].classList.add("disabled");
+            }
+            document.querySelector(".btn_next").classList.add("show");
+        }
+    </script>
+</body>
+</html>

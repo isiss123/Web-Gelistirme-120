@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <button type="button" class="btn">növbəti sual</button>
+    
+
+    <script>
+        function Sual(sualMetni,cavablar,dogruCavab){
+            this.sualMetni = sualMetni;
+            this.cavablar = cavablar;
+            this.dogruCavab = dogruCavab;
+            console.log(this);
+        };
+        Sual.prototype.cavabYoxlama = function(verilenCavab){
+            return verilenCavab == this.dogruCavab;
+        }
+        let sual1 = new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d");
+        var suallar=[
+            new Sual("1-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("2-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d"),
+            new Sual("3-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("4-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d")
+        ];
+        function Quiz(suallar){
+            this.suallar = suallar;
+            this.sualIndex = 0;
+        }
+        Quiz.prototype.sualGetir = function(){
+            return this.suallar[this.sualIndex];
+        }
+        const quiz = new Quiz(suallar);
+        document.querySelector(".btn").addEventListener("click",function(){
+            if(quiz.suallar.length != quiz.sualIndex){
+                console.log(quiz.sualGetir());
+                quiz.sualIndex += 1;
+            }else{
+                console.log("Sual bitdi");
+            }
+        })
+        console.log(sual1.cavabYoxlama("d"));
+    </script>
+</body>
+</html>

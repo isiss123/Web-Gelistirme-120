@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .btn_start,
+        .quiz_box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .quiz_box{
+            width:550px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%,-50%)scale(0.7);
+            transition: all 0.8s ease;
+        }
+        .quiz_box.active{
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%,-50%)scale(1);
+        }
+        .quiz_box header .title{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .quiz_box .option_list{
+            padding: 18px 0;
+        }
+        .quiz_box .option_list .option{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border: 2px solid #5B4B8A;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin-bottom:10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .quiz_box .option_list .option:hover{
+            background-color: #fac213;
+            color: #4C3575;
+        }
+        .quiz_box .option_list .option.correct{
+            background-color: #ccffdd;
+            color: #00802b;
+        }
+        .quiz_box .option_list .option.incorrect{
+            background-color: #ffcccc;
+            color: #800000;
+        }
+    </style>
+
+
+    <title>Document</title>
+</head>
+<body>  
+    <div class="btn_start">
+        <button type="button" class="btn btn-warning btn-lg">Sualları Göstər</button>
+    </div>
+    <div class="card quiz_box">
+        <header class="card-header">
+           <div class="title"> Axot Yoxdu</div></header>
+        <section class="card-body">
+            <div class="question_text">
+                <span>Axot yoxdu?</span>
+            </div>
+            <div class="option_list">
+                <div class="option correct">
+                    <span>a) axot</span>
+                    <div class="icon"><i class="fa-solid fa-check"></i></div>
+                </div>
+                <div class="option incorrect">
+                    <span>b) yoxdu</span>
+                    <div class="icon"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+                <div class="option">
+                    <span>c) bekar</span>
+                    <div class="icon"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+                <div class="option">
+                    <span>d) isi</span>
+                    <div class="icon"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function Sual(sualMetni,cavablar,dogruCavab){
+            this.sualMetni = sualMetni;
+            this.cavablar = cavablar;
+            this.dogruCavab = dogruCavab;
+        };
+        Sual.prototype.cavabYoxlama = function(verilenCavab){
+            return verilenCavab == this.dogruCavab;
+        }
+        let sual1 = new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d");
+        var suallar=[
+            new Sual("1-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("2-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d"),
+            new Sual("3-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("4-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d")
+        ];
+        function Quiz(suallar){
+            this.suallar = suallar;
+            this.sualIndex = 0;
+        }
+        Quiz.prototype.sualGetir = function(){
+            return this.suallar[this.sualIndex];
+        }
+        const quiz = new Quiz(suallar);
+        document.querySelector(".btn_start").addEventListener("click",function(){
+            
+            if(quiz.suallar.length != quiz.sualIndex){
+                document.querySelector(".quiz_box").classList.add("active");
+                console.log(quiz.sualGetir());
+                quiz.sualIndex += 1;
+            }else{
+                console.log("Sual bitdi");
+            }
+        })
+    </script>
+</body>
+</html>

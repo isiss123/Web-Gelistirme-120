@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="btn_start">
+        <div class="btn btn-warning btn-lg">Başla</div>
+    </div>
+    <div class="card quiz_box">
+        <header class="card-header">
+            <div class="title">Bekar</div>
+            <div class="timer">
+                <div class="timer_text">Qalan Vaxt</div>
+                <div class="timer_second bg-warning">10</div>
+            </div>
+            <div class="timer_line"></div>
+        </header>
+        <section class="card-body">
+            <div class="question_text">
+
+            </div>
+            <div class="option_list">
+
+            </div>
+        </section>
+        <footer class="card-footer">
+            <div class="question_index">
+
+            </div>
+            <button class="btn_next btn btn-secondary btn-sm show" onclick="next_question()">Növbəti Sual</button>
+        </footer>
+
+    </div>
+
+    <div class="card score_box">
+        <div class="icon"><i class="fa-solid fa-crown"></i></div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <button class="btn_reload btn btn-primary">Təkrar Test</button>
+            <button class="btn_quit btn btn-primary">Testi Bitir</button>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+    <script src="tanimlama.js"></script>
+    <script src="sual.js"></script>
+    <script src="function.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

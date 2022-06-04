@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function Sual(sualMetni,cavablar,dogruCavab){
+            this.sualMetni = sualMetni;
+            this.cavablar = cavablar;
+            this.dogruCavab = dogruCavab;
+            console.log(this);
+        };
+        Sual.prototype.cavabYoxlama = function(verilenCavab){
+            return verilenCavab == this.dogruCavab;
+        }
+        let sual1 = new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d");
+        var suallar=[
+            new Sual("Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d")
+        ];
+        console.log(sual1.cavabYoxlama("d"));
+    </script>
+</body>
+</html>

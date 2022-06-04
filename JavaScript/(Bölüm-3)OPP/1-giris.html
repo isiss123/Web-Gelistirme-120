@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var sual={
+            sual_metin:"axot yoxdu?",
+            cavablar:{
+                a: "a",
+                b: "b",
+                c: "c",
+                d: "d"
+            },
+            duzgunCavab: "b",
+            cavabiYoxla: function(verilencavab){
+                return verilencavab == this.duzgunCavab;
+            }
+
+        };
+
+        console.log(sual.sual_metin);
+        console.log(sual.cavabiYoxla("b"))
+    </script>
+</body>
+</html>

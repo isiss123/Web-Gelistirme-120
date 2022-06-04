@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <title>Document</title>
+</head>
+<body>  
+    <div class="btn_start">
+        <button type="button" class="btn btn-warning btn-lg">Sualları Göstər</button>
+    </div>
+    <div class="card quiz_box">
+        <header class="card-header">
+           <div class="title"> Bekarlar</div>
+            <div class="timer">
+                <div class="timer_text">
+                    Qalan Vaxt
+                </div>
+                <div class="timer_second"></div>
+            </div>
+            <div class="timer_line"></div>
+        </header>
+        <section class="card-body">
+            <div class="question_text">
+            </div>
+            <div class="option_list">
+            </div>
+        </section>
+        <footer class="card-footer">
+            <div class="question_index">
+
+            </div>
+            <button type="button" class="btn_next show btn btn-secondary btn-sm" onclick="next_question()">Növbəti Sual</button>
+        </footer>
+    </div>
+    <div class="card score_box">
+        <div class="icon"><i class="fa-solid fa-crown"></i></div>
+        <div class="score_text">Toplam 4 sualdan 2-sni bildiniz</div>
+        <div class="buttons">
+            <button class="btn btn-primary btn_reload">Təkrar Başlat</button>
+            <button class="btn btn-primary btn_quit">Testi Bitir</button>
+        </div>
+    </div>
+
+    <script>
+        const option_list = document.querySelector(".option_list");
+        const correctIcon = '<i class="fa-solid fa-check"></i>';
+        const incorrectIcon = '<i class="fa-solid fa-xmark"></i>';
+        const score_box = document.querySelector(".score_box");
+        const timer_text = document.querySelector(".quiz_box .timer .timer_text");
+        const timer_second = document.querySelector(".quiz_box .timer .timer_second");
+        const timer_line = document.querySelector(".quiz_box .timer_line");
+
+        //BUTTONs
+        const btn_start = document.querySelector(".btn_start");
+        const btn_next = document.querySelector(".btn_next");
+        const btn_reload = document.querySelector(".btn_reload");
+        const btn_quit = document.querySelector(".btn_quit");
+        
+
+
+        function Sual(sualMetni,cavablar,dogruCavab){
+            this.sualMetni = sualMetni;
+            this.cavablar = cavablar;
+            this.dogruCavab = dogruCavab;
+        };
+        Sual.prototype.cavabYoxlama = function(verilenCavab){
+            return verilenCavab == this.dogruCavab;
+        }
+        let sual1 = new Sual("Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d");
+        var suallar=[
+            new Sual("1-Axot yoxdu?",{a:"Hə",b:"Yox",c:"Belədə",d:"Var"},"b"),
+            new Sual("2-Axot yoxduaaa?",{a:"a",b:"b",c:"c",d:"d"},"d"),
+            new Sual("3-Axot yoxdu?",{a:"a",b:"b",c:"c",d:"d"},"c"),
+            new Sual("4-Axot yoxduaaa?",{a:"a",b:"b",c:"c"},"c")
+        ];
+        function Quiz(suallar){
+            this.suallar = suallar;
+            this.sualIndex = 0;
+            this.dogruCavabSayi = 0;
+            
+        }
+        Quiz.prototype.sualGetir = function(){
+            return this.suallar[this.sualIndex];
+        }
+        function sulaGoster(sual){
+            let question = `<span>${sual.sualMetni}</span>`;
+            let options   = '';
+            for(cavab in sual.cavablar){
+                options += `<div class="option">
+                                <span><b>${cavab}</b> ) ${sual.cavablar[cavab]}</span>
+                            </div>`
+            }
+            document.querySelector(".question_text").innerHTML = question;
+            option_list.innerHTML = options;
+
+            const option = option_list.querySelectorAll(".option");
+            for(let opt of option){
+                opt.setAttribute("onclick","optionSelected(this)");
+            }
+        }
+        const quiz = new Quiz(suallar);
+        btn_start.addEventListener("click",function(){
+                document.querySelector(".quiz_box").classList.add("active");
+                sulaGoster(quiz.sualGetir());
+                startTimer(10);
+                startTimerLine();
+                sualSayiniGoster(quiz.sualIndex + 1,quiz.suallar.length);
+                btn_next.classList.remove("show");
+            });
+
+            
+        function next_question(){
+            if(quiz.suallar.length != quiz.sualIndex + 1){
+                quiz.sualIndex += 1;
+                sulaGoster(quiz.sualGetir());
+                clearInterval(counter);
+                clearInterval(counterLine);
+                startTimer(10);
+                startTimerLine();
+                sualSayiniGoster(quiz.sualIndex + 1,quiz.suallar.length);
+                btn_next.classList.remove("show");
+            }else{
+                clearInterval(counter);
+                clearInterval(counterLine);
+                console.log("Sual bitdi");
+                document.querySelector(".quiz_box").classList.remove("active");
+                score_box.classList.add("active");
+                score_table(quiz.dogruCavabSayi, quiz.suallar.length);
+            }
+        };
+
+        //cavabi secmek
+        function optionSelected(option){
+            clearInterval(counter);
+            clearInterval(counterLine);
+            let cavab = option.querySelector("span b").textContent;
+            let sual  = quiz.sualGetir();
+            if(sual.cavabYoxlama(cavab)==true){
+                option.classList.add("correct");
+                option.insertAdjacentHTML("beforeend",correctIcon);
+                quiz.dogruCavabSayi += 1;
+            }else{
+                option.classList.add("incorrect");
+                option.insertAdjacentHTML("beforeend",incorrectIcon);
+            }
+            for(let i =0 ; i<option_list.children.length;i++){
+                option_list.children[i].classList.add("disabled");
+            }
+            btn_next.classList.add("show");
+        }
+
+
+        function sualSayiniGoster(sualsira,toplamsual){
+            let sira = `<span class="badge bg-warning">${sualsira} / ${toplamsual}</span>`
+            document.querySelector(".quiz_box .question_index").innerHTML = sira;
+        }
+
+        function score_table(dogruCavab,toplamsual){
+            let score = `Toplam ${toplamsual} sualdan ${dogruCavab} düzgün cavab verdiniz.`
+            document.querySelector(".score_box .score_text").innerHTML = score;
+        }
+        // ÇIXMAQ
+        btn_quit.addEventListener("click", function(){
+            window.location.reload();    
+        });
+        //TEKRAR BAŞLAMAQ
+        btn_reload.addEventListener("click", function(){
+           quiz.sualIndex = 0;
+           quiz.dogruCavabSayi = 0;   
+           btn_start.click();
+           score_box.classList.remove("active");
+        });
+
+        let counter;
+        function startTimer(time){
+            counter = setInterval(timer,1000);
+            function timer(){
+                timer_second.textContent = time;
+                time--;
+                if(time<0){
+                    clearInterval(counter);
+                    timer_text.textContent = "Vaxt Bitdi";
+                    let cavab = quiz.sualGetir().dogruCavab;
+                    for(let option of option_list.children){
+                        if(option.querySelector("span b").textContent == cavab){
+                            option.classList.add("correct");
+                            option.insertAdjacentHTML("beforeend",correctIcon);
+                        }
+                        option.classList.add("disabled");
+                        btn_next.classList.add("show");
+                    }
+                }
+            }
+        };
+        let counterLine;
+        function startTimerLine(){
+            let line_width = 0 ;
+            counterLine = setInterval(timer,20);
+            function timer(){
+                line_width += 1
+                timer_line.style.width = line_width + "px"; 
+                if(line_width > 549 ){
+                    clearInterval(counterLine);
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
