@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Sexs{
+            constructor(ad,seher,dogum_il){
+                this.ad = ad;
+                this.seher= seher;
+                this.dogum_il = dogum_il;
+            }
+            yasHesabla(){
+                let tarix = new Date().getFullYear()
+                let yas = tarix - this.dogum_il
+                return yas;
+            }
+        }
+        class Sagird extends Sexs{
+            constructor(ad,seher,dogum_il,mekteb,nomre){
+                super(ad,seher,dogum_il);
+                this.mekteb = mekteb;
+                this.nomre= nomre;
+            }
+            dersEle(){
+                let tag = `Men ${this.ad} ve ders calisiram`;
+                return tag;
+            }
+            ozunuTanit(){
+                let tag = ` Menim adim ${this.ad} ve Mekteb nomrem ${this.nomre}`
+                return tag;
+            }
+        }
+        class Mellim extends Sexs{
+            constructor(ad,seher,dogum_il,mekteb,fen){
+                super(ad,seher,dogum_il);
+                this.mekteb = mekteb;
+                this.fen= fen;
+            }
+            dersAnlat(){
+                let tag = `Bekar ders oxu`;
+                return tag;
+            }
+            ozunuTanit(){
+                let tag = ` Menim adim ${this.ad} ve ${this.fen} fenni uzre ders kecirem`
+                return tag;
+            }
+        }
+        let axot = new Sagird("Axot","Baki",2005,"soxas",825);
+        let bekar = new Mellim("Bekar","Baki",1995,"segias","Mat")
+        console.log(axot)
+        console.log(bekar)
+        
+    </script>
+</body>
+</html>

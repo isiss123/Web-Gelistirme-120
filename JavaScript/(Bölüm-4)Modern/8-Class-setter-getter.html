@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        class UserES6{
+            constructor(ad,soyad,seher,il){
+                this.ad = ad;
+                this.soyad = soyad;
+                this.seher = seher;
+                this.il = il;
+                this.yas = yasHesabla();
+
+                function yasHesabla(){
+                    let tarix = new Date().getFullYear()
+                    let yas = tarix - il;
+                    return yas;
+                    
+                }
+            }
+
+            // AD
+            get ad(){
+                return this._ad;
+            }
+            set ad(value){
+                if(value.length < 3){
+                    console.log("Bele ad olmur");
+                    return
+                }else{
+                    this._ad = value;
+                }
+            }
+
+            // IL
+            set il(value){
+                let tarix = new Date().getFullYear();
+                if(value <1900 || value >tarix){
+                    console.log("Normal il yaz")
+                    return
+                }else{
+                    this._il = value;
+                }
+            }
+
+
+            //Yas
+            get yas(){
+                return this._yas;
+            }
+            set yas(value){
+                if(value< 1 ){
+                    console.log("Boyu gelersen")
+                    return
+                }else{
+                    this._yas = value;
+                }
+            }
+        }
+        let axot1  =new UserES6("axot","yoxdu","baki",2022);
+        let axot2  =new UserES6("bekar","yoxdu","baki",2005);
+        console.log(axot1)
+        console.log(axot2)
+    </script>
+</body>
+</html>

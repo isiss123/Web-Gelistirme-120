@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let bekar = {
+            a:"as",
+            b:"bs",
+            c:"cs"
+        }
+        let axot = new Map()
+        axot.set(1,"Bekar");
+        axot.set(true,"Axot yoxdu")
+        axot.set(2,"YOxdu")
+        axot.set(3,bekar)
+        // axot.delete(1)
+        // axot.clear()
+        let cavab
+        cavab = axot.get(bekar)
+
+        cavab = axot.has(1) // 1 Keyi var ? varsa True  yoxdursa False
+        cavab =axot.size
+        cavab = axot.get(3).b
+
+        console.log(axot)
+        console.log(cavab)
+
+        // for(let x of axot.values()){
+        //     console.log(x);
+        // }
+        for(let [key,values] of axot.entries()){
+            console.log(key,values)
+        }
+    </script>
+</body>
+</html>

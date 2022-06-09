@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container{
+    width: 300px!important;
+}
+
+.progresss #progress-bar{
+    width: 100%;
+}
+.progresss .times,
+.card-footer{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.controls{
+    text-align:center;
+}
+.controls i {
+    font-size: 30px!important;
+    margin-right: 10px!important;
+    width: 23px!important;
+}
+.controls i:last-child {
+    margin-right: 0!important;
+}
+.details div{
+    padding: 5px 0!important;
+}
+i{
+    color: blue;
+}
+.volume-container i{
+    font-size: 20px;
+}
+.card-footer{
+    margin-top: 11px;
+}
+
+
+
+.list-bars{
+    background-color: blue;
+    border-radius: 4px;
+}
+.list-bars i{
+    color: white;
+    padding: 9px;
+}
+ul{
+    list-style: none;
+}
+li.playing{
+    background-color:#000099;
+    color: #fff;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // constructor ES5
+        function UserES5(ad,soyad,seher,il){
+            let tarix = new Date().getFullYear()
+            this.ad = ad;
+            this.soyad = soyad;
+            this.seher = seher;
+            this.il = il;
+            console.log("yaradildi")
+            
+        }
+        UserES5.prototype.yasHesabla = function (){
+            let tarix = new Date().getFullYear()
+            return tarix - this.il;
+        }
+        let axot = new UserES5("axot","yoxdu","baki",2010);
+        let bekar = new UserES5("bekar","yoxdu","baki",2005);
+        
+        console.log(axot)
+        console.log(bekar)
+
+        // Class ES6
+
+        class UserES6{
+            constructor(ad,soyad,seher,il){
+                this.ad = ad;
+                this.soyad = soyad;
+                this.seher = seher;
+                this.il = il;
+                this.yas = yasHesabla();
+
+                function yasHesabla(){
+                    let tarix = new Date().getFullYear()
+                    return tarix - il;
+                }
+            }
+            // yasHesabla(){
+                // let tarix = new Date().getFullYear()
+                // return tarix - this.il;
+            // }
+        }
+        let axot1  =new UserES6("axot","yoxdu","baki",2010);
+        let axot2  =new UserES6("bekar","yoxdu","baki",2005);
+        console.log(axot1)
+        console.log(axot2)
+    </script>
+</body>
+</html>

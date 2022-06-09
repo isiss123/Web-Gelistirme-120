@@ -1,0 +1,17 @@
+string methods : https://www.w3schools.com/jsref/jsref_obj_string.asp
+dizi methods   : https://www.w3schools.com/jsref/jsref_obj_array.asp
+
+
+-------------------------------ARRAY ve OBJECT
+
+MAPS           : https://www.w3schools.com/js/js_object_maps.asp
+SETS           : https://www.w3schools.com/js/js_object_sets.asp
+
+
+
+
+
+
+-----------------------------EVENTs
+
+AUDIO          : https://www.w3schools.com/tags/ref_av_dom.asp

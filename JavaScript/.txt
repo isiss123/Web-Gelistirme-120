@@ -1,4 +1,12 @@
 && and  || or
+
+ARRAY = dizi = []
+OBJECT = {}
+
+				VERSION
+
+ES5,  ES6,  ES7
+Constructor, Class, Class
  
 			DƏYİŞKƏN TANIMLAMALARI
 
@@ -6,9 +14,6 @@ var    : global
 const  : private (dəyiştiriləməyən)
 let    : private
 
-
-string methods : https://www.w3schools.com/jsref/jsref_obj_string.asp
-dizi methods   : https://www.w3schools.com/jsref/jsref_obj_array.asp
 
 dəğişkən tanımlamaq üçün önünə :  VAR ve LET etiketi gəlməlidir
 

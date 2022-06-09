@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // const reqemler = new Set([1,2,3,4,5])
+        const reqemler = new Set();
+        reqemler.add(1);
+        reqemler.add(2);
+        reqemler.add(3);
+        reqemler.add(4);
+        reqemler.add("5");
+
+        console.log(reqemler)
+        console.log(reqemler.has('5'))
+        console.log(reqemler.has(5))
+
+
+        const ary = [...reqemler]
+        console.log(ary)
+    </script>
+</body>
+</html>
