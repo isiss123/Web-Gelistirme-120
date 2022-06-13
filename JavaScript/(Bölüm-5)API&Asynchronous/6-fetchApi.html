@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // text
+        function text(){
+            fetch('Ajax&XHR/1-msg.txt').then(response=>{
+                return response.text();
+            }).then(data=>{
+                console.log(data)
+            }).catch(error =>{
+                console.log(error)
+            })
+        }
+        // text()
+
+        //Json
+        function json(){
+            fetch('Ajax&XHR/2-users.json').then(response=>{
+                return response.json()
+            }).then(data=>{
+                console.log(data.user)
+            })
+        }
+        // json()
+
+        // External Api
+        function api(){
+            url = 'https://jsonplaceholder.typicode.com/posts'
+            fetch(url).then(response=>{
+                return response.json()
+            }).then(data=>{
+                data.forEach(a=>{
+                    console.log(a.title)
+                })
+            }).catch(error =>{
+                console.log(error)
+            })
+        }
+        // api()
+
+        // Post
+        function postApi(){
+            url = 'https://jsonplaceholder.typicode.com/posts'
+            data = {
+                "method":"POST",
+                "body": JSON.stringify({
+                    "userId":1,
+                    "title":"Axot 1",
+                    "body":"Bekar 1"
+                }),
+                "headers": new Headers({
+                    "content-type":"application/json"
+                })
+            }
+            fetch(url,data).then(response=>{
+                console.log(response)
+            })
+        }
+        postApi()
+    </script>
+</body>
+</html>

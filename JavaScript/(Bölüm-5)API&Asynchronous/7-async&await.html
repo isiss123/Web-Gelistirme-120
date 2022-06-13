@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var isError = false;
+        function getCategory(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    if(!isError){
+                        resolve('Axot')
+                    }else{
+                        reject('Error verir bekar')
+                    }
+                    
+                },4000)
+            });
+        }
+        function getAxot(category){
+            return new Promise(resolve=>{
+                setTimeout(()=>{
+                    let bekar = `${category} 1 Bekar 2`
+                    resolve(bekar)
+                },1000)
+            })
+        }
+        //getCategory().then(getAxot).then(rs=>{
+        //    console.log(rs)
+        //}).catch(err=>{
+        //     console.log(err)
+        //})
+
+        //   =======================================   
+        async function bekar(){
+            try{
+                let category = await getCategory()
+                let axot = await getAxot(category)
+                console.log(axot)
+            }
+            catch(err){
+                console.log(err)
+            }
+            
+        }
+        bekar()
+    </script>
+</body>
+</html>

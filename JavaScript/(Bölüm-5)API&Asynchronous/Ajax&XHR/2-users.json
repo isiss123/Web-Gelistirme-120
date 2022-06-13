@@ -1,0 +1,8 @@
+{
+    "user":[
+        {"firstName":"Axot 1","lastName":"Bekar 1","age":17},
+        {"firstName":"Axot 2","lastName":"Bekar 2","age":22},
+        {"firstName":"Axot 3","lastName":"Bekar 3","age":14},
+        {"firstName":"Axot 4","lastName":"Bekar 4","age":13}
+    ]
+}

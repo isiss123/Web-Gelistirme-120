@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log("start")
+
+        const login =(username,password,callback)=>{
+            setTimeout(()=>{
+                callback ({username:username})
+            },1000)
+        }
+        const posts = (user,callback)=>{
+            setTimeout(()=>{
+                callback(['post 1','post 2','post 3'])
+            },1000)
+        }
+        const postDetails = (post,callback)=>{
+            setTimeout(()=>{
+                callback(`post title : ${post}`)
+            },500)
+        }
+        login("axot","123",user=>{
+            console.log(user)
+            posts(user,post=>{
+                console.log(post)
+                postDetails(post[0],details=>{
+                    console.log(details)
+                })
+            })
+        })
+
+
+
+
+        console.log("end")
+    </script>
+</body>
+</html>
