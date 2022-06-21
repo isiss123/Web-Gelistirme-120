@@ -8,6 +8,7 @@ export class Model{
             new ToDoItem("Axot 2",false),
             new ToDoItem("Axot 3",true),
             new ToDoItem("Axot 4",false),
+            new ToDoItem("Axot 5",true),
         ]
    }
 }

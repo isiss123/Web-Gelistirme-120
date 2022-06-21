@@ -12,6 +12,6 @@ export class AppComponent {
     return this.model.name;
   }
   getItems(){
-    return this.model.items;
+    return this.model.items.filter(item=>item.status == false);
   }
 }
