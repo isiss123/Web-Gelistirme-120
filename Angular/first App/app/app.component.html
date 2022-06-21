@@ -4,9 +4,9 @@
         <h3 class="bg-primary text-white p-3">{{getName()}} Yoxdu</h3>
 
         <div class="input-group">
-          <input type="text" id="" class="form-control">
+          <input type="text" #todoText class="form-control">
           <div class="input-group-append">
-            <button class="btn btn-primary">Əlavə et</button>
+            <button class="btn btn-primary" (click)="addItem(todoText.value); todoText.value=''">Əlavə et</button>
           </div>
         </div>
 
