@@ -8,10 +8,14 @@ import { Model, ToDoItem } from './model';
 })
 export class AppComponent {
   model = new Model;
+  isDisplay = false;
   getName(){
     return this.model.name;
   }
   getItems(){
+    if(this.isDisplay == true){
+      return this.model.items
+    }
     return this.model.items.filter(item=>item.status == false);
   }
   addItem(value: string){
