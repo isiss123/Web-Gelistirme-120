@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Model } from './model';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Axot';
-  items = [
-    {description:"Axot 1", status:"Yox 1"},
-    {description:"Axot 2", status:"Yox 2"},
-    {description:"Axot 3", status:"Yox 3"},
-    {description:"Axot 4", status:"Yox 4"}
-  ]
+  model = new Model;
+  getName(){
+    return this.model.name;
+  }
+  getItems(){
+    return this.model.items;
+  }
 }
