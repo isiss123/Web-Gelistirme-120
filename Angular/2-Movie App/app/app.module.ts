@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { LoggingComponent } from './logging/logging.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     AppComponent,
     MoviesComponent,
     MovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    LoggingComponent
   ],
   imports: [
     BrowserModule,

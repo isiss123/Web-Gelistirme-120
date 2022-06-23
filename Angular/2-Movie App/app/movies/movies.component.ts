@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { Movies } from "../movies.datasource";
 import { MoviesService } from "../movies.service";
 import { Movie } from "../movie";
+import { LoggingService } from "../logging.service";
 @Component({
     selector:'movies', //<movies>...</movies>
     templateUrl:'./movies.component.html',
@@ -16,10 +16,11 @@ export class MoviesComponent{
         this.selectedMovie = movie;
     }
 
-    // MOVIE SERVICE CAGIRMA
-    constructor(private moviesService: MoviesService){}
+    // MOVIE,LOGGING SERVICE CAGIRMA
+    constructor(private moviesService: MoviesService, private loggingService: LoggingService){}
     getMovies(): void{
         this.moviesService.getMovies().subscribe(movies =>{
+            this.loggingService.add('Movies Listening')
             this.movies = movies;
         })
     }
