@@ -1,1 +1,2 @@
 CLI     :   ng g c (yaratmaq istediyimiz comp adi)        :   Terminaldan Component yaratmaq ucun (generate component)
+            ng g s (yaratmaq istediyimiz service adi)     :   Terminaldan Service yaratmaq ucun (generate service) 

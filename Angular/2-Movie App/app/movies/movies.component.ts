@@ -19,7 +19,9 @@ export class MoviesComponent{
     // MOVIE SERVICE CAGIRMA
     constructor(private moviesService: MoviesService){}
     getMovies(): void{
-        this.movies =  this.moviesService.getMovies()
+        this.moviesService.getMovies().subscribe(movies =>{
+            this.movies = movies;
+        })
     }
     //CONSTRUCTOR bitdenden sonra cagirir
     ngOnInit(): void {
