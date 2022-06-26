@@ -27,6 +27,10 @@ export class MoviesComponent{
             image
         } as Movie).subscribe(movie =>{this.movies.push(movie);})
     }
+    delete(movie: Movie){
+        this.movies = this.movies.filter(m=>m!== movie)
+        this.moviesService.delete(movie).subscribe();
+    }
 
     // MOVIE,LOGGING SERVICE CAGIRMA
     constructor(private moviesService: MoviesService, private loggingService: LoggingService){}
