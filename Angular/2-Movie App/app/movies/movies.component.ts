@@ -20,7 +20,6 @@ export class MoviesComponent{
     constructor(private moviesService: MoviesService, private loggingService: LoggingService){}
     getMovies(): void{
         this.moviesService.getMovies().subscribe(movies =>{
-            this.loggingService.add('Movies Listening')
             this.movies = movies;
         })
     }
