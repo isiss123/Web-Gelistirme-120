@@ -8,6 +8,8 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { LoggingComponent } from './logging/logging.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
     MoviesComponent,
     MovieComponent,
     MovieDetailComponent,
-    LoggingComponent
+    LoggingComponent,
+    NavbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
