@@ -1,9 +1,21 @@
 <div class="card my-2" *ngIf="movie"> 
     <div class="card-body">
-        <span class="badge bg-warning mb-2">Id:{{movie.id}} Name:{{movie.name}}</span>
-        <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="movie.name">
-            <button type="button" class="btn btn-outline-secondary">Update </button>
+        <span class="badge bg-warning mb-2">Id:{{movie.id}}</span>
+
+        <div class="form-group">
+            <label for="name"></label>
+            <input type="text" [(ngModel)]="movie.name"  class="form-control">
         </div>
+        <div class="form-group">
+            <label for="image"></label>
+            <input type="text" [(ngModel)]="movie.image"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description"></label>
+            <textarea type="text" [(ngModel)]="movie.description"  class="form-control"></textarea>
+        </div>
+
+        <button (click)="save()" class="btn btn-primary btn-sm">Save Changes</button>
+
     </div>
 </div>

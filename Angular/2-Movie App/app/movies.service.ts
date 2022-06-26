@@ -3,7 +3,7 @@ import { Movie } from './movie';
 import { Movies } from './movies.datasource';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,14 @@ export class MoviesService {
   getMovie(id: number):  Observable<any> {
     this.loggingService.add('Movies Service: get detail by id='+id)
     return this.http.get<Movie>(this.ApiMoviesUrl+'/'+id)
+  }
+
+  update(movie: Movie): Observable<any>{
+    const httpOptions={
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    return this.http.put(this.ApiMoviesUrl,movie, httpOptions)
   }
 }
