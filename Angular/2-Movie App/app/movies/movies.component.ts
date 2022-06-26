@@ -15,14 +15,22 @@ export class MoviesComponent{
     onSelect(movie: Movie): void{
         this.selectedMovie = movie;
     }
-
-    // MOVIE,LOGGING SERVICE CAGIRMA
-    constructor(private moviesService: MoviesService, private loggingService: LoggingService){}
     getMovies(): void{
         this.moviesService.getMovies().subscribe(movies =>{
             this.movies = movies;
         })
     }
+    add(name: string, description: string, image: string): void{
+        this.moviesService.add({
+            name,
+            description,
+            image
+        } as Movie).subscribe(movie =>{this.movies.push(movie);})
+    }
+
+    // MOVIE,LOGGING SERVICE CAGIRMA
+    constructor(private moviesService: MoviesService, private loggingService: LoggingService){}
+    
     //CONSTRUCTOR bitdenden sonra cagirir
     ngOnInit(): void {
         this.getMovies();

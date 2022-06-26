@@ -32,4 +32,8 @@ export class MoviesService {
     }
     return this.http.put(this.ApiMoviesUrl,movie, httpOptions)
   }
+
+  add(movie: Movie): Observable<Movie>{
+    return this.http.post<Movie>(this.ApiMoviesUrl,movie)
+  }
 }
