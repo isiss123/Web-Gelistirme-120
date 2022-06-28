@@ -1,8 +1,26 @@
 <div class="bg-danger text-white p-2 m-2">
     There are {{model.getProducts().length}} products in ProductRepository
 </div>
-<h2>{{product.name}}</h2>
-<h2 [textContent]="product.name"></h2>
 
-<img src="assets/img/{{product.imageUrl}}" alt="">
-<img [src]="'assets/img/'+ product.imageUrl" alt="">
+<div [class]="getClasses(1)">
+    {{model.getProductById(1).name}}
+</div>
+
+<button class="btn btn-primary" [class.disabled] = "disabled==true">sasa</button>
+
+
+<div class="m-3" [ngClass]="getClassMap(1)">
+    {{model.getProductById(1).name}}
+</div>
+<div  class="m-3" [ngClass]="getClassMap(2)">
+    {{model.getProductById(2).name}}
+</div>
+<div  class="m-3" [ngClass]="getClassMap(3)">
+    {{model.getProductById(3).name}}
+</div>
+<div  class="m-3" [ngClass]="getClassMap(4)">
+    {{model.getProductById(4).name}}
+</div>
+<div  class="m-3" [ngClass]="getClassMap(5)">
+    {{model.getProductById(5).name}}
+</div>
