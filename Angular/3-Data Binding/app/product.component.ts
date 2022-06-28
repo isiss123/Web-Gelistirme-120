@@ -8,13 +8,13 @@ import { ProductRepository } from "./models/repository.model";
     styleUrls:['product.component.css']
 })
 export class ProductComponent{
-    model: ProductRepository = new ProductRepository();
-    onSubmit($event: any){
-        $event.stopPropagation(); // basqa click eventi gerceklestirme
-        console.log($event)
-        console.log("Button was clicked")
-    }
-    onDiv(){
-        console.log("Div was clicked")
+    // agot($event: any){
+    //     if($event.keyCode == 13){
+    //         console.log("Enter was pressed")
+    //     }
+    // }
+    agot(a: any){
+        console.log(a)
+        console.log("Enter was pressed")
     }
 }

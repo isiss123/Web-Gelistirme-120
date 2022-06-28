@@ -1,4 +1,5 @@
-<div (click)="onDiv()" style="height:300px ; width:300px; background-color:red;">
-    <button name="btn1" (click)="onSubmit($event)"> Btn 1</button>
-    <button name="btn2"  (click)="onSubmit($event)">  Btn 2</button>
-</div>
+<!-- <input type="text" (keyup)="agot($event)"> -->
+
+<!-- /*Yada*/ -->
+
+<input type="text" #a (keyup.Enter)="agot(a.value)">
