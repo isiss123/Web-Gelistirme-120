@@ -1,5 +1,2 @@
-<!-- <input type="text" (keyup)="agot($event)"> -->
-
-<!-- /*Yada*/ -->
-
-<input type="text" #a (keyup.Enter)="agot(a.value)">
+<input [(ngModel)] = "axot" (keyup.Enter)="agot()">
+<span> {{axot}}</span>

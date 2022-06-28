@@ -8,13 +8,8 @@ import { ProductRepository } from "./models/repository.model";
     styleUrls:['product.component.css']
 })
 export class ProductComponent{
-    // agot($event: any){
-    //     if($event.keyCode == 13){
-    //         console.log("Enter was pressed")
-    //     }
-    // }
-    agot(a: any){
-        console.log(a)
-        console.log("Enter was pressed")
+    axot = 'Axot 1 Bekar 1'
+    agot(){
+        console.log(this.axot)
     }
 }
