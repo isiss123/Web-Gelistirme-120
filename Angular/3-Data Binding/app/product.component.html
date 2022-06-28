@@ -1,3 +1,8 @@
 <div class="bg-danger text-white p-2 m-2">
     There are {{model.getProducts().length}} products in ProductRepository
 </div>
+<h2>{{product.name}}</h2>
+<h2 [textContent]="product.name"></h2>
+
+<img src="assets/img/{{product.imageUrl}}" alt="">
+<img [src]="'assets/img/'+ product.imageUrl" alt="">

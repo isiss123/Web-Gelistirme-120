@@ -13,7 +13,7 @@ export class ProductRepository{
     getProducts(): Product[]{ 
         return this.products
     }
-    getProductById(id: number){
-        this.products.find(p=>p.id == id)
+    getProductById(id: number): any{
+        return this.products.find(p=>p.id == id)
     }
 }
