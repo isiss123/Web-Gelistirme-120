@@ -8,9 +8,5 @@ import { ProductRepository } from "./models/repository.model";
     styleUrls:['product.component.css']
 })
 export class ProductComponent{
-    axot = "Axot Bekar";
-    today: number =  Date.now();
-    n: number  = 123456
-    p: number = 395.956
-    c: number = 0.26
+    axot = 'adjkajdkajdksjfkajfkajxcm,xmckfjajfajflkjowroiusfkljfl'
 }
