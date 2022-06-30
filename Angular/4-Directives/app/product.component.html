@@ -1,12 +1,10 @@
 <ul class="list-group"> 
 <!-- odd - tek eded  -->
 <!-- even - cut eded -->
-    <li *ngFor="let p of model.getProducts(); index as i; first as f; last as l; odd as o; even as e "class="list-group-item">
-       {{i}} - {{p.name}}
-       <span *ngIf="f" class="badge bg-success">first</span>
-       <span *ngIf="l" class="badge bg-danger">last</span>
-
-       <span *ngIf="o" class="badge bg-warning">odd</span>
-       <span *ngIf="e" class="badge bg-primary">even</span>
+    <button class="btn btn-primary" (click)="addProduct()">Add button</button>
+    <li *ngFor="let p of model.getProducts()"class="list-group-item">
+        {{p.name}}
+        <button class="btn btn-danger" (click)="deleteProduct(p)">Delete</button>
+        <button class="btn btn-warning" (click)="updateProduct(p)">Update</button>
     </li>
 </ul>
