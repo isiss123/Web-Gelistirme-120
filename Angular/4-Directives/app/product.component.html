@@ -1,11 +1,2 @@
-<ng-template [ngTemplateOutlet]="productList" [ngTemplateOutletContext]="{products: model.getProducts() }"></ng-template>
-
-
-<ng-template #productList let-products="products">
-    <ul class="list-group"> 
-        <li *ngFor="let p of products"class="list-group-item">
-            {{p.name}}
-        </li>
-    </ul>
-</ng-template>
+<input type="text" appInputText>
 
