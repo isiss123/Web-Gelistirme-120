@@ -1,0 +1,31 @@
+<!-- <div *ngIf="model.getProducts().length>0" class="bg-primary p-2 m-2 text-white">
+    There are {{model.getProducts().length}} products in the ProductRepository
+</div>
+<div *ngIf="model.getProducts().length==0" class="bg-primary p-2 m-2 text-white">
+    There are no products in the ProductRepository
+</div> -->  
+
+<!-- /*Ya Da*/ -->
+
+<!-- <div *ngIf="model.getProducts().length>0; then ProductList else noProductList"></div>
+
+<ng-template #ProductList>
+    <div class="bg-primary p-2 m-2 text-white">
+        There are {{model.getProducts().length}} products in the ProductRepository
+    </div>
+</ng-template>
+
+<ng-template #noProductList>
+    <div class="bg-primary p-2 m-2 text-white">
+        There are no products in the ProductRepository
+    </div>
+</ng-template> -->
+
+<!-- /*Ya Da*/ -->
+
+<div [hidden]="model.getProducts().length==0" class="bg-primary p-2 m-2 text-white">
+    There are {{model.getProducts().length}} products in the ProductRepository
+</div>
+<div [hidden]="model.getProducts().length!=0" class="bg-primary p-2 m-2 text-white">
+    There are no products in the ProductRepository
+</div>
