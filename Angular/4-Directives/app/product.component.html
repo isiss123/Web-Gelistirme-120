@@ -1,13 +1,12 @@
-<div [ngSwitch]="model.getLength()">
-    <span *ngSwitchCase="0">0</span>
-    <span *ngSwitchCase="1">1</span>
-    <span *ngSwitchCase="2">2</span>
-    <span *ngSwitchDefault>many</span>
-</div>
+<ul class="list-group"> 
+<!-- odd - tek eded  -->
+<!-- even - cut eded -->
+    <li *ngFor="let p of model.getProducts(); index as i; first as f; last as l; odd as o; even as e "class="list-group-item">
+       {{i}} - {{p.name}}
+       <span *ngIf="f" class="badge bg-success">first</span>
+       <span *ngIf="l" class="badge bg-danger">last</span>
 
-<div [ngSwitch]="model.getProductById(1).name">
-    <span *ngSwitchCase="'Axot 1'">Axot 1</span>
-    <span *ngSwitchCase="'Axot 2'">Axot 2</span>
-    <span *ngSwitchCase="'Axot 3'">Axot 3</span>
-    <span *ngSwitchDefault>Other</span>
-</div>
+       <span *ngIf="o" class="badge bg-warning">odd</span>
+       <span *ngIf="e" class="badge bg-primary">even</span>
+    </li>
+</ul>

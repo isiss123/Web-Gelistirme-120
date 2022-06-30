@@ -8,6 +8,5 @@ import { ProductRepository } from "./models/repository.model";
     styleUrls:['product.component.css']
 })
 export class ProductComponent{
-    axot = 'adjkajdkajdksjfkajfkajxcm,xmckfjajfajflkjowroiusfkljfl'
     model: ProductRepository = new ProductRepository();
 }
