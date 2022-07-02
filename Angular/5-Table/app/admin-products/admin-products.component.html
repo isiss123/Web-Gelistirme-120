@@ -1,4 +1,4 @@
-($event.target as HTMLInputElement).value
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -15,9 +15,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products" (mouseover)="selectedProduct= product.name"
-                        (mouseleave)="selectedProduct='(None)'"
-                        [class.bg-info]="getSelected(product)">
+                    <tr *ngFor="let product of products" (mouseover)="pName.value= product.name"
+                        (mouseleave)="pName.value='(None)'"
+                        [class.bg-info]="pName.value == product.name">
                         <td>{{product.id}}</td>
                         <td><img src="../../assets/img/{{product.imageUrl}}" width="80px"></td>
                         <td>{{product.name}}</td>
@@ -34,7 +34,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label >Product Name</label>
-                <input (input)=" selectedProduct = axot($event)" type="text" class="form-control">
+                <input #pName (keyup.enter)=" selectedProduct = pName.value" type="text" class="form-control">
             </div>
         </div>
     </div>
