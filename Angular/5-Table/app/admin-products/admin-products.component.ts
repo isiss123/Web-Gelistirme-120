@@ -11,7 +11,6 @@ import { ProductRepository } from '../models/repository.model';
 
 export class AdminProductsComponent implements OnInit {
   products;
-  a:any
   model: ProductRepository;
   selectedProduct: any;
 
@@ -20,11 +19,17 @@ export class AdminProductsComponent implements OnInit {
     this.products = this.model.getProducts()
   }
   getSelected(product: Product){
-    return this.selectedProduct == product.name
+    return product == this.selectedProduct 
+  }
+  setProduct(product: Product){
+    this.selectedProduct = product;
   }
   axot(value: any){
     return value.target.value
   }
+
+
+
   ngOnInit(): void {
   }
 
