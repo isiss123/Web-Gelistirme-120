@@ -27,7 +27,18 @@ export class AdminProductsComponent implements OnInit {
   axot(value: any){
     return value.target.value
   }
-
+  ekle( pName: any,pDescription: any,pUrl: any,pPrice: any){
+    // this.selectedProduct.name = pName
+    // this.selectedProduct.description = pDescription
+    // this.selectedProduct.imageUrl = pUrl
+    // this.selectedProduct.price = pPrice
+    const p = this.model.getProductById(this.selectedProduct.id)
+    p.name = pName;
+    p.description = pDescription;
+    p.imageUrl = pUrl;
+    p.price = pPrice;
+    this.selectedProduct = null;
+  }
 
 
   ngOnInit(): void {

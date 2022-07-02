@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="bg-info">Selected Product: {{selectedProduct || '(None)'}}</div>
+            <div class="bg-info" *ngIf="selectedProduct">Selected Product: {{selectedProduct.name || '(None)'}}</div>
             <table class="table table-sm table-bordered">
                 <thead>
                     <tr>
@@ -30,23 +30,25 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" *ngIf="selectedProduct">
             <div class="form-group">
                 <label >Product Name</label>
-                <input #pName [value]="selectedProduct.name" (keyup.enter)=" selectedProduct = pName.value" type="text" class="form-control">
+                <input #pName [value]="selectedProduct.name"  type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label >Product Description</label>
-                <textarea  #pDescription [value]="selectedProduct.description" (keyup.enter)=" selectedProduct = pDescription.value" type="text" class="form-control"></textarea>
+                <textarea  #pDescription [value]="selectedProduct.description"  type="text" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <label >Product Url</label>
-                <input #pUrl [value]="selectedProduct.imageUrl" (keyup.enter)=" selectedProduct = pUrl.value" type="text" class="form-control">
+                <input #pUrl [value]="selectedProduct.imageUrl"  type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label >Product Price</label>
-                <input  #pPrice [value]="selectedProduct.price" (keyup.enter)=" selectedProduct = pPrice.value" type="text" class="form-control">
+                <input  #pPrice [value]="selectedProduct.price" type="text" class="form-control">
             </div>
+            <button class="btn btn-primary" (click)="ekle(pName.value,pDescription.value,pUrl.value,
+            pPrice.value)">Save Changes </button>
         </div>
     </div>
 </div>
