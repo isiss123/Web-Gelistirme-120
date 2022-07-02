@@ -9,6 +9,7 @@ import { ProductRepository } from '../models/repository.model';
 export class AdminProductsComponent implements OnInit {
   products;
   model: ProductRepository;
+  selectedProduct: any;
 
   constructor() {
     this.model = new ProductRepository();
