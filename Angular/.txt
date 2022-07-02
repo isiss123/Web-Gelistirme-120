@@ -1,3 +1,5 @@
 CLI     :   ng g c (yaratmaq istediyimiz comp adi)        :   Terminaldan Component yaratmaq ucun (generate component)
             ng g s (yaratmaq istediyimiz service adi)     :   Terminaldan Service yaratmaq ucun (generate service) 
-            ng g m app-routing --flat --module=app        : Terminaldan Module yaratmaq ucun(--flat: ayri qovluq icerisinde yaratmamaq ucun )
+            ng g m app-routing --flat --module=app        :   Terminaldan Module yaratmaq ucun(--flat: ayri qovluq icerisinde yaratmamaq ucun )
+
+	    ng g d (yaratmaq istediyimiz directive adi)   :   Terminaldan Directive yaratmaq ucun
