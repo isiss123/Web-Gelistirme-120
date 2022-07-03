@@ -38,7 +38,7 @@
                         Price is required
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" [disabled]="formSumbited && forma.invalid" [class.btn-secondary] = "formSumbited && forma.invalid">Save</button>
             </form>
         </div>
     </div>

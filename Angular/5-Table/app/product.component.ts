@@ -1,3 +1,4 @@
+import { keyframes } from "@angular/animations";
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Product } from "./models/product.model";
@@ -27,6 +28,7 @@ export class ProductComponent{
 
     formSumbited: boolean = false;
     submitForm(form: NgForm){
+        console.log(form)
         this.formSumbited = true;
         if(form.valid == true){
             this.addProduct(this.newProduct);
@@ -35,5 +37,15 @@ export class ProductComponent{
             this.formSumbited = false;
         }
     }
+
+    // getFormValidationErrors(form: NgForm): string[]{
+    //     let messages: any;
+    //     Object.keys(form.controls).forEach(k=>{
+    //         console.log(k); 
+    //         console.log(form.controls[k].errors);
+    //         messages.push(form.controls[k].errors)
+    //     })
+    //     return messages
+    // }
 
 }
