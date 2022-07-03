@@ -9,18 +9,30 @@
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" name="pName" [(ngModel)] ="newProduct.name"  #name = "ngModel"  required>
+                <div class="alert alert-danger mt-2" *ngIf="name.invalid && name.touched">
+                    Name is required
+                </div>
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <textarea type="text" class="form-control" [(ngModel)] ="newProduct.description"></textarea>
+                <textarea type="text" class="form-control" [(ngModel)] ="newProduct.description"  #description = "ngModel" required></textarea>
+                <div class="alert alert-danger mt-2" *ngIf="description.invalid && description.touched">
+                    Description is required
+                </div>
             </div>
             <div class="form-group">
                 <label>Image</label>
-                <input type="text" class="form-control" [(ngModel)] ="newProduct.imageUrl">
+                <input type="text" class="form-control" [(ngModel)] ="newProduct.imageUrl"  #image = "ngModel" required>
+                <div class="alert alert-danger mt-2" *ngIf="image.invalid && image.touched">
+                    Image is required
+                </div>
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input type="number" class="form-control" [(ngModel)] ="newProduct.price">
+                <input type="number" class="form-control" [(ngModel)] ="newProduct.price"  #price = "ngModel" required>
+                <div class="alert alert-danger mt-2" *ngIf="price.invalid && price.touched">
+                    Price is required
+                </div>
             </div>
             <button class="btn btn-primary" (click)="addProduct(newProduct)">Save</button>
         </div>
