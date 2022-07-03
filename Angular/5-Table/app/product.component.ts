@@ -1,4 +1,5 @@
-import { Component, ModuleWithComponentFactories } from "@angular/core";
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 import { Product } from "./models/product.model";
 import { ProductRepository } from "./models/repository.model";
 
@@ -23,8 +24,16 @@ export class ProductComponent{
         console.log(x)
     }
 
-    submitForm(form: any){
-        console.log(form)
+
+    formSumbited: boolean = false;
+    submitForm(form: NgForm){
+        this.formSumbited = true;
+        if(form.valid == true){
+            this.addProduct(this.newProduct);
+            this.newProduct = new Product();
+            form.reset();
+            this.formSumbited = false;
+        }
     }
 
 }
