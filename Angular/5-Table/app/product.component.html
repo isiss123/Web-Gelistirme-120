@@ -1,1 +1,28 @@
-<admin-products></admin-products>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="m-4">
+                <div class="bg-info text-white p-3">
+                    {{jsonProduct}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" [(ngModel)] ="newProduct.name">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea type="text" class="form-control" [(ngModel)] ="newProduct.description"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input type="text" class="form-control" [(ngModel)] ="newProduct.imageUrl">
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" class="form-control" [(ngModel)] ="newProduct.price">
+            </div>
+            <button class="btn btn-primary" (click)="addProduct(newProduct)">Save</button>
+        </div>
+    </div>
+</div>

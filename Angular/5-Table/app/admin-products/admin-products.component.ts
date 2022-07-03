@@ -28,10 +28,6 @@ export class AdminProductsComponent implements OnInit {
     return value.target.value
   }
   ekle(){
-    // this.selectedProduct.name = pName
-    // this.selectedProduct.description = pDescription
-    // this.selectedProduct.imageUrl = pUrl
-    // this.selectedProduct.price = pPrice
     const p = this.model.getProductById(this.selectedProduct.id)
     p.name = this.selectedProduct.name;
     p.description = this.selectedProduct.description;
