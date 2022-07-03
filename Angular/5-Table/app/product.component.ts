@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ModuleWithComponentFactories } from "@angular/core";
 import { Product } from "./models/product.model";
 import { ProductRepository } from "./models/repository.model";
 
@@ -18,6 +18,13 @@ export class ProductComponent{
     }
     addProduct(p: Product){
         console.log("New Product "+ this.jsonProduct)
+    }
+    log(x:any){
+        console.log(x)
+    }
+
+    submitForm(form: any){
+        console.log(form)
     }
 
 }
