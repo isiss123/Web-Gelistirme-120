@@ -8,29 +8,33 @@
             </div>
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="pName" [(ngModel)] ="newProduct.name"  #name = "ngModel"  required>
-                <div class="alert alert-danger mt-2" *ngIf="name.invalid && name.touched">
-                    Name is required
+                <input type="text" class="form-control" name="pName" [(ngModel)] ="newProduct.name"  #name = "ngModel"
+                minlength="3" maxlength="10" pattern="^[A-Za-z ]+$" required>
+                <div class="alert alert-danger mt-2" *ngIf="!name.valid && name.touched">
+                    <p *ngIf="name?.errors?.['required']">Name is required</p>
+                    <p *ngIf="name?.errors?.['minlength']">Min. 3 charracters</p>
+                    <p *ngIf="name?.errors?.['pattern']">Only letters and spaces</p>
+                    
                 </div>
             </div>
             <div class="form-group">
                 <label>Description</label>
                 <textarea type="text" class="form-control" [(ngModel)] ="newProduct.description"  #description = "ngModel" required></textarea>
-                <div class="alert alert-danger mt-2" *ngIf="description.invalid && description.touched">
+                <div class="alert alert-danger mt-2" *ngIf="!description.valid && description.touched">
                     Description is required
                 </div>
             </div>
             <div class="form-group">
                 <label>Image</label>
                 <input type="text" class="form-control" [(ngModel)] ="newProduct.imageUrl"  #image = "ngModel" required>
-                <div class="alert alert-danger mt-2" *ngIf="image.invalid && image.touched">
+                <div class="alert alert-danger mt-2" *ngIf="!image.valid && image.touched">
                     Image is required
                 </div>
             </div>
             <div class="form-group">
                 <label>Price</label>
                 <input type="number" class="form-control" [(ngModel)] ="newProduct.price"  #price = "ngModel" required>
-                <div class="alert alert-danger mt-2" *ngIf="price.invalid && price.touched">
+                <div class="alert alert-danger mt-2" *ngIf="!price.valid && price.touched">
                     Price is required
                 </div>
             </div>
