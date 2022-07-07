@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class ProductComponent{
     productForm = new FormGroup({
         name: new FormControl('',
-        [Validators.required, Validators.minLength(5)]),
+        [Validators.required, Validators.minLength(5),Validators.maxLength(10)]),
         description: new FormControl('',
         Validators.required),
         image: new FormControl('',
