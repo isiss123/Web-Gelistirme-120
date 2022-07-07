@@ -20,6 +20,12 @@
                 <div class="form-group">
                     <label>Image</label>
                     <input type="text" class="form-control" formControlName = "image">
+                    <div *ngIf="image?.touched && image?.invalid" class="alert alert-danger">
+                        <ul>
+                            <li *ngIf="image?.errors?.['required']">Name is required</li>
+                            <li *ngIf="image?.errors?.['wrongExtension']">Wrong Extension</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Price</label>
