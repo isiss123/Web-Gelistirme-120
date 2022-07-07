@@ -1,28 +1,24 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form>
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" [formControl] = "name">
-                    value: {{name.value}}
+                    <input type="text" class="form-control" formControlName = "name">
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea type="text" class="form-control" [formControl] = "description"></textarea>
-                    value: {{description.value}}
+                    <textarea type="text" class="form-control" formControlName = "description"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Image</label>
-                    <input type="text" class="form-control" [formControl] = "image">
-                    value: {{image.value}}
+                    <input type="text" class="form-control" formControlName = "image">
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" class="form-control" [formControl] = "price">
-                    value: {{price.value}}
+                    <input type="number" class="form-control" formControlName = "price">
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="updateName()">Save</button>
+                <button type="submit" class="btn btn-primary" (click)="updateProduct()" >Save</button>
             </form>
         </div>
     </div>

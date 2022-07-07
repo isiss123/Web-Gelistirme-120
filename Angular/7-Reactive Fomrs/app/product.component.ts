@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 
 
 @Component({
@@ -8,13 +8,21 @@ import { FormControl } from "@angular/forms";
     styleUrls:['product.component.css']
 })
 export class ProductComponent{
-    name = new FormControl('Axot 1');
-    description = new FormControl('Bekar 1');
-    image = new FormControl('1.png');
-    price = new FormControl(1000)
-
-
-    updateName(){
-        this.name.setValue('Axot 111')
+    productForm = new FormGroup({
+        name: new FormControl('Axot 1'),
+        description: new FormControl('Bekar 1'),
+        image: new FormControl('1.png'),
+        price: new FormControl(1000)
+    });
+   
+    onSubmit(){
+        console.log(this.productForm.value)
     }
+    updateProduct(){
+        this.productForm.patchValue({
+            name: "Axot 111",
+            price: 22200
+        })
+    }
+
 }
