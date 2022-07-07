@@ -1,0 +1,53 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="bg-info" *ngIf="selectedProduct">Selected Product: {{selectedProduct.name || '(None)'}}</div>
+            <table class="table table-sm table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th style="width:140px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products"
+                        [class.bg-info]="getSelected(product)">
+                        <td>{{product.id}}</td>
+                        <td><img src="../../assets/img/{{product.imageUrl}}" width="80px"></td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price}}</td>
+                        <td>
+                            <button (click)="setProduct(product)" class="btn btn-primary btn-sm">Update</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6" *ngIf="selectedProduct">
+            <div class="form-group">
+                <label >Product Name</label>
+                <input #pName [(ngModel)]="selectedProduct.name"  type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label >Product Description</label>
+                <textarea  #pDescription [(ngModel)]="selectedProduct.description"  type="text" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label >Product Url</label>
+                <input #pUrl [(ngModel)]="selectedProduct.imageUrl"  type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label >Product Price</label>
+                <input  #pPrice [(ngModel)]="selectedProduct.price" type="text" class="form-control">
+            </div>
+            <button class="btn btn-primary" (click)="ekle()">Save Changes </button>
+        </div>
+    </div>
+</div>
