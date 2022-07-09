@@ -8,11 +8,15 @@ import { PostService } from '../services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts!: [any];
+  error: any;
 
   constructor( private postService: PostService) { }
   ngOnInit(): void {
     this.postService.getPosts().subscribe(responce=>{
         this.posts = <[any]>responce;
+    },error=>{
+      console.log(error)
+      this.error = error;
     })
   }
   
@@ -41,6 +45,8 @@ export class PostsComponent implements OnInit {
       console.log(response);
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1)
+    },error=>{
+      this.error = error
     })
   }
 
