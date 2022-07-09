@@ -7,12 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
-  posts: any;
+  posts!: [any];
+  private url = 'https://jsonplaceholder.typicode.com/posts';
   constructor(private http: HttpClient) { 
-    http.get('https://api.themoviedb.org/3/movie/popular?api_key=5ec94e14b8b567730a34a448b3f79830&language=en-US&page=4').subscribe(
+    http.get(this.url).subscribe(
       responce=>{
-        this.posts = responce;
+        this.posts = <[any]>responce;
     })
+  }
+  creatPost(input: HTMLInputElement){
+      const post = {id: Number, title: input.value};
+      input.value = '';
+      this.http.post(this.url,JSON.stringify(post)).subscribe(
+        responce=>{
+          this.posts.splice(0,0,post)
+          console.log(responce);
+        })
   }
 
 

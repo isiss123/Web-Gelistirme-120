@@ -1,5 +1,6 @@
-<ul>
-    <li *ngFor="let post of posts.results">
+<input type="text" class="form-control mb-3" (keyup.Enter)="creatPost(input)" #input>
+<ul class="list-group">
+    <li *ngFor="let post of posts" class="list-group-item">
         {{post.title}}
     </li>
 </ul>
