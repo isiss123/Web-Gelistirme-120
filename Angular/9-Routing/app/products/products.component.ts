@@ -17,7 +17,6 @@ export class ProductsComponent implements OnInit {
       console.log(prem)
     })
     let page = this.route.snapshot.queryParamMap.get('page')
-    console.log(page)
   }
   loadProducts(){
     this.router.navigate(['products'],{

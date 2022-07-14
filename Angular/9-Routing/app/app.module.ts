@@ -10,13 +10,21 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductComponent } from './products/product/product.component';
+import { EditProductComponent } from './products/edit-product/edit-product.component';
+import { UserComponent } from './users/user/user.component';
 
 const appRoutes: Routes = [
   {path:'',component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'products/:id', component: ProductComponent},
-  {path: 'users', component: UsersComponent},
+  {path: 'products', component: ProductsComponent, children:[
+    {path: ':id', component: ProductComponent},
+    {path: ':id/edit', component: EditProductComponent},
+  ]},
+
+  {path: 'users', component: UsersComponent, children:[
+    {path: ':name', component: UserComponent},
+  ]},
+
   {path:'**', component: NotfoundComponent}
 ]
 // localhost:4200/products?page=1&order=price    //1. seyfe  qiymete gore siralama
@@ -29,7 +37,9 @@ const appRoutes: Routes = [
     CategoriesComponent,
     HomeComponent,
     NotfoundComponent,
-    ProductComponent
+    ProductComponent,
+    EditProductComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
