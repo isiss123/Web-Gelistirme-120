@@ -19,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'users', component: UsersComponent},
   {path:'**', component: NotfoundComponent}
 ]
+// localhost:4200/products?page=1&order=price    //1. seyfe  qiymete gore siralama
 
 @NgModule({
   declarations: [

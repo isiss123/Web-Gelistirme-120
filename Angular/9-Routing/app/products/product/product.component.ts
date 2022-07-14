@@ -16,10 +16,13 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     // let id = Number(this.route.snapshot.paramMap.get('id'))
     // this.selectedProduct = products.find(i=>i.id===id)
+
+    // asekron 
     this.route.paramMap.subscribe(prem=>{
       let id = Number(prem.get('id'));
       this.selectedProduct = products.find(i=>i.id===id);
     })
+    
   }
 
 }

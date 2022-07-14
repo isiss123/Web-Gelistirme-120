@@ -12,9 +12,19 @@ export class ProductsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // query paramps
+    this.route.queryParamMap.subscribe(prem=>{
+      console.log(prem)
+    })
+    let page = this.route.snapshot.queryParamMap.get('page')
+    console.log(page)
   }
   loadProducts(){
-    this.router.navigate(['products'],{relativeTo: this.route})
+    this.router.navigate(['products'],{
+      queryParams:{
+        page: 1
+      }
+    })
   }
 
 }
