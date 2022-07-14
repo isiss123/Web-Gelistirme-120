@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +13,7 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 import { UserComponent } from './users/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
+import { AurhGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { AdminModule } from './admin/admin.module';
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AurhGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
