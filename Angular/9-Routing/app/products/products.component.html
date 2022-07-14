@@ -1,4 +1,9 @@
-<p>products works!</p>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let p of products">
+        {{p.name}}
+    </li>
+</ul>
 <p>
-    <a routerLink="/products">products</a>
+    <a routerLink="products">products</a>
+    <button (click)="loadProducts()" class="btn btn-primary">Load Products</button>
 </p>
