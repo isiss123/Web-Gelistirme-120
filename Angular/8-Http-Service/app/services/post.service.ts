@@ -21,7 +21,7 @@ export class PostService {
     return this.http.put(this.url+'/'+post.id,JSON.stringify(post))
   }
   deletePost(post: any){
-    return this.http.delete(this.url+'a/'+post.id).pipe(
+    return this.http.delete(this.url+'/'+post.id).pipe(
       retry(3),
       catchError(this.handlerError))
   }
