@@ -8,7 +8,7 @@ namespace Main.Controllers
         public IActionResult Index()
         {
             int saat = DateTime.Now.Hour;
-            ViewBag.Salamlama = saat>12?"Xoş günlər":"Sabahınız xeir";
+            ViewBag.Greetings = saat>12?"Xoş günlər":"Sabahınız xeir";
             ViewBag.Username = "İstiqlal";
             return View();
         }

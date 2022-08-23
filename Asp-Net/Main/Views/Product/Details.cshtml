@@ -1,3 +1,4 @@
+@model Main.Models.Product
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,8 @@
     <title>Product</title>
 </head>
 <body>
-    <h2>Details</h2>
+    <p>Name: @Model.Name</p>
+    <p>Price: @Model.Price</p>
+    <p>Description: @Model.Description</p>
 </body>
 </html>
