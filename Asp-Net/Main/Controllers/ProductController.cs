@@ -11,7 +11,17 @@ namespace Main.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var product = new Product(){Name="Axot 2",Price=1800,Description="Yoxdu 2"};
+                // 1
+            // ViewData["Category"] = "Telefon";
+            // ViewData["Product"] = product;
+                // 2
+            ViewBag.Category = "Telefon";
+            // ViewBag.Product = product;
+
+                // 3 
+            // return View(product);
+            return View(product);
         }
         public IActionResult List()
         {
