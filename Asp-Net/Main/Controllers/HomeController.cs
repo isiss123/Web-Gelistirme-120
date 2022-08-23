@@ -7,6 +7,9 @@ namespace Main.Controllers
         // localhost:7032/home/index
         public IActionResult Index()
         {
+            int saat = DateTime.Now.Hour;
+            ViewBag.Salamlama = saat>12?"Xoş günlər":"Sabahınız xeir";
+            ViewBag.Username = "İstiqlal";
             return View();
         }
         // localhost:7032/home/about
