@@ -31,6 +31,9 @@ namespace Main.Controllers
                 new Product(){Name="Axot 12",Price=12,Description="Bekar 12",IsApproved=true},
                 new Product(){Name="Axot 13",Price=13,Description="Bekar 13",IsApproved=true},
                 new Product(){Name="Axot 14",Price=14,Description="Bekar 14",IsApproved=false},
+                new Product(){Name="Axot 15",Price=15,Description="Bekar 15",IsApproved=true},
+                new Product(){Name="Axot 16",Price=16,Description="Bekar 16",IsApproved=true},
+                new Product(){Name="Axot 17",Price=17,Description="Bekar 17",IsApproved=false},
             };
             var category = new Category(){
                 Name = "Yoxdu 11",
