@@ -1,3 +1,4 @@
+@model ProductViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,14 @@
     <title>Product</title>
 </head>
 <body>
-    <h2>List</h2>
+    <h1>@Model.Category.Name</h1>
+    <div>
+        <p>@Model.Products[0].Name</p>
+        <p>@Model.Products[0].Price</p>
+    </div>
+   <div>
+        <p>@Model.Products[1].Name</p>
+        <p>@Model.Products[1].Price</p>
+    </div>
 </body>
 </html>

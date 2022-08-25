@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Main.Models;
+using Main.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Main.Controllers
@@ -25,7 +26,16 @@ namespace Main.Controllers
         }
         public IActionResult List()
         {
-            return View();
+            var products = new List<Product>(){
+                new Product(){Name="Axot 11",Price=11,Description="Bekar 11"},
+                new Product(){Name="Axot 12",Price=12,Description="Bekar 12"},
+            };
+            var category = new Category(){
+                Name = "Yoxdu 11",
+                Description="Yoxdu 11.1"
+            };
+            var ProductView = new ProductViewModel(){Products=products,Category=category};
+            return View(ProductView);
         }
         public IActionResult Details(int id)
         {
