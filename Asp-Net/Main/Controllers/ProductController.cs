@@ -27,8 +27,10 @@ namespace Main.Controllers
         public IActionResult List()
         {
             var products = new List<Product>(){
-                new Product(){Name="Axot 11",Price=11,Description="Bekar 11"},
-                new Product(){Name="Axot 12",Price=12,Description="Bekar 12"},
+                new Product(){Name="Axot 11",Price=11,Description="Bekar 11",IsApproved=false},
+                new Product(){Name="Axot 12",Price=12,Description="Bekar 12",IsApproved=true},
+                new Product(){Name="Axot 13",Price=13,Description="Bekar 13",IsApproved=true},
+                new Product(){Name="Axot 14",Price=14,Description="Bekar 14",IsApproved=false},
             };
             var category = new Category(){
                 Name = "Yoxdu 11",
