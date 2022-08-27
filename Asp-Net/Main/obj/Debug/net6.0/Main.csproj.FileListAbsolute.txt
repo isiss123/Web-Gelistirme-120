@@ -22,3 +22,6 @@ E:\Istiqlal\Udemy\Asp-Net\Main\obj\Debug\net6.0\Main.genruntimeconfig.cache
 E:\Istiqlal\Udemy\Asp-Net\Main\obj\Debug\net6.0\ref\Main.dll
 E:\Istiqlal\Udemy\Asp-Net\Main\obj\Debug\net6.0\Main.RazorAssemblyInfo.cache
 E:\Istiqlal\Udemy\Asp-Net\Main\obj\Debug\net6.0\Main.RazorAssemblyInfo.cs
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\Main.staticwebassets.runtime.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\package-lock.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\package.json

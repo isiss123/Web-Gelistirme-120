@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "nWYe9t2Bqhg3gYEJgXBPYfQ7pOoe940Xlbz499vvWlI=",
+  "Hash": "5Ntx8UTM6IfoF9h99rmgnlcCHTtvJ6E3uqUx14uEfyc=",
   "Source": "Main",
   "BasePath": "_content/Main",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Main\\wwwroot",
+      "Source": "Main",
+      "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
+      "BasePath": "_content/Main",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\1.jpg",
+      "SourceId": "Main",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
+      "BasePath": "_content/Main",
+      "RelativePath": "images/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\1.jpg"
+    }
+  ]
 }
