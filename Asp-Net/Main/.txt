@@ -3,5 +3,5 @@ View -e melumat gonderme methodlari :
                 2:    ViewData["Category"] = "telefon" istifade = @ViewData["Category"] (ViewBag["vereceyimiz_ad"])
                 3:    view(product)   istifade = html seyfesinde en ustde @model Main.Model.Product  = product yarandigi classin yolu 
 
-
+View/Shared qovlugu butun CONTOLLER-den elcatilandir
 Partial view : html seyfesinde bir bolum birden cox seyfede isledilirse hamisini eyni yerden idare etmek ucun yaradilir

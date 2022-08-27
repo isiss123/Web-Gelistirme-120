@@ -1,7 +1,7 @@
 @model ProductViewModel
 @{
     var products = @Model.Products;
-    var category = @Model.Category;
+    var categories = @Model.Categories;
     var popularClass = products.Count>2 ?"popular":"";
 }
 <!DOCTYPE html>
@@ -30,7 +30,8 @@
             justify-content: center;
             align-items: start;
             background-color: #e6e6e6;
-            padding: 40px;
+            padding: 70px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -40,24 +41,32 @@
     <partial name="_header">
 
     <main>
-
-    <div class="container">
-        <h1 class="@popularClass">@category.Name</h1>
-        @if (products.Count == 0)
-        {
-            @await Html.PartialAsync("_noproduct")
-        }
-        else{
+        <div class="container">
             <div class="row">
-                @foreach (var product in products)
-                {
-                    <div class="col-md-3">
-                        @await Html.PartialAsync("_product",product)
-                    </div>      
-                }
+                <div class="col-md-3">
+                    @* Category gelecek *@
+                    @await Html.PartialAsync("_categories",categories)
+                </div>
+                <div class="col-md-9">
+                    @* Productlar gelecek *@
+                    @if (products.Count == 0)
+                    {
+                        @await Html.PartialAsync("_noproduct")
+                    }
+                    else{
+                        <div class="row">
+                            @foreach (var product in products)
+                            {
+                                <div class="col-md-3">
+                                    @await Html.PartialAsync("_product",product)
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
             </div>
-        }
-    </div>
+        </div>
+
     </main>
     
 </body>
