@@ -35,14 +35,8 @@ namespace Main.Controllers
                 new Product(){Name="Axot 16",Price=16,Description="Bekar 16",IsApproved=true},
                 new Product(){Name="Axot 17",Price=17,Description="Bekar 17",IsApproved=false},
             };
-            var categories = new List<Category>(){
-                new Category(){Name = "Yoxdu 11",Description="Yoxdu 11.1"},
-                new Category(){Name = "Yoxdu 12",Description="Yoxdu 12.1"},
-                new Category(){Name = "Yoxdu 13",Description="Yoxdu 13.1"},
-                new Category(){Name = "Yoxdu 14",Description="Yoxdu 14.1"},
-            };
             
-            var ProductView = new ProductViewModel(){Products=products,Categories=categories};
+            var ProductView = new ProductViewModel(){Products=products};
             return View(ProductView);
         }
         public IActionResult Details(int id)
