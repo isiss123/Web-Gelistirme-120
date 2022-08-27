@@ -4,26 +4,28 @@
     var products = @Model.Products;
     var popularClass = products.Count>2 ?"popular":"";
 }
-<div class="row">
-    <div class="col-md-3">
-        @* Category gelecek *@
-        @await Component.InvokeAsync("Categories")
-    </div>
-    <div class="col-md-9">
-        @* Productlar gelecek *@
-        @if (products.Count == 0)
+
+    
+@section Categories
+{
+    @* Category gelecek *@
+    @await Component.InvokeAsync("Categories")
+}
+
+                    @* RenderBody *@
+                    
+@* Productlar gelecek *@
+@if (products.Count == 0)
+{
+    @await Html.PartialAsync("_noproduct")
+}
+else{
+    <div class="row">
+        @foreach (var product in products)
         {
-            @await Html.PartialAsync("_noproduct")
-        }
-        else{
-            <div class="row">
-                @foreach (var product in products)
-                {
-                    <div class="col-md-3">
-                        @await Html.PartialAsync("_product",product)
-                    </div>
-                }
+            <div class="col-md-3">
+                @await Html.PartialAsync("_product",product)
             </div>
         }
     </div>
-</div>
+}
