@@ -45,9 +45,9 @@ namespace Main.Controllers
         public IActionResult Details(int id)
         {
             var p = new Product();
-            p.Name = "Axot 1";
+            p.Name = $"Axot {id}";
             p.Price = 1700;
-            p.Description = "Yoxdu 1";
+            p.Description = $"Yoxdu {id}";
             return View(p);
         }
     }

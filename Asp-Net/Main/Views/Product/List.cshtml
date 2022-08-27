@@ -35,28 +35,9 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="navbar bg-primary navbar-dark navbar-expand-sm">
-            <div class="container">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#"class="nav-link">Link 1</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link">Link 2</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link">Link 3</a></li>
-                </ul>
-
-            </div>
-        </div>
-
-    </nav>
-    <header>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                    <h1 class="display-4">AxotApp</h1>
-                    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, atque.</p>
-            </div>
-            
-        </div>
-    </header>
+    @await Html.PartialAsync("_navbar")
+    @* @await Html.PartialAsync("_header") *@
+    <partial name="_header">
 
     <main>
 
@@ -64,25 +45,17 @@
         <h1 class="@popularClass">@category.Name</h1>
         @if (products.Count == 0)
         {
-            <p class="alert alert-warning">Mehsul yoxdur</p>
+            @await Html.PartialAsync("_noproduct")
         }
         else{
-        <div class="row">
+            <div class="row">
                 @foreach (var product in products)
                 {
                     <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-image-top" src="https://picsum.photos/600/600" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">@product.Name</h5>
-                            <p class="card-text"> @product.Description</p>
-                            <a href="#" class="btn btn-primary">Description</a>                             
-                        </div>
-                    </div>
-                    </div>
-                            
+                        @await Html.PartialAsync("_product",product)
+                    </div>      
                 }
-        </div>
+            </div>
         }
     </div>
     </main>
