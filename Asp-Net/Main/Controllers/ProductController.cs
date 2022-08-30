@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Data;
 using Main.Models;
 using Main.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -41,11 +42,7 @@ namespace Main.Controllers
         }
         public IActionResult Details(int id)
         {
-            var p = new Product();
-            p.Name = $"Axot {id}";
-            p.Price = 1700;
-            p.Description = $"Yoxdu {id}";
-            return View(p);
+            return View(ProductRepository.GetProductById(id));
         }
     }
 }
