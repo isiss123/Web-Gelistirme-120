@@ -16,7 +16,7 @@ namespace Main.Data
             _category = new List<Category>{
                 new Category {CategoryId=1,Name="Yoxdu 11",Description="Yoxdu 11.1"},
                 new Category {CategoryId=2,Name="Yoxdu 12",Description="Yoxdu 12.1"},
-                new Category {CategoryId=3,Name="Yoxdu 13",Description="Yoxdu 13.1"},
+                new Category {CategoryId=3,Name="Yoxdu 13",Description="Yoxdu 13.1"}
             };
         }
         public static void AddCategory(Category category)

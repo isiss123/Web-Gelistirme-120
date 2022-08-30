@@ -1,0 +1,10 @@
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\Main.exe
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\appsettings.Development.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\appsettings.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\global.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\package-lock.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\package.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\Main.dll
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\Main.deps.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\Main.runtimeconfig.json
+E:\Istiqlal\Udemy\Asp-Net\Main\bin\Debug\net6.0\publish\Main.pdb
