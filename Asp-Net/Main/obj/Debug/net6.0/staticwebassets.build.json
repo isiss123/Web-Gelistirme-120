@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5Ntx8UTM6IfoF9h99rmgnlcCHTtvJ6E3uqUx14uEfyc=",
+  "Hash": "n8fL6qaOzLuqhutV5aKEIVTszV84Ad7n4fm2XC1cZLM=",
   "Source": "Main",
   "BasePath": "_content/Main",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\css\\style.css",
+      "SourceId": "Main",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
+      "BasePath": "_content/Main",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
     {
       "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\1.jpg",
       "SourceId": "Main",

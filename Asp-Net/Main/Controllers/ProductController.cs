@@ -25,19 +25,16 @@ namespace Main.Controllers
             // return View(product);
             return View(product);
         }
-        public IActionResult List()
+        public IActionResult List(int? id)
         {
-            var products = new List<Product>(){
-                new Product(){Name="Axot 11",Price=11,Description="Bekar 11",IsApproved=false},
-                new Product(){Name="Axot 12",Price=12,Description="Bekar 12",IsApproved=true},
-                new Product(){Name="Axot 13",Price=13,Description="Bekar 13",IsApproved=true},
-                new Product(){Name="Axot 14",Price=14,Description="Bekar 14",IsApproved=false},
-                new Product(){Name="Axot 15",Price=15,Description="Bekar 15",IsApproved=true},
-                new Product(){Name="Axot 16",Price=16,Description="Bekar 16",IsApproved=true},
-                new Product(){Name="Axot 17",Price=17,Description="Bekar 17",IsApproved=false},
+            var products = ProductRepository.Products;
+            if(id!=null)
+            {
+                products = products.Where(p=>p.CategoryId==id).ToList();
+            }
+            var ProductView = new ProductViewModel(){
+                Products = products
             };
-            
-            var ProductView = new ProductViewModel(){Products=products};
             return View(ProductView);
         }
         public IActionResult Details(int id)
