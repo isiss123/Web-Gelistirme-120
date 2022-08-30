@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj": {}
+    "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj": {}
   },
   "projects": {
-    "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj": {
+    "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj",
+        "projectUniqueName": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj",
         "projectName": "Main",
-        "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj",
+        "projectPath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Main.csproj",
         "packagesPath": "C:\\Users\\Hesen\\.nuget\\packages\\",
-        "outputPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\obj\\",
+        "outputPath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hesen\\AppData\\Roaming\\NuGet\\NuGet.Config",
