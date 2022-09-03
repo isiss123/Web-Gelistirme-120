@@ -18,3 +18,12 @@ etiket
 
 ENTITY yaratmaq ucun 
 dotnet new classlib -o ...
+
+
+
+
+
+QOVLUQLAR
+
+Abstract   - Interface oldugu qovluq
+Concrete   - Interfacei esas goturerek yaranan
