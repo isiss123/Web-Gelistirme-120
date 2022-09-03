@@ -27,3 +27,9 @@ QOVLUQLAR
 
 Abstract   - Interface oldugu qovluq
 Concrete   - Interfacei esas goturerek yaranan
+
+
+                ESAS PROJENI GOSTERME
+
+dotnet ef migrations add InitialCreate --startup-project ../Main
+dotnet ef database update --startup-project ../Main

@@ -1,0 +1,12 @@
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\bin\Debug\net6.0\Main.Entity.deps.json
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\bin\Debug\net6.0\Main.Entity.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\bin\Debug\net6.0\Main.Entity.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.csproj.AssemblyReference.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.GeneratedMSBuildEditorConfig.editorconfig
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.AssemblyInfoInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.AssemblyInfo.cs
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.csproj.CoreCompileInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\refint\Main.Entity.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\Main.Entity.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Entity\obj\Debug\net6.0\ref\Main.Entity.dll

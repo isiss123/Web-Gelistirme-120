@@ -1,4 +1,4 @@
-@model List<Category>
+@* @model List<Category>
 
 <div class="list-group">
     <a asp-controller="product"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Bütün Kategoryalar</a>
@@ -8,4 +8,4 @@
             ViewBag.SelectedCategory == category.CategoryId.ToString()?"active":""
         )" >@category.Name</a>
     }
-</div>
+</div> *@

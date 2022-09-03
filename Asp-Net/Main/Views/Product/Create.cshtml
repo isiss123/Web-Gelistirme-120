@@ -22,12 +22,12 @@
         <input asp-for="ImageUrl" class="form-control" value="@Model.ImageUrl">
         <span class="text-danger" asp-validation-for="ImageUrl"></span>
     </div>
-    <div class="form-group">
+    @* <div class="form-group">
         <label for="CategoryId" class="form-label">Category</label>
         <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select">
             <option selected disabled>Seçin</option>
         </select>
         <span class="text-danger" asp-validation-for="CategoryId"></span>
-    </div>
+    </div> *@
     <button type="submit" class="btn btn-primary" style="margin-top:10px ;">submit</button>
 </form>

@@ -13,7 +13,15 @@ namespace Main.Data.Concrete.EfCore
         public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data source: AxotApp");
+            var conntectionString = @"server=localhost;port=3306;user=root;password=12345;database=AspDb";
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+            optionsBuilder
+                        .UseMySql(conntectionString, serverVersion);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductCategory>()
+                .HasKey(i=> new{i.ProductId, i.CategoryId});
         }
     }
 }

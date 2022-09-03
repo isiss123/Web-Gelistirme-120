@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Yoxlama.Models;
+using Main.Entity;
 
 namespace Yoxlama.ViewModels
 {

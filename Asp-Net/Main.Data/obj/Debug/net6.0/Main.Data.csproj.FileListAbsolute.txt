@@ -1,0 +1,17 @@
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Data.deps.json
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Data.runtimeconfig.json
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Data.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Data.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Entity.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\bin\Debug\net6.0\Main.Entity.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.csproj.AssemblyReference.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.AssemblyInfoInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.AssemblyInfo.cs
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.csproj.CoreCompileInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.csproj.CopyComplete
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\refint\Main.Data.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\Main.Data.genruntimeconfig.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Data\obj\Debug\net6.0\ref\Main.Data.dll
