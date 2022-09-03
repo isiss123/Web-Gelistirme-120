@@ -7,38 +7,14 @@ using Main.Entity;
 
 namespace Main.Data.Concrete.EfCore
 {
-    public class EfCoreProductRepository : IProductRepository
+    public class EfCoreProductRepository : EfCoreGenericRepository<Product, MainContext>, IProductRepository
     {
-        private MainContext db = new MainContext();
-        public void Create(Product entity)
-        {
-            db.Products.Add(entity);
-            db.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Product> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Product GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Product> GetPopularProducts()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Product entity)
-        {
-            throw new NotImplementedException();
+            using ( var db = new MainContext())
+            {
+                return db.Products.ToList();
+            }
         }
     }
 }

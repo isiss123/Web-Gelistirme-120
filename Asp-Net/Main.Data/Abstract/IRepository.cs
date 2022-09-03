@@ -10,7 +10,7 @@ namespace Main.Data.Abstract
         T GetById(int id);
         List<T> GetAll();
         void Create(T entity);
-        void Delete(int id);
+        void Delete(T entity);
         void Update(T entity);
     }
 }
