@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Main.Models
+namespace Yoxlama.Models
 {
     public class Product
     {
@@ -14,5 +14,9 @@ namespace Main.Models
         public string ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public int CategoryId { get; set; }
+        public Product(int id)
+        {
+            this.ProductId = id;
+        }
     }
 }

@@ -1,26 +1,17 @@
 @model ProductViewModel
-
 @{
     var products = @Model.Products;
-    var popularClass = products.Count>2 ?"popular":"";
 }
-
 
 @section MessageBox
 {
-    <div class="alert alert-success text-center">Messages</div>
+    Messages
 }
-
-                    @* RenderBody *@
-                    
-
-@* Productlar gelecek *@
-@if (products.Count == 0)
+@if (products.Count==0)
 {
     @await Html.PartialAsync("_noproduct")
-}
-else{
-    <div class="row">
+}else{
+    <div class="row" style="row-gap: 10px;">
         @foreach (var product in products)
         {
             <div class="col-md-3">
@@ -28,9 +19,4 @@ else{
             </div>
         }
     </div>
-}
-    
-
-@section Scripts{
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 }

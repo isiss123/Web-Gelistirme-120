@@ -2,44 +2,41 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Main.Data;
-using Main.Models;
-using Main.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Yoxlama.Data;
+using Yoxlama.Models;
+using Yoxlama.ViewModels;
 
-namespace Main.Controllers
+namespace Yoxlama.Controllers
 {
-    public class ProductController: Controller
+    public class ProductController : Controller
     {
-        public IActionResult Index()
-        {
-            var product = new Product(){Name="Axot 2",Price=1800,Description="Yoxdu 2"};
-                // 1
-            // ViewData["Category"] = "Telefon";
-            // ViewData["Product"] = product;
-                // 2
-            ViewBag.Category = "Telefon";
-            // ViewBag.Product = product;
-
-                // 3 
-            // return View(product);
-            return View(product);
+        public IActionResult Index(){
+            return View();
         }
-        public IActionResult List(int? id)
+        public IActionResult List(int? id,string q)
         {
             var products = ProductRepository.Products;
-            if(id!=null)
-            {
+
+            //    QUERY STRING
+            // Console.WriteLine(q);
+            // Console.WriteLine(HttpContext.Request.Query["q"].ToString());
+            if(id!=null){
                 products = products.Where(p=>p.CategoryId==id).ToList();
-            }
-            var ProductView = new ProductViewModel(){
+            };
+            if (!String.IsNullOrEmpty(q))
+            {
+                products = products.Where(p=>p.Name.ToLower().Contains(q.ToLower()) || 
+                p.Description.ToLower().Contains(q.ToLower())).ToList();
+            };
+            var ProductView = new ProductViewModel{
                 Products = products
             };
             return View(ProductView);
         }
-        public IActionResult Details(int id)
-        {
-            return View(ProductRepository.GetProductById(id));
+        public IActionResult Details(int id){
+            var product = ProductRepository.GetProductById(id);
+            return View(product);
         }
     }
 }

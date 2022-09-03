@@ -3,16 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:40714",
-      "sslPort": 44384
+      "applicationUrl": "http://localhost:24645",
+      "sslPort": 44381
     }
   },
   "profiles": {
-    "Main": {
+    "Yoxlama": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7032;http://localhost:5116",
+      "applicationUrl": "https://localhost:7048;http://localhost:5261",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

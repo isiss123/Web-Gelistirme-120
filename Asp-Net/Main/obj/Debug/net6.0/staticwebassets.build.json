@@ -1,27 +1,27 @@
 {
   "Version": 1,
-  "Hash": "n8fL6qaOzLuqhutV5aKEIVTszV84Ad7n4fm2XC1cZLM=",
-  "Source": "Main",
-  "BasePath": "_content/Main",
+  "Hash": "ZDsF5YLyKdBBc3a29JECg0yMLCzIBMgVhdZZDscgFbk=",
+  "Source": "Yoxlama",
+  "BasePath": "_content/Yoxlama",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Main\\wwwroot",
-      "Source": "Main",
+      "Name": "Yoxlama\\wwwroot",
+      "Source": "Yoxlama",
       "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
-      "BasePath": "_content/Main",
+      "BasePath": "_content/Yoxlama",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
       "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\css\\style.css",
-      "SourceId": "Main",
+      "SourceId": "Yoxlama",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
-      "BasePath": "_content/Main",
+      "BasePath": "_content/Yoxlama",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -35,10 +35,10 @@
     },
     {
       "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\1.jpg",
-      "SourceId": "Main",
+      "SourceId": "Yoxlama",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
-      "BasePath": "_content/Main",
+      "BasePath": "_content/Yoxlama",
       "RelativePath": "images/1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",

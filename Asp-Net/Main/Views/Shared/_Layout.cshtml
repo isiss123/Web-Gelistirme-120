@@ -6,45 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/style.css">
-    <title>AxotApp</title>
-
-    <style>
-        .popular{
-            color: green;
-            font-weight: 700;
-        }
-        .sos{
-            background-color: red;
-            color: white;
-
-            padding: 5px;
-        }
-        .jumbotron{
-            display: flex;
-            flex-direction :column;
-            justify-content: center;
-            align-items: start;
-            background-color: #e6e6e6;
-            padding: 70px;
-            margin-bottom: 30px;
-        }
-    </style>
+    <title>AxotApp |</title>
 </head>
 <body>
-    @if (IsSectionDefined("MessageBox"))
-    {
-        @RenderSection("MessageBox",false)
+    @if(IsSectionDefined("MessageBox")){
+        <div class="alert alert-success text-center">@RenderSection("MessageBox")</div>
+        
     }else{
-        <div class="alert alert-success text-center">Wellcome</div>
+        <div class="alert alert-success text-center">Welcome</div>
     }
-
     @await Html.PartialAsync("_navbar")
-    <partial name="_header">
-    
-    <main class="mb-4">
+    @await Html.PartialAsync("_header")
+    <main class="my-3">
         <div class="container">
             <div class="row">
-                @if (IsSectionDefined("Categories"))
+                @if(IsSectionDefined("Categories"))
                 {
                     <div class="col-md-3">
                         @RenderSection("Categories",false)
@@ -53,21 +29,14 @@
                         @RenderBody()
                     </div>
                 }else{
-                    <div class="col-md-12">
-                        @RenderBody()
-                    </div>
+                <div class="col-md-12">
+                    @RenderBody()
+                </div> 
                 }
             </div>
         </div>
-
     </main>
-
-    <footer class="py-5 bg-dark text-center text-white">
-        AxotApp | 2025
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    @RenderSection("Scripts",false)
-
+    @await Html.PartialAsync("_footer")
+    
 </body>
 </html>

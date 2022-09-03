@@ -1,28 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Main.Models;
-using Main.ViewModels;
-using Main.Data;
+using Yoxlama.Data;
+using Yoxlama.ViewModels;
 
-namespace Main.Controllers
+namespace Yoxlama.Controllers
 {
     public class HomeController : Controller
     {
-        // localhost:7032/home/index
-        public IActionResult Index()
-        {
-            var ProductView = new ProductViewModel(){
-                Products= ProductRepository.Products
+        public IActionResult Index(){
+            var products = ProductRepository.Products;
+            var ProductView = new ProductViewModel{
+                Products = products
             };
             return View(ProductView);
         }
-        // localhost:7032/home/about
-        public IActionResult About()
-        {
+        public IActionResult About(){
             return View();
         }
-        public IActionResult Contact()
-        {
-            return View("Contactme");
+        public IActionResult Contact(){
+            return View();
         }
     }
 }

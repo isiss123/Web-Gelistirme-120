@@ -1,26 +1,19 @@
 @model ProductViewModel
-
 @{
     var products = @Model.Products;
-    var popularClass = products.Count>2 ?"popular":"";
 }
 
-    
 @section Categories
 {
-    @* Category gelecek *@
-    @await Component.InvokeAsync("Categories")
+    @await Component.InvokeAsync("Category")
 }
 
-                    @* RenderBody *@
-                    
-@* Productlar gelecek *@
-@if (products.Count == 0)
+
+@if (products.Count==0)
 {
     @await Html.PartialAsync("_noproduct")
-}
-else{
-    <div class="row">
+}else{
+    <div class="row" style="row-gap: 10px;">
         @foreach (var product in products)
         {
             <div class="col-md-3">
