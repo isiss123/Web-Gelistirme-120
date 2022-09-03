@@ -16,7 +16,7 @@
         <div class="alert alert-success text-center">Welcome</div>
     }
     @await Html.PartialAsync("_navbar")
-    @await Html.PartialAsync("_header")
+    @RenderSection("Header",false)
     <main class="my-3">
         <div class="container">
             <div class="row">

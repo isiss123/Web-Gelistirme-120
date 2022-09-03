@@ -7,6 +7,10 @@
 {
     Messages
 }
+@section Header
+{
+    @await Html.PartialAsync("_header")
+}
 @if (products.Count==0)
 {
     @await Html.PartialAsync("_noproduct")

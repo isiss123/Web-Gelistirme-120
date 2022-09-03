@@ -38,5 +38,12 @@ namespace Yoxlama.Controllers
             var product = ProductRepository.GetProductById(id);
             return View(product);
         }
+
+        public IActionResult Create(string name, double price)
+        {
+            Console.WriteLine(name);
+            Console.WriteLine(price);
+            return View();
+        }
     }
 }
