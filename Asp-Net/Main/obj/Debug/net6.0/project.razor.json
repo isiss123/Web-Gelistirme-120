@@ -16390,6 +16390,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Product\\Edit.cshtml",
+      "TargetPath": "Views\\Product\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
       "FileKind": "mvc"

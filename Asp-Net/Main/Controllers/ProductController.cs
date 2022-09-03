@@ -51,7 +51,24 @@ namespace Yoxlama.Controllers
         public IActionResult Create(Product product)
         {
             ProductRepository.AddProduct(product);
-            return RedirectToAction("list");
+            
+            // return RedirectToAction("list");
+            return Redirect("/product/list");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
+            return View( ProductRepository.GetProductById(id) );
+        }
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            ProductRepository.EditProduct(product);
+
+            // return RedirectToAction("list");
+            return Redirect("/product/list");
         }
     }
 }

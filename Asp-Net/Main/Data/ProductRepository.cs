@@ -33,5 +33,22 @@ namespace Yoxlama.Data
         {
             return _products.FirstOrDefault(p=>p.ProductId==id);
         }
+
+        public static void EditProduct(Product product)
+        {
+            foreach (var p in _products)
+            {
+                if(p.ProductId == product.ProductId)
+                {
+                    p.ProductId = product.ProductId;
+                    p.Name = product.Name;
+                    p.Price = product.Price;
+                    p.Description = product.Description;
+                    p.ImageUrl = product.ImageUrl;
+                    p.CategoryId = product.CategoryId;
+                    p.IsApproved = product.IsApproved;
+                }
+            }
+        }
     }
 }
