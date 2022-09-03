@@ -14,3 +14,7 @@ etiket
 
 [HttpGet] // her bir seyfede (Index,List,Details) isleyir yazmasaqda olar
 [HttpPost] // hecbir seyfede islemir. Islemesi ucun yazmaliyiq
+
+
+ENTITY yaratmaq ucun 
+dotnet new classlib -o ...

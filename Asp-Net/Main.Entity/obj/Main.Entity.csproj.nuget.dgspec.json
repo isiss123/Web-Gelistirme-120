@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj": {}
+    "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj": {}
   },
   "projects": {
-    "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj": {
+    "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj",
-        "projectName": "Yoxlama",
-        "projectPath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj",
+        "projectUniqueName": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj",
+        "projectName": "Main.Entity",
+        "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj",
         "packagesPath": "C:\\Users\\Hesen\\.nuget\\packages\\",
-        "outputPath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\obj\\",
+        "outputPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hesen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,12 +39,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.TagHelpers": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -56,9 +50,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

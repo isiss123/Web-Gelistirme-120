@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Vsk91IBDeLrft6RFNPtmIot8rQAz/uSOzEygeTCWTmpw5+06Rb288uYgix0RH7c73iz5VrOGO5nZdewXW+MMA==",
+  "dgSpecHash": "clfgOdw4ox+f4NdqsUOEr01Ut3AFI3YzM5DZWgqVE7W5fPcvJ+ZXUzaGEqHfDgKWJXlrob+4lj79E30WJMywuw==",
   "success": true,
-  "projectFilePath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj",
+  "projectFilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hesen\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
