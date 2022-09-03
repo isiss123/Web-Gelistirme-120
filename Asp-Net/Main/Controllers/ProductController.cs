@@ -45,15 +45,19 @@ namespace Yoxlama.Controllers
         public IActionResult Create()
         {
             ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
-            return View();
+            return View(new Product());
         }
         [HttpPost] // hecbir seyfede islemir. Islemesi ucun yazmaliyiq
         public IActionResult Create(Product product)
         {
-            ProductRepository.AddProduct(product);
-            
+            if(ModelState.IsValid)
+            {
+                ProductRepository.AddProduct(product);
+                return Redirect("/product/list");
+            }
+            ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
             // return RedirectToAction("list");
-            return Redirect("/product/list");
+            return View(product);
         }
 
         [HttpGet]
