@@ -7,3 +7,10 @@ View/Shared qovlugu butun CONTOLLER-den elcatilandir
 Partial view : html seyfesinde bir bolum birden cox seyfede isledilirse hamisini eyni yerden idare etmek ucun yaradilir
 
 _ViewStart.cshtml   : seyfeler basladigi anda icersinde qeyd olunan funksiyalari istifade edir
+
+
+
+etiket
+
+[HttpGet] // her bir seyfede (Index,List,Details) isleyir yazmasaqda olar
+[HttpPost] // hecbir seyfede islemir. Islemesi ucun yazmaliyiq

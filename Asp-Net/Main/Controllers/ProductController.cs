@@ -39,11 +39,17 @@ namespace Yoxlama.Controllers
             return View(product);
         }
 
-        public IActionResult Create(string name, double price)
+
+        [HttpGet] // her bir seyfede (Index,List,Details) isleyir yazmasaqda olar
+        public IActionResult Create()
         {
-            Console.WriteLine(name);
-            Console.WriteLine(price);
             return View();
+        }
+        [HttpPost] // hecbir seyfede islemir. Islemesi ucun yazmaliyiq
+        public IActionResult Create(Product product)
+        {
+            ProductRepository.AddProduct(product);
+            return RedirectToAction("list");
         }
     }
 }
