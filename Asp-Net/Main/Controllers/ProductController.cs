@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Yoxlama.Data;
 using Yoxlama.Models;
 using Yoxlama.ViewModels;
@@ -43,6 +44,7 @@ namespace Yoxlama.Controllers
         [HttpGet] // her bir seyfede (Index,List,Details) isleyir yazmasaqda olar
         public IActionResult Create()
         {
+            ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
             return View();
         }
         [HttpPost] // hecbir seyfede islemir. Islemesi ucun yazmaliyiq

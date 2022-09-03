@@ -3,23 +3,25 @@
 <form method="POST">
     <div class="form-group">
         <label for="Name" class="form-label">Name</label>
-        <input asp-for="@Model.Name" class="form-control">
+        <input asp-for="Name" class="form-control">
     </div>
     <div class="form-group">
         <label for="Price" class="form-label">Price</label>
-        <input asp-for="@Model.Price" class="form-control">
+        <input asp-for="Price" class="form-control">
     </div>
     <div class="form-group">
         <label for="Description" class="form-label">Description</label>
-        <textarea asp-for="@Model.Description" class="form-control"></textarea>
+        <textarea asp-for="Description" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label for="ImageUrl" class="form-label">ImageUrl</label>
-        <input asp-for="@Model.ImageUrl" class="form-control">
+        <input asp-for="ImageUrl" class="form-control">
     </div>
     <div class="form-group">
         <label for="CategoryId" class="form-label">CategoryId</label>
-        <input asp-for="@Model.CategoryId" class="form-control">
+        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select">
+            <option selected disabled>Seçin</option>
+        </select>
     </div>
-    <button type="submit" class="btn btn-primary">submit</button>
+    <button type="submit" class="btn btn-primary" style="margin-top:10px ;">submit</button>
 </form>
