@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using Main.Data.Abstract;
 using Main.Entity;
 
-namespace Main.Data.Concrete.Oracle
+namespace Main.Data.Concrete.EfCore
 {
-    public class OracleCategoryRepository : ICategoryRepository
+    public class EfCoreCategoryRepository : ICategoryRepository
     {
+        private MainContext db = new MainContext();
+
         public void Create(Category entity)
         {
-            throw new NotImplementedException();
+            db.Categories.Add(entity);
+            db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -25,6 +28,11 @@ namespace Main.Data.Concrete.Oracle
         }
 
         public Category GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> GetPopularCategories()
         {
             throw new NotImplementedException();
         }

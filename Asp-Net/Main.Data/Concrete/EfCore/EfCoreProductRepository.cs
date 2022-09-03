@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Main.Data.Abstract;
 using Main.Entity;
 
-namespace Main.Data.Concrete.SQL
+namespace Main.Data.Concrete.EfCore
 {
-    public class SQLProductRepository : IProductRepository
+    public class EfCoreProductRepository : IProductRepository
     {
+        private MainContext db = new MainContext();
         public void Create(Product entity)
         {
-            throw new NotImplementedException();
+            db.Products.Add(entity);
+            db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -25,6 +27,11 @@ namespace Main.Data.Concrete.SQL
         }
 
         public Product GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetPopularProducts()
         {
             throw new NotImplementedException();
         }
