@@ -50,5 +50,14 @@ namespace Yoxlama.Data
                 }
             }
         }
+    
+        public static void DeleteProduct(int id)
+        {
+            var product = GetProductById(id);
+            if ( product!=null )
+            {
+                _products.Remove(product);
+            }
+        }
     }
 }
