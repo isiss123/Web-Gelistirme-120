@@ -10,5 +10,6 @@ namespace Main.Data.Abstract
     {
         Product GetProductDetails(int id);
         List<Product> GetPopularProducts();
+        List<Product> GetProductByCategory(string name);
     }
 }

@@ -18,6 +18,21 @@ namespace Main.Data.Concrete.EfCore
             }
         }
 
+        public List<Product> GetProductByCategory(string name)
+        {
+            using (var db = new MainContext())
+            {
+                var products = db.Products.AsQueryable();
+                if(!string.IsNullOrEmpty(name))
+                {
+                    products = products.Include(p=>p.ProductCategories)
+                            .ThenInclude(pc=>pc.Category)
+                            .Where(p=>p.ProductCategories.Any(a=>a.Category.Name.ToLower() == name.ToLower()));
+                }
+                return products.ToList();
+            }
+        }
+
         public Product GetProductDetails(int id)
         {
             using(var db = new MainContext())

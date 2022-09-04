@@ -17,8 +17,9 @@ namespace Main.Controllers
         {
             this._productService = productService;
         }
-        public IActionResult List(){
-            var products = _productService.GetAll();
+        public IActionResult List(string category){
+            
+            var products = _productService.GetProductByCategory(category);
             
             var ProductView = new ProductListViewModel{
                 Products = products
