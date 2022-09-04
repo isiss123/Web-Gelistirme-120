@@ -29,9 +29,9 @@ namespace Yoxlama.Controllers
             //    QUERY STRING
             // Console.WriteLine(q);
             // Console.WriteLine(HttpContext.Request.Query["q"].ToString());
-            if(id!=null){
-                products = products.Where(p=>p.CategoryId==id).ToList();
-            };
+            // if(id!=null){
+            //     products = products.Where(p=>p.CategoryId==id).ToList();
+            // };
             if (!String.IsNullOrEmpty(q))
             {
                 products = products.Where(p=>p.Name.ToLower().Contains(q.ToLower()) || 

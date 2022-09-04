@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Main.Business.Abstract;
 using Main.Entity;
+using Main.Models;
 using Microsoft.AspNetCore.Mvc;
 using Yoxlama.ViewModels;
 
@@ -16,12 +17,9 @@ namespace Main.Controllers
         {
             this._productService = productService;
         }
-        public IActionResult List(int? id){
+        public IActionResult List(){
             var products = _productService.GetAll();
-            if(id!=null)
-            {
-                products = products.Where(p=>p.CategoryId==id).ToList();
-            }
+            
             var ProductView = new ProductListViewModel{
                 Products = products
             };
@@ -32,10 +30,14 @@ namespace Main.Controllers
             if(id==null)
                 return NotFound();
             
-            Product product = _productService.GetById((int)id);
+            Product product = _productService.GetProductDetails((int)id);
             if(product==null)
                 return NotFound();
-            return View(product);
+            var ProductDetails = new ProductDetailModel{
+                Product = product,
+                Categories = product.ProductCategories.Select(c=>c.Category).ToList()
+            };
+            return View(ProductDetails);
         }
     }
 }
