@@ -10,7 +10,12 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Repository
         builder.Services.AddScoped<IProductRepository,EfCoreProductRepository>();
+        builder.Services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
+
+        //Service
+        builder.Services.AddScoped<ICategoryService,CategoryManager>();
         builder.Services.AddScoped<IProductService,ProductManager>();
         // Program IProductRepository cagiranda EfCoreProductRepository-den object yaradib gonderir
         

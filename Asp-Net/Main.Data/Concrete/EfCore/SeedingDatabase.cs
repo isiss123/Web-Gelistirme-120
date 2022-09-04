@@ -31,10 +31,10 @@ namespace Main.Data.Concrete.EfCore
         };
         private static Product[] Products = {
             new Product(){Name="IPhone 13",Price=2000,Description="Yaxşı şəkil çəkir",ImageUrl="1.jpg",IsApproved=true},
-            new Product(){Name="IPhone 13 Pro Max",Price=2400,Description="Yaxşı şəkil çəkir",ImageUrl="1.jpg",IsApproved=false},
+            new Product(){Name="IPhone 13 Pro",Price=2400,Description="Yaxşı şəkil çəkir",ImageUrl="1.jpg",IsApproved=false},
             new Product(){Name="Dell G15",Price=1500,Description="Oyunlar donmur",ImageUrl="1.jpg",IsApproved=true},
             new Product(){Name="Monster Abra A5",Price=3800,Description="Oyunlar donmur",ImageUrl="1.jpg",IsApproved=true},
-            new Product(){Name="Doğu Ekspresi'nde Cinayet",Price=100,Description="Dedektif",ImageUrl="1.jpg",IsApproved=true},
+            new Product(){Name="Ekspresi'nde Cinayet",Price=100,Description="Dedektif",ImageUrl="1.jpg",IsApproved=true},
             new Product(){Name="Extreme Ownership",Price=2000,Description="Girişim",ImageUrl="1.jpg",IsApproved=false},
         };
 

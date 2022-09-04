@@ -15,8 +15,12 @@ namespace Main.Controllers
         {
             this._productService = productService;
         }
-        public IActionResult List(){
+        public IActionResult List(int? id){
             var products = _productService.GetAll();
+            if(id!=null)
+            {
+                products = products.Where(p=>p.CategoryId==id).ToList();
+            }
             var ProductView = new ProductListViewModel{
                 Products = products
             };
