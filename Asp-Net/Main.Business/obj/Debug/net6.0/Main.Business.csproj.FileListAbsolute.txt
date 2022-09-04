@@ -1,0 +1,17 @@
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Business.deps.json
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Business.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Business.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Data.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Entity.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Entity.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\bin\Debug\net6.0\Main.Data.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.csproj.AssemblyReference.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.GeneratedMSBuildEditorConfig.editorconfig
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.AssemblyInfoInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.AssemblyInfo.cs
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.csproj.CoreCompileInputs.cache
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.csproj.CopyComplete
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\refint\Main.Business.dll
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\Main.Business.pdb
+E:\Istiqlal\Udemy\Asp-Net\Main.Business\obj\Debug\net6.0\ref\Main.Business.dll

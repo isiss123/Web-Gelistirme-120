@@ -2636,6 +2636,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Main.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Main.Data": "1.0.0",
+          "Main.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Main.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Main.Business.dll": {}
+        }
+      },
       "Main.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -8102,6 +8116,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Main.Business/1.0.0": {
+      "type": "project",
+      "path": "../Main.Business/Main.Business.csproj",
+      "msbuildProject": "../Main.Business/Main.Business.csproj"
+    },
     "Main.Data/1.0.0": {
       "type": "project",
       "path": "../Main.Data/Main.Data.csproj",
@@ -8115,6 +8134,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Main.Business >= 1.0.0",
       "Main.Data >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.TagHelpers >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.8",
@@ -8149,6 +8169,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj": {
+              "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj"
+            },
             "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj": {
               "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj"
             }

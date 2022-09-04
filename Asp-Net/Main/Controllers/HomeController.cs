@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Business.Abstract;
 using Main.Data.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Yoxlama.ViewModels;
@@ -10,13 +11,13 @@ namespace Yoxlama.Controllers
 {
     public class HomeController : Controller
     {
-        private IProductRepository _productRepository { get; set; }
-        public HomeController( IProductRepository productRepository )
+        private IProductService _productService { get; set; }
+        public HomeController( IProductService productService )
         {
-            this._productRepository = productRepository;
+            this._productService = productService;
         }
         public IActionResult Index(){
-            var products = _productRepository.GetAll();
+            var products = _productService.GetAll();
             var ProductView = new ProductViewModel{
                 Products = products
             };

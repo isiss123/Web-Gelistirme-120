@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Yoxlama/1.0.0": {
         "dependencies": {
+          "Main.Business": "1.0.0",
           "Main.Data": "1.0.0",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.8",
@@ -1513,6 +1514,15 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "Main.Business/1.0.0": {
+        "dependencies": {
+          "Main.Data": "1.0.0",
+          "Main.Entity": "1.0.0"
+        },
+        "runtime": {
+          "Main.Business.dll": {}
+        }
+      },
       "Main.Data/1.0.0": {
         "dependencies": {
           "Main.Entity": "1.0.0",
@@ -2718,6 +2728,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Main.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Main.Data/1.0.0": {
       "type": "project",

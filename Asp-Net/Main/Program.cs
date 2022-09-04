@@ -1,3 +1,5 @@
+using Main.Business.Abstract;
+using Main.Business.Concrete;
 using Main.Data.Abstract;
 using Main.Data.Concrete.EfCore;
 using Microsoft.Extensions.FileProviders;
@@ -7,8 +9,11 @@ internal class Program
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
         builder.Services.AddScoped<IProductRepository,EfCoreProductRepository>();
+        builder.Services.AddScoped<IProductService,ProductManager>();
         // Program IProductRepository cagiranda EfCoreProductRepository-den object yaradib gonderir
+        
         builder.Services.AddControllersWithViews();
         
         using var app = builder.Build();

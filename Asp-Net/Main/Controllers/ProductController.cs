@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Business.Abstract;
 using Main.Data.Abstract;
 using Main.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,17 +14,17 @@ namespace Yoxlama.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductRepository _productRepository { get; set; }
-        public ProductController( IProductRepository productRepository )
+        private IProductService _productService { get; set; }
+        public ProductController( IProductService productService )
         {
-            this._productRepository = productRepository;
+            this._productService = productService;
         }
         public IActionResult Index(){
             return View();
         }
         public IActionResult List(int? id,string q)
         {
-            var products = _productRepository.GetAll();
+            var products = _productService.GetAll();
 
             //    QUERY STRING
             // Console.WriteLine(q);
@@ -43,7 +44,7 @@ namespace Yoxlama.Controllers
         }
         public IActionResult Details(int id){
             // var product = ProductRepository.GetProductById(id);
-            var product = _productRepository.GetById(id);
+            var product = _productService.GetById(id);
             return View(product);
         }
 
@@ -60,7 +61,7 @@ namespace Yoxlama.Controllers
             if(ModelState.IsValid)
             {
                 // ProductRepository.AddProduct(product);
-                _productRepository.Create(product);
+                _productService.Create(product);
                 return Redirect("/product/list");
             }
             // // ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
@@ -72,13 +73,13 @@ namespace Yoxlama.Controllers
         public IActionResult Edit(int id)
         {
             // ViewBag.Categories = new SelectList(CategoryRepository.Categories,"CategoryId","Name");
-            return View( _productRepository.GetById(id));
+            return View( _productService.GetById(id));
         }
         [HttpPost]
         public IActionResult Edit(Product product)
         {
             // ProductRepository.EditProduct(product);
-            _productRepository.Update(product);
+            _productService.Update(product);
             // // return RedirectToAction("list");
             return Redirect("/product/list");
         }
@@ -86,6 +87,8 @@ namespace Yoxlama.Controllers
         [HttpPost]
         public IActionResult Delete(int ProductId)
         {
+            var product = _productService.GetById(ProductId);
+            _productService.Delete(product);
             // ProductRepository.DeleteProduct(ProductId);
             
             return Redirect("/product/list");

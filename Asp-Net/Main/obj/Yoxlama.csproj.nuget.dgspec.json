@@ -4,6 +4,67 @@
     "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj": {}
   },
   "projects": {
+    "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj",
+        "projectName": "Main.Business",
+        "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj",
+        "packagesPath": "C:\\Users\\Hesen\\.nuget\\packages\\",
+        "outputPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Hesen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj": {
+                "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj"
+              },
+              "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj": {
+                "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Entity\\Main.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -156,6 +217,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj": {
+                "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Business\\Main.Business.csproj"
+              },
               "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj": {
                 "projectPath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main.Data\\Main.Data.csproj"
               }

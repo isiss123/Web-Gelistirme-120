@@ -1,3 +1,10 @@
+                    PROYEKTLER
+Main -> Main.Business -> Main.Data
+
+Mainden ( internetden ) gelen meluamat Main.Business-de verilen qaydalara uygun olaraq yoxlanildiqdan sonra Main.Data-a gonderilerek Database-e qeyd edilir
+
+
+----------------------------------------------
 View -e melumat gonderme methodlari :
                 1:    ViewBag.Category = "telefon "  istifade  = @ViewBag.Category  (ViewBag.vereceyimiz_ad)
                 2:    ViewData["Category"] = "telefon" istifade = @ViewData["Category"] (ViewBag["vereceyimiz_ad"])
@@ -33,3 +40,7 @@ Concrete   - Interfacei esas goturerek yaranan
 
 dotnet ef migrations add InitialCreate --startup-project ../Main
 dotnet ef database update --startup-project ../Main
+
+
+
+
