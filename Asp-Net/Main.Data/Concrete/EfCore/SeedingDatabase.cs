@@ -26,10 +26,10 @@ namespace Main.Data.Concrete.EfCore
             }
         }
         private static Category[] Categories={
-            new Category(){Name="Kitab"}, // 0
-            new Category(){Name="Telefon"},// 1
-            new Category(){Name="Kompyuter"},// 2
-            new Category(){Name="Oyun"} //3
+            new Category(){Name="Kitab",Url="kitab"}, // 0
+            new Category(){Name="Telefon",Url="telefon"},// 1
+            new Category(){Name="Kompyuter",Url="kompyuter"},// 2
+            new Category(){Name="Oyun",Url="oyun"} //3
         };
         
         private static Product[] Products = {

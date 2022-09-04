@@ -27,7 +27,7 @@ namespace Main.Data.Concrete.EfCore
                 {
                     products = products.Include(p=>p.ProductCategories)
                             .ThenInclude(pc=>pc.Category)
-                            .Where(p=>p.ProductCategories.Any(a=>a.Category.Name.ToLower() == name.ToLower()));
+                            .Where(p=>p.ProductCategories.Any(a=>a.Category.Url == name));
                 }
                 return products.ToList();
             }

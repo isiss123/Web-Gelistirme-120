@@ -1,11 +1,11 @@
 @model List<Category>
 
 <div class="list-group">
-    <a asp-controller="user"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Bütün Kategoryalar</a>
+    <a href="/products" class="list-group-item list-group-item-action">Bütün Kategoryalar</a>
     @foreach (var category in Model)
     {
-        <a asp-controller="user"asp-action="list" asp-route-id="@category.CategoryId" class="list-group-item st-group-item-action @(
-            ViewBag.SelectedCategory == category.CategoryId.ToString()?"active":""
+        <a asp-controller="user"asp-action="list" asp-route-category="@category.Url" class="list-group-item st-group-item-action @(
+            ViewBag.SelectedCategory == category.Url?"active":""
         )" >@category.Name</a>
     }
     

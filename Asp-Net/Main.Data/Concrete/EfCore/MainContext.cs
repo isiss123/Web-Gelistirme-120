@@ -22,6 +22,9 @@ namespace Main.Data.Concrete.EfCore
         {
             modelBuilder.Entity<ProductCategory>()
                 .HasKey(i=> new{i.ProductId, i.CategoryId});
+            modelBuilder.Entity<Category>()
+                .HasIndex(i=>i.Url)
+                .IsUnique();
         }
     }
 }
