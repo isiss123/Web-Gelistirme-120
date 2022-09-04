@@ -1,0 +1,14 @@
+
+
+<div class="list-group">
+    <a asp-controller="product"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Bütün Kategoryalar</a>
+    <a asp-controller="product"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Kitab</a>
+    <a asp-controller="product"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Telefon</a>
+    <a asp-controller="product"asp-action="list" asp-route-id="" class="list-group-item list-group-item-action">Kompyuter</a>
+    
+</div>@* @foreach (var category in Model)
+    {
+        <a asp-controller="product"asp-action="list" asp-route-id="@category.CategoryId" class="list-group-item st-group-item-action @(
+            ViewBag.SelectedCategory == category.CategoryId.ToString()?"active":""
+        )" >@category.Name</a>li
+    } *@

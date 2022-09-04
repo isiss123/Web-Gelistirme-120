@@ -6,7 +6,7 @@ using Main.Entity;
 
 namespace Yoxlama.ViewModels
 {
-    public class ProductViewModel
+    public class ProductListViewModel
     {
         public List<Product> Products { get; set; }
     }

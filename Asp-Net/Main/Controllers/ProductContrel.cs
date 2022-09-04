@@ -37,7 +37,7 @@ namespace Yoxlama.Controllers
                 products = products.Where(p=>p.Name.ToLower().Contains(q.ToLower()) || 
                 p.Description.ToLower().Contains(q.ToLower())).ToList();
             };
-            var ProductView = new ProductViewModel{
+            var ProductView = new ProductListViewModel{
                 Products = products
             };
             return View(ProductView);

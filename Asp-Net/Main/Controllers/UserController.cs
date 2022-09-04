@@ -3,31 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Main.Business.Abstract;
-using Main.Data.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Yoxlama.ViewModels;
 
-namespace Yoxlama.Controllers
+namespace Main.Controllers
 {
-    public class HomeController : Controller
+    public class UserController: Controller
     {
         private IProductService _productService { get; set; }
-        public HomeController( IProductService productService )
+        public UserController( IProductService productService )
         {
             this._productService = productService;
         }
-        public IActionResult Index(){
+        public IActionResult List(){
             var products = _productService.GetAll();
             var ProductView = new ProductListViewModel{
                 Products = products
             };
             return View(ProductView);
-        }
-        public IActionResult About(){
-            return View();
-        }
-        public IActionResult Contact(){
-            return View();
         }
     }
 }

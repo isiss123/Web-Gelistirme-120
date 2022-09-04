@@ -1,12 +1,8 @@
-@model ProductViewModel
+@model ProductListViewModel
 @{
     var products = @Model.Products;
 }
 
-@section MessageBox
-{
-    Messages
-}
 @section Header
 {
     @await Html.PartialAsync("_header")

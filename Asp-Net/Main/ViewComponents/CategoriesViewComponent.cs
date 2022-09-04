@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-
-namespace Yoxlama.ViewComponents
+namespace Main.ViewComponents
 {
-    public class CategoryViewComponent : ViewComponent
+    public class CategoriesViewComponent : ViewComponent
     {
+        
         public IViewComponentResult Invoke()
         {
             // if(RouteData.Values["action"].ToString() == "List")
