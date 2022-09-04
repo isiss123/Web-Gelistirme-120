@@ -14245,20 +14245,20 @@
         }
       },
       {
-        "HashCode": 764219183,
+        "HashCode": 1002545872,
         "Kind": "MVC.ViewComponent",
-        "Name": "__Generated__CategoryViewComponentTagHelper",
+        "Name": "__Generated__CategoriesViewComponentTagHelper",
         "AssemblyName": "Yoxlama",
         "CaseSensitive": false,
         "TagMatchingRules": [
           {
-            "TagName": "vc:category"
+            "TagName": "vc:categories"
           }
         ],
         "Metadata": {
           "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "__Generated__CategoryViewComponentTagHelper",
-          "MVC.ViewComponent.Name": "Category"
+          "Common.TypeName": "__Generated__CategoriesViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Categories"
         }
       },
       {
@@ -16350,13 +16350,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Shared\\_product.cshtml",
-      "TargetPath": "Views\\Shared\\_product.cshtml",
+      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\User\\Details.cshtml",
+      "TargetPath": "Views\\User\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Shared\\Components\\Category\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\Category\\Default.cshtml",
+      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Shared\\_product.cshtml",
+      "TargetPath": "Views\\Shared\\_product.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16367,6 +16367,11 @@
     {
       "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Views\\Shared\\Components\\Categories\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Categories\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
