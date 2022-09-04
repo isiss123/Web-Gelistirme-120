@@ -17,9 +17,11 @@ internal class Program
         builder.Services.AddControllersWithViews();
         
         using var app = builder.Build();
-        
+        if(app.Environment.IsDevelopment())
+        {
+            SeedingDatabase.Seed();
+        }
         app.UseRouting();
-
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
         {
@@ -28,6 +30,7 @@ internal class Program
                 pattern: "{controller=Home}/{action=Index}/{id?}"
             );
         });
+        
         app.UseStaticFiles();
         app.UseStaticFiles(new StaticFileOptions
         {
@@ -35,7 +38,6 @@ internal class Program
                 Path.Combine(builder.Environment.ContentRootPath, "node_modules")),
             RequestPath = "/node_modules"
         });
-
         app.Run();
     }
 }
