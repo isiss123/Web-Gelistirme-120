@@ -17,7 +17,7 @@ namespace Yoxlama.Controllers
             this._productService = productService;
         }
         public IActionResult Index(){
-            var products = _productService.GetAll();
+            var products = _productService.GetProductForHome();
             var ProductView = new ProductListViewModel{
                 Products = products
             };

@@ -12,5 +12,6 @@ namespace Main.Data.Abstract
         List<Product> GetPopularProducts();
         List<Product> GetProductByCategory(string name, int page, int pageSize);
         int GetCountByCategory(string category);
+        List<Product> GetProductForHome();
     }
 }

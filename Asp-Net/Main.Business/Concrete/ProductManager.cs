@@ -57,5 +57,10 @@ namespace Main.Business.Concrete
         {
             return _productRepository.GetCountByCategory(category);
         }
+
+        public List<Product> GetProductForHome()
+        {
+            return _productRepository.GetProductForHome();
+        }
     }
 }

@@ -62,5 +62,13 @@ namespace Main.Data.Concrete.EfCore
                                     .FirstOrDefault();
             }
         }
+
+        public List<Product> GetProductForHome()
+        {
+            using (var db = new MainContext())
+            {
+                return db.Products.Where(i=>i.IsApproved && i.IsHome).ToList();
+            }
+        }
     }
 }
