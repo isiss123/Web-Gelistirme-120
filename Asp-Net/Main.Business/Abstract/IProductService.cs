@@ -15,5 +15,6 @@ namespace Main.Business.Abstract
         void Create(Product entity);
         void Delete(Product entity);
         void Update(Product entity);
+        int GetCountByCategory(string category);
     }
 }

@@ -20,10 +20,15 @@ namespace Main.Controllers
         public IActionResult List(string category, int page=1){
             // localhost/products/oyun?page=1
             const int pageSize = 3;
-            var products = _productService.GetProductByCategory(category,page,pageSize);
             
             var ProductView = new ProductListViewModel{
-                Products = products
+                PageInfo = new PageInfo{
+                    TotalItems = _productService.GetCountByCategory(category),
+                    ItemsPerPages = pageSize,
+                    CurrentPage = page,
+                    CurrentCategory = category
+                },
+                Products = _productService.GetProductByCategory(category,page,pageSize)
             };
             return View(ProductView);
         }

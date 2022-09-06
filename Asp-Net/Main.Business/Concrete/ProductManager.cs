@@ -52,5 +52,10 @@ namespace Main.Business.Concrete
         {
             return _productRepository.GetProductByCategory(name, page, pageSize);
         }
+
+        public int GetCountByCategory(string category)
+        {
+            return _productRepository.GetCountByCategory(category);
+        }
     }
 }

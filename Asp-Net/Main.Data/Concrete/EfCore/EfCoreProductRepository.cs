@@ -10,6 +10,23 @@ namespace Main.Data.Concrete.EfCore
 {
     public class EfCoreProductRepository : EfCoreGenericRepository<Product, MainContext>, IProductRepository
     {
+        public int GetCountByCategory(string category)
+        {
+            using (var db = new MainContext())
+            {
+                var products = db.Products.AsQueryable();
+                if(!string.IsNullOrEmpty(category))
+                {
+                    products = products
+                                        .Include(p=>p.ProductCategories)
+                                        .ThenInclude(pc=>pc.Category)
+                                        .Where(i=>i.ProductCategories.Any(c=>c.Category.Url == category));
+                }
+
+                return products.Count();
+            }
+        }
+
         public List<Product> GetPopularProducts()
         {
             using ( var db = new MainContext())
