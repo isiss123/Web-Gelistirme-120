@@ -8,7 +8,7 @@ namespace Main.Data.Abstract
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Product GetProductDetails(int id);
+        Product GetProductDetails(string url);
         List<Product> GetPopularProducts();
         List<Product> GetProductByCategory(string name);
     }

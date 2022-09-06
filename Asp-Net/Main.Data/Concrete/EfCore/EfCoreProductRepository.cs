@@ -33,11 +33,11 @@ namespace Main.Data.Concrete.EfCore
             }
         }
 
-        public Product GetProductDetails(int id)
+        public Product GetProductDetails(string url)
         {
             using(var db = new MainContext())
             {
-                return db.Products.Where(p=>p.ProductId==id)
+                return db.Products.Where(p=>p.Url == url)
                                     .Include(c=>c.ProductCategories)
                                     .ThenInclude(c=>c.Category)
                                     .FirstOrDefault();

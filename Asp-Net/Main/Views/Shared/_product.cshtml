@@ -1,6 +1,6 @@
 @model Product
 <div class="card">
-    <img class="card-image-top" src="~/images/@Model.ImageUrl" alt="">
+    <img class="card-image-top" src="~/images/@Model.ImageUrl" alt="@Model.Name.ToLower()">
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
         <small class="text-muted"><i class="fa-solid fa-dollar-sign"></i> @Model.Price</small>
@@ -8,7 +8,7 @@
          
     </div>
     <div class="card-footer text-center">
-            <a asp-controller="user" asp-action="details" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Details</a>
-            <a asp-controller="product" asp-action="details" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Add to Cart</a>
+            <a asp-controller="user" asp-action="details" asp-route-producturl="@Model.Url" class="btn btn-primary btn-sm">Details</a>
+            <a asp-controller="user" asp-action="details" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Add to Cart</a>
     </div>
 </div>

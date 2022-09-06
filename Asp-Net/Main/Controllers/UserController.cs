@@ -26,12 +26,12 @@ namespace Main.Controllers
             };
             return View(ProductView);
         }
-        public IActionResult Details(int? id)
+        public IActionResult Details(string producturl)
         {
-            if(id==null)
+            if(producturl==null)
                 return NotFound();
             
-            Product product = _productService.GetProductDetails((int)id);
+            Product product = _productService.GetProductDetails(producturl);
             if(product==null)
                 return NotFound();
             var ProductDetails = new ProductDetailModel{

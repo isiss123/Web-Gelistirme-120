@@ -43,9 +43,9 @@ namespace Main.Business.Concrete
             _productRepository.Update(entity);
         }
 
-        public Product GetProductDetails(int id)
+        public Product GetProductDetails(string url)
         {
-            return _productRepository.GetProductDetails(id);
+            return _productRepository.GetProductDetails(url);
         }
 
         public List<Product> GetProductByCategory(string name)

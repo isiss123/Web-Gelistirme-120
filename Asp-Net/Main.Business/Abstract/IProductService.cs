@@ -9,7 +9,7 @@ namespace Main.Business.Abstract
     public interface IProductService
     {
         Product GetById(int id);
-        Product GetProductDetails(int id);
+        Product GetProductDetails(string url);
         List<Product> GetAll();
         List<Product> GetProductByCategory(string name);
         void Create(Product entity);
