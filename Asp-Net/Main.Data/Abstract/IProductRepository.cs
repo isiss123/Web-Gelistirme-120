@@ -10,6 +10,6 @@ namespace Main.Data.Abstract
     {
         Product GetProductDetails(string url);
         List<Product> GetPopularProducts();
-        List<Product> GetProductByCategory(string name);
+        List<Product> GetProductByCategory(string name, int page, int pageSize);
     }
 }

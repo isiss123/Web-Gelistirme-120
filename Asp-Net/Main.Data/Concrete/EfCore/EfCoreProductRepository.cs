@@ -18,7 +18,7 @@ namespace Main.Data.Concrete.EfCore
             }
         }
 
-        public List<Product> GetProductByCategory(string name)
+        public List<Product> GetProductByCategory(string name, int page, int pageSize)
         {
             using (var db = new MainContext())
             {
@@ -29,7 +29,9 @@ namespace Main.Data.Concrete.EfCore
                             .ThenInclude(pc=>pc.Category)
                             .Where(p=>p.ProductCategories.Any(a=>a.Category.Url == name));
                 }
-                return products.ToList();
+                    // SKIP  : nece eded qeydi kecirik
+                    // TAKE  : nece eded qeydi goturur
+                return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
             }
         }
 

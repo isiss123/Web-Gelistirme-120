@@ -31,15 +31,16 @@ internal class Program
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
-                name: "productname",
-                pattern: "{producturl}",
-                defaults: new{controller="user",action = "details"}
-            );
-            endpoints.MapControllerRoute(
                 name: "products",
                 pattern: "products/{category?}",
                 defaults: new{controller="user",action = "list"}
             );
+            endpoints.MapControllerRoute(
+                name: "productdetails",
+                pattern: "{url}",
+                defaults: new{controller="user",action = "details"}
+            );
+            
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}"

@@ -48,9 +48,9 @@ namespace Main.Business.Concrete
             return _productRepository.GetProductDetails(url);
         }
 
-        public List<Product> GetProductByCategory(string name)
+        public List<Product> GetProductByCategory(string name, int page, int pageSize)
         {
-            return _productRepository.GetProductByCategory(name);
+            return _productRepository.GetProductByCategory(name, page, pageSize);
         }
     }
 }
