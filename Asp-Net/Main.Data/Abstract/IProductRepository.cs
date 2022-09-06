@@ -9,9 +9,9 @@ namespace Main.Data.Abstract
     public interface IProductRepository : IRepository<Product>
     {
         Product GetProductDetails(string url);
-        List<Product> GetPopularProducts();
         List<Product> GetProductByCategory(string name, int page, int pageSize);
         int GetCountByCategory(string category);
         List<Product> GetProductForHome();
+        List<Product> GetSearchResult(string search);
     }
 }

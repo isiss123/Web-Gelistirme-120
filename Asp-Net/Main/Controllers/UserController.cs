@@ -19,7 +19,7 @@ namespace Main.Controllers
         }
         public IActionResult List(string category, int page=1){
             // localhost/products/oyun?page=1
-            const int pageSize = 1;
+            const int pageSize = 3;
             
             var ProductView = new ProductListViewModel{
                 PageInfo = new PageInfo{
@@ -45,6 +45,14 @@ namespace Main.Controllers
                 Categories = product.ProductCategories.Select(c=>c.Category).ToList()
             };
             return View(ProductDetails);
+        }
+
+        public IActionResult Search(string q)
+        {
+            var ProductView = new ProductListViewModel{
+                Products = _productService.GetSearchResult(q)
+            };
+            return View(ProductView);
         }
     }
 }

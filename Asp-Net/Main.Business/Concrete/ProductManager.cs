@@ -62,5 +62,10 @@ namespace Main.Business.Concrete
         {
             return _productRepository.GetProductForHome();
         }
+
+        public List<Product> GetSearchResult(string search)
+        {
+            return _productRepository.GetSearchResult(search);
+        }
     }
 }

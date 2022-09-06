@@ -4,8 +4,6 @@
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
         <small class="text-muted"><i class="fa-solid fa-dollar-sign"></i> @Model.Price</small>
-        @* <a href="product/details/@Model.ProductId" class="btn btn-primary">Details</a> *@
-         
     </div>
     <div class="card-footer text-center">
             <a asp-controller="user" asp-action="details" asp-route-url="@Model.Url" class="btn btn-primary btn-sm">Details</a>

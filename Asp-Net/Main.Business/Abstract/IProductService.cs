@@ -17,5 +17,6 @@ namespace Main.Business.Abstract
         void Update(Product entity);
         int GetCountByCategory(string category);
         List<Product> GetProductForHome();
+        List<Product> GetSearchResult(string search);
     }
 }

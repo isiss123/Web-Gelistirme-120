@@ -30,11 +30,18 @@ internal class Program
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
         {
+            
             endpoints.MapControllerRoute(
                 name: "products",
                 pattern: "products/{category?}",
                 defaults: new{controller="user",action = "list"}
             );
+            endpoints.MapControllerRoute(
+                name: "search",
+                pattern: "search",
+                defaults: new{controller="user",action = "search"}
+            );
+            
             endpoints.MapControllerRoute(
                 name: "productdetails",
                 pattern: "{url}",

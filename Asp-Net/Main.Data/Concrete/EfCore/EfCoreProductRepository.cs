@@ -27,19 +27,11 @@ namespace Main.Data.Concrete.EfCore
             }
         }
 
-        public List<Product> GetPopularProducts()
-        {
-            using ( var db = new MainContext())
-            {
-                return db.Products.ToList();
-            }
-        }
-
         public List<Product> GetProductByCategory(string name, int page, int pageSize)
         {
             using (var db = new MainContext())
             {
-                var products = db.Products.AsQueryable();
+                var products = db.Products.Where(c=>c.IsApproved).AsQueryable();
                 if(!string.IsNullOrEmpty(name))
                 {
                     products = products.Include(p=>p.ProductCategories)
@@ -68,6 +60,18 @@ namespace Main.Data.Concrete.EfCore
             using (var db = new MainContext())
             {
                 return db.Products.Where(i=>i.IsApproved && i.IsHome).ToList();
+            }
+        }
+
+        public List<Product> GetSearchResult(string search)
+        {
+            using (var db = new MainContext())
+            {
+                var products = db.Products.Where(p=> p.IsApproved &&
+                        (p.Name.ToLower().Contains(search.ToLower()) ||
+                        p.Description.ToLower().Contains(search.ToLower()))
+                ).AsQueryable();
+                return products.ToList();
             }
         }
     }
