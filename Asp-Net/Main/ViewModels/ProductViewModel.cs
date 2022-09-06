@@ -13,7 +13,7 @@ namespace Yoxlama.ViewModels
         public int CurrentPage { get; set; }
         public string CurrentCategory { get; set; }
 
-        int TotalPages()
+        public int TotalPages()
         {
             return (int)Math.Ceiling((decimal)TotalItems/ItemsPerPages);
         }
