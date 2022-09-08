@@ -22,30 +22,30 @@
                         </div>
                     }
                 </div>
+                // seyfeler
                 <div class="row mt-3">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             @for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
                             {
+                                
                                 @if (string.IsNullOrEmpty(Model.PageInfo.CurrentCategory))
                                 {
+                                    <!--localhost/products?page=@(i+1)-->
                                     <li class="page-item @(Model.PageInfo.CurrentPage==i+1?"active":"")">
                                         <a class="page-link" href="/products?page=@(i+1)">
                                             @(i+1)
                                         </a>
                                     </li>
                                 }else{
+                                    <!--localhost/products/@Model.PageInfo.CurrentCategory?page=@(i+1)-->
                                     <li class="page-item @(Model.PageInfo.CurrentPage==i+1?"active":"")">
                                         <a class="page-link" href="/products/@Model.PageInfo.CurrentCategory?page=@(i+1)">
                                             @(i+1)
                                         </a>
                                     </li>
                                 }
-
-                                
                             }
-                            
-                            
                         </ul>
                     </nav>
                 </div>
@@ -54,6 +54,6 @@
         </div>
     </div>
 
-@section Scripts{
+@section Links{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 }

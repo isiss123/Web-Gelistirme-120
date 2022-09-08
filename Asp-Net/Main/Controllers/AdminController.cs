@@ -45,5 +45,53 @@ namespace Main.Controllers
             _productService.Create(entity);
             return RedirectToAction("productlist","admin");
         }
+
+        [HttpGet]
+        public IActionResult UpdateProduct(int? id)
+        {
+            if(id==null){
+                return NotFound();
+            }
+
+            var entity = _productService.GetById((int)id);
+            if(entity==null){
+                return NotFound();
+            }
+            var model = new ProductModel{
+                ProductId = entity.ProductId,
+                Name = entity.Name,
+                Url = entity.Url,
+                Description = entity.Description,
+                ImageUrl = entity.ImageUrl,
+                Price = entity.Price
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult UpdateProduct(ProductModel model)
+        {
+            var entity = _productService.GetById(model.ProductId);
+            if(entity==null){
+                return NotFound();
+            }
+            entity.Name = model.Name;
+            entity.Url = model.Url;
+            entity.Description = model.Description;
+            entity.ImageUrl = model.ImageUrl;
+            entity.Price = model.Price;
+            _productService.Update(entity);
+            return RedirectToAction("productlist","admin");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(int productId)
+        {
+            var entity = _productService.GetById(productId);
+            if(entity != null)
+            {
+                _productService.Delete(entity);
+            }
+            return RedirectToAction("ProductList","Admin");
+        }
     }
 }

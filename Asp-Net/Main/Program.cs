@@ -35,6 +35,11 @@ internal class Program
                 pattern: "admin/products",
                 defaults: new{controller="Admin",action = "ProductList"}
             );
+            endpoints.MapControllerRoute(
+                name: "adminproducts",
+                pattern: "admin/products/{id?}",
+                defaults: new{controller="Admin",action = "UpdateProduct"}
+            );
             
             endpoints.MapControllerRoute(
                 name: "products",

@@ -33,12 +33,14 @@ namespace Main.Data.Concrete.EfCore
         };
         
         private static Product[] Products = {
-            new Product(){Name="IPhone 13", Url="iphone-13",Price=2000,Description="Yaxşı şəkil çəkir",ImageUrl="iphone-13-blue.jpg",IsApproved=true}, //0
-            new Product(){Name="IPhone 13 Pro", Url="iphone-13-pro",Price=2400,Description="Yaxşı şəkil çəkir",ImageUrl="iphone-13-pro-black-256-dualsim.jpg",IsApproved=false},// 1
-            new Product(){Name="Dell G15", Url="dell-g15",Price=1500,Description="Oyunlar donmur",ImageUrl="del-g15.jpg",IsApproved=true},// 2
-            new Product(){Name="Asus ROG Strix", Url="asus-rog-strix",Price=3800,Description="Oyunlar donmur",ImageUrl="asus-rog-strix.jpg",IsApproved=true},// 3
-            new Product(){Name="Ekspresi'nde Cinayet", Url="ekspresi-nde-cinayet",Price=100,Description="Dedektif",ImageUrl="ekspresinde-cinayet.jpg",IsApproved=true},// 4 
-            new Product(){Name="Extreme Ownership", Url="extreme-ownership",Price=2000,Description="Girişim",ImageUrl="extreme-ownership.jpg",IsApproved=false},// 5
+            new Product(){Name="IPhone 13", Url="iphone-13",Price=2000,Description="Yaxşı şəkil çəkir",ImageUrl="iphone-13-blue.jpg",IsApproved=true, IsHome=true}, //0
+            new Product(){Name="IPhone 13 Pro", Url="iphone-13-pro",Price=2400,Description="Yaxşı şəkil çəkir",ImageUrl="iphone-13-pro-black-256-dualsim.jpg",IsApproved=false, IsHome=false},// 1
+            new Product(){Name="Dell G15", Url="dell-g15",Price=1500,Description="Oyunlar donmur",ImageUrl="del-g15.jpg",IsApproved=true, IsHome=true},// 2
+            new Product(){Name="Asus ROG Strix", Url="asus-rog-strix",Price=3800,Description="Oyunlar donmur",ImageUrl="asus-rog-strix.jpg",IsApproved=true, IsHome=true},// 3
+            new Product(){Name="Ekspresi'nde Cinayet", Url="ekspresi-nde-cinayet",Price=100,Description="Dedektif",ImageUrl="ekspresinde-cinayet.jpg",IsApproved=true, IsHome= true},// 4 
+            new Product(){Name="Extreme Ownership", Url="extreme-ownership",Price=2000,Description="Girişim",ImageUrl="extreme-ownership.jpg",IsApproved=false, IsHome= true},// 5
+            new Product(){Name="Hayvan Mezarlığı", Url="hayvan-mezarligi",Price=1500,Description="Qorxu",ImageUrl="hayvan-mezarligi.jpg",IsApproved=false, IsHome=false},// 6
+            new Product(){Name="IPhone 14 PRO", Url="iphone-14-pro",Price=4500,Description="Yeni Model",ImageUrl="iphone-14-pro.jpg",IsApproved=true, IsHome=false},// 7
         };
         private static ProductCategory[] ProductCategories={
             new ProductCategory(){Product=Products[0],Category=Categories[1]},
@@ -49,6 +51,9 @@ namespace Main.Data.Concrete.EfCore
             new ProductCategory(){Product=Products[3],Category=Categories[2]},
             new ProductCategory(){Product=Products[4],Category=Categories[0]},
             new ProductCategory(){Product=Products[5],Category=Categories[0]},
+            new ProductCategory(){Product=Products[6],Category=Categories[0]},
+            new ProductCategory(){Product=Products[7],Category=Categories[1]},
+
         };
     }
 }

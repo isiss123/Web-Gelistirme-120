@@ -8,6 +8,7 @@ namespace Main.Models
 {
     public class ProductModel
     {
+        public int ProductId { get; set; }
         [Display(Prompt ="Enter product name")]
         public string Name { get; set; }
         public string Url { get; set; }
