@@ -17,7 +17,7 @@ namespace Main.Controllers
         }
         public IActionResult List(string category, int page=1){
             // localhost/products/oyun?page=1
-            const int pageSize = 3;
+            const int pageSize = 1;
             
             var ProductView = new ProductListViewModel{
                 PageInfo = new PageInfo{

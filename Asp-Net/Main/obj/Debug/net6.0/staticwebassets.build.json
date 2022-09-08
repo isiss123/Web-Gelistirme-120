@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8T8kv1YgK3kUP1F4lyLom/ykXWSgxUJTAe+UxO1+AFs=",
+  "Hash": "bjT6fN6lQbuymp6kvr9PPjNHFYj+0i+459r4McSksn0=",
   "Source": "Yoxlama",
   "BasePath": "_content/Yoxlama",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\iphone-13-pro-black-256-dualsim.jpg"
+    },
+    {
+      "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\iphone-14-pro.jpg",
+      "SourceId": "Yoxlama",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
+      "BasePath": "_content/Yoxlama",
+      "RelativePath": "images/iphone-14-pro.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\iphone-14-pro.jpg"
     }
   ]
 }

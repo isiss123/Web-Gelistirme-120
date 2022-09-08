@@ -14,7 +14,7 @@ namespace Main.Data.Concrete.EfCore
         {
             using (var db = new MainContext())
             {
-                var products = db.Products.AsQueryable();
+                var products = db.Products.Where(i=>i.IsApproved).AsQueryable();
                 if(!string.IsNullOrEmpty(category))
                 {
                     products = products

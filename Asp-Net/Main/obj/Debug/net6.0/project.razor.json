@@ -16345,11 +16345,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Product\\Create.cshtml",
-      "TargetPath": "Views\\Product\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -16357,11 +16352,6 @@
     {
       "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Product\\Edit.cshtml",
-      "TargetPath": "Views\\Product\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16390,11 +16380,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Product\\List.cshtml",
-      "TargetPath": "Views\\Product\\List.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16415,13 +16400,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Product\\Details.cshtml",
-      "TargetPath": "Views\\Product\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Product\\Index.cshtml",
-      "TargetPath": "Views\\Product\\Index.cshtml",
+      "FilePath": "e:\\Istiqlal\\Udemy\\sa\\Asp-Net\\Main\\Views\\Admin\\CreateProduct.cshtml",
+      "TargetPath": "Views\\Admin\\CreateProduct.cshtml",
       "FileKind": "mvc"
     }
   ],
