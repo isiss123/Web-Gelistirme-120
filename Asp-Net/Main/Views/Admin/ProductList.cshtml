@@ -8,10 +8,13 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th style="width: 35px;">Id</th>
+            <th style="width: 40px;">Id</th>
             <th style="width: 100px;">Image</th>
             <th>Name</th>
+            
             <th style="width: 100px;" class="text-center">Price</th>
+            <th style="width: 100px;">Home</th>
+            <th style="width: 100px;">Approved</th>
             <th style="width: 150px;"></th>
         </tr>
     </thead>
@@ -25,6 +28,22 @@
                     <td><img src="~/images/@product.ImageUrl" alt="" width="80"></td>
                     <td>@product.Name</td>
                     <td>@product.Price</td>
+                    <td>
+                        @if (product.IsHome)
+                        {
+                            <i style="color: #00cc44;" class="fa-solid fa-circle-check fa-lg"></i>
+                        }else{
+                            <i style="color: #ff0000;" class="fa-solid fa-circle-xmark fa-lg"></i>
+                        }
+                    </td>
+                    <td>
+                        @if (product.IsApproved)
+                        {
+                            <i style="color: #00cc44;" class="fa-solid fa-circle-check fa-lg"></i>
+                        }else{
+                            <i style="color: #ff0000;" class="fa-solid fa-circle-xmark fa-lg"></i>
+                        }
+                    </td>
                     <td class="text-center">
                         <a href="/admin/product/@product.ProductId" class="btn btn-primary btn-sm me-2">Edit</a>
                         <a href="#"  class="btn btn-danger btn-sm">Delete</a>
@@ -36,3 +55,9 @@
         }
     </tbody>
 </table>
+
+
+@section Links
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
