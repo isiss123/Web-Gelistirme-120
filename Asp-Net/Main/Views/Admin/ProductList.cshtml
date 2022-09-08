@@ -1,0 +1,38 @@
+@model ProductListViewModel
+@{
+    var products = @Model.Products;
+}
+
+<h1>Admin Products</h1>
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 35px;">Id</th>
+            <th style="width: 100px;">Image</th>
+            <th>Name</th>
+            <th style="width: 100px;" class="text-center">Price</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (products.Count>0)
+        {
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td><img src="~/images/@product.ImageUrl" alt="" width="80"></td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td class="text-center">
+                        <a href="/admin/product/@product.ProductId" class="btn btn-primary btn-sm me-2">Edit</a>
+                        <a href="#"  class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        }else{
+            @await Html.PartialAsync("_noproduct")
+        }
+    </tbody>
+</table>

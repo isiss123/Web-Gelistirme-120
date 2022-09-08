@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Main.Entity;
 
-namespace Yoxlama.ViewModels
+namespace Main.Models
 {
     public class PageInfo
     {

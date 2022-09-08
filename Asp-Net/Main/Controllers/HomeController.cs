@@ -4,9 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Main.Business.Abstract;
 using Main.Data.Abstract;
+using Main.Models;
 using Microsoft.AspNetCore.Mvc;
-using Yoxlama.ViewModels;
-
 namespace Yoxlama.Controllers
 {
     public class HomeController : Controller

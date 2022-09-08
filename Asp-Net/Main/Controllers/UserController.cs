@@ -6,8 +6,6 @@ using Main.Business.Abstract;
 using Main.Entity;
 using Main.Models;
 using Microsoft.AspNetCore.Mvc;
-using Yoxlama.ViewModels;
-
 namespace Main.Controllers
 {
     public class UserController: Controller
