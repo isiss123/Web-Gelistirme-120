@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u40FMyaw8nxE+ij1P2yLbKOSuuV86RfUYFyShTp35LUI9v8dbsMMoblN1FjvdN5P3RYRblRnk373MBE0svilfg==",
+  "dgSpecHash": "3nHrGYNfDBR2c8DVYCgA/2psT9g0QSpcq+qw035pATzTeOjRPcMFGyPrVhrgF9xwN7lP88dfwXNiwfp3fyBZvw==",
   "success": true,
   "projectFilePath": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\Yoxlama.csproj",
   "expectedPackageFiles": [
@@ -75,7 +75,7 @@
     "C:\\Users\\Hesen\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\Hesen\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Hesen\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.2\\pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
     "C:\\Users\\Hesen\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

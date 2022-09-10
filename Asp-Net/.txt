@@ -15,7 +15,9 @@ Production   : yayinlandiginda yazilir
 View -e melumat gonderme methodlari :
                 1:    ViewBag.Category = "telefon "  istifade  = @ViewBag.Category  (ViewBag.vereceyimiz_ad)
                 2:    ViewData["Category"] = "telefon" istifade = @ViewData["Category"] (ViewBag["vereceyimiz_ad"])
-                3:    view(product)   istifade = html seyfesinde en ustde @model Main.Model.Product  = product yarandigi classin yolu 
+                3:    view(product)   istifade = html seyfesinde en ustde @model Main.Model.Product  = product yarandigi 
+                classin yolu 
+                4:    TempData["message"] = "yeni mehsul" istifade = ViewData kimidir ferq ise ViewData-nin yalniz aid oldugu actionda islemesi TempData-nin ise yaranmis oldugu action-un yonlendirdiyi action-da da islemesi
 
 View/Shared qovlugu butun CONTOLLER-den elcatilandir
 Partial view : html seyfesinde bir bolum birden cox seyfede isledilirse hamisini eyni yerden idare etmek ucun yaradilir

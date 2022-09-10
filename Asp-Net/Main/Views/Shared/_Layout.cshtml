@@ -16,6 +16,17 @@
     @RenderSection("Header",false)
     <main class="my-3">
         <div class="container">
+            @if (TempData["message"]!=null)
+            {
+                var message = JsonConvert.DeserializeObject<AlertMessage>(TempData["message"] as String);
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@message.AlertType">
+                            @message.Message
+                        </div>
+                    </div>
+                </div>
+            }
             <div class="row">
                 <div class="col-md-12">
                     @RenderBody()

@@ -6,6 +6,7 @@ using Main.Business.Abstract;
 using Main.Entity;
 using Main.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Main.Controllers
 {
@@ -43,6 +44,11 @@ namespace Main.Controllers
             };
 
             _productService.Create(entity);
+            var msg = new AlertMessage{
+                Message = $"{entity.Name} adlı mehsul əlavə edildi.",
+                AlertType = "success"
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
             return RedirectToAction("productlist","admin");
         }
 
@@ -80,6 +86,11 @@ namespace Main.Controllers
             entity.ImageUrl = model.ImageUrl;
             entity.Price = model.Price;
             _productService.Update(entity);
+            var msg = new AlertMessage{
+                Message = $"{entity.Name} adlı mehsul yeniləndi.",
+                AlertType = "success"
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
             return RedirectToAction("productlist","admin");
         }
 
@@ -90,7 +101,13 @@ namespace Main.Controllers
             if(entity != null)
             {
                 _productService.Delete(entity);
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı mehsul silindi.",
+                    AlertType = "danger"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
             }
+            
             return RedirectToAction("ProductList","Admin");
         }
     }

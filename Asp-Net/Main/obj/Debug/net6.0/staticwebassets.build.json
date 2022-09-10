@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nKXU6L97Ij359CQG88AApcv+AD0R3uPpY5zA7RcCKvc=",
+  "Hash": "cpSCEPkq3hQ1J/PdYhM7+Cd82SGwoVPz+pLoJHXWYXk=",
   "Source": "Yoxlama",
   "BasePath": "_content/Yoxlama",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hayvan-mezarligi.jpg"
+    },
+    {
+      "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\hp-pavilion-gaming.jpg",
+      "SourceId": "Yoxlama",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\",
+      "BasePath": "_content/Yoxlama",
+      "RelativePath": "images/hp-pavilion-gaming.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hp-pavilion-gaming.jpg"
     },
     {
       "Identity": "E:\\Istiqlal\\Udemy\\Asp-Net\\Main\\wwwroot\\images\\iphone-13-blue.jpg",
