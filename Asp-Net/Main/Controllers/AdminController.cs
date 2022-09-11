@@ -152,7 +152,7 @@ namespace Main.Controllers
             if( id == null)
                 return NotFound();
 
-            var entity = _categoryService.GetById((int)id);
+            var entity = _categoryService.GetById_with_Product((int)id);
 
             if(entity==null)
                 return NotFound();
@@ -160,7 +160,8 @@ namespace Main.Controllers
             var model = new CategoryModel{
                 CategoryId = entity.CategoryId,
                 Name = entity.Name,
-                Url = entity.Url
+                Url = entity.Url,
+                Products = entity.ProductCategories.Select(p=>p.Product).ToList()
             };
             return View(model);
         }

@@ -13,5 +13,6 @@ namespace Main.Business.Abstract
         void Create(Category entity);
         void Delete(Category entity);
         void Update(Category entity);
+        Category GetById_with_Product(int id);
     }
 }

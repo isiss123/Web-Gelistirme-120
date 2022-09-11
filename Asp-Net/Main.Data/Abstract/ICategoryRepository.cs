@@ -9,5 +9,6 @@ namespace Main.Data.Abstract
     public interface ICategoryRepository : IRepository<Category>
     {
         List<Category> GetPopularCategories();
+        Category GetById_with_Product(int id);
     }
 }

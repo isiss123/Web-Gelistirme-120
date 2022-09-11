@@ -1,9 +1,13 @@
 @model CategoryModel
+@{
+    var products = @Model.Products;
+    var tableclass = @Model.Products.Count==0?"mt-2":"";
+}
 
 <h5>Update Category</h5>
 <hr>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-4">
 
         <form asp-controller="admin" asp-action="updatecategory" method="POST">
             <input type="hidden" name="CategoryId" value="@Model.CategoryId">
@@ -27,4 +31,67 @@
             </div>
         </form>
     </div>
+    <div class="col-md-8">
+        <div class="row">
+            <table class="table table-bordered table-sm @tableclass">
+                <thead>
+                    <tr>
+                        <th style="width: 35px;" class="text-center">Id</th>
+                        <th style="width: 80px;" class="text-center">Image</th>
+                        <th> Name</th>
+                        <th style="width: 80px;" class="text-center">Price</th>
+                        <th style="width: 70px;" class="text-center">Approve</th>
+                        <th style="width: 150px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(products.Count>0)
+                    {
+                        @foreach (var product in products)
+                        {
+                            <tr>
+                                <td>@product.ProductId</td>
+                                <td>
+                                    <img src="~/images/@product.ImageUrl" alt="@product.Url" width="80px">
+                                </td>
+                                <td>@product.Name</td>
+                                <td>@product.Price</td>
+                                <td class="position-relative">
+                                    @if (product.IsApproved)
+                                    {
+                                        <i style="color: #00cc44;" class="
+                                        fa-solid fa-circle-check fa-xl position-absolute top-50 start-50 translate-middle
+                                        "></i>
+                                    }else{
+                                        <i style="color: #ff0000;" class="
+                                        fa-solid fa-circle-xmark fa-xl position-absolute top-50 start-50 translate-middle
+                                        "></i>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    <a href="/admin/products/@product.ProductId" class="btn btn-primary btn-sm ">Edit</a>
+                                    <form action="/admin/deleteproduct" method="POST" style="display: inline;">
+                                        <input type="hidden" name="productId" value="@product.ProductId">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }else{
+                    @await Html.PartialAsync("_noproduct")
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 </div>
+
+
+
+
+
+@section Links
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
