@@ -1,0 +1,39 @@
+@model CategoryListViewModel
+@{
+    var categories = @Model.Categories;
+}
+
+<h1>Admin Categories</h1>
+<hr>
+<a href="/admin/categories/create" class="btn btn-primary">Create Category</a>
+
+<table class="table table-bordered" style="margin-top: 16px;">
+    <thead>
+        <tr>
+            <th style="width: 40px;">Id</th>
+            <th>Name</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (categories.Count > 0)
+        {
+            foreach (var cateogry in categories)
+            {
+                <tr>
+                    <td>@cateogry.CategoryId</td>
+                    <td>@cateogry.Name</td>
+                    <td class="text-center">
+                        <a href="/admin/categories/@cateogry.CategoryId" class="btn btn-primary btn-sm me-2">Edit</a>
+                        <form action="/admin/deletecategory" style="display: inline;">
+                            <input type="hidden" name="categoryId" value="@cateogry.CategoryId">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

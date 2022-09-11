@@ -31,21 +31,48 @@ internal class Program
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
-                name: "adminproducts",
+                name: "adminCategoryList",
+                pattern: "admin/categories",
+                defaults: new{controller="Admin",action = "CategoryList"}
+            );
+            endpoints.MapControllerRoute(
+                name: "adminCategoryCreate",
+                pattern: "admin/categories/create",
+                defaults: new{controller="Admin",action = "CreateCategory"}
+            );
+            endpoints.MapControllerRoute(
+                name: "adminCategoryUpdate",
+                pattern: "admin/categories/{id?}",
+                defaults: new{controller="Admin",action = "UpdateCategory"}
+            );
+
+
+
+            endpoints.MapControllerRoute(
+                name: "adminProductList",
                 pattern: "admin/products",
                 defaults: new{controller="Admin",action = "ProductList"}
             );
             endpoints.MapControllerRoute(
-                name: "adminproducts",
+                name: "adminProductCreate",
+                pattern: "admin/products/create",
+                defaults: new{controller="Admin",action = "CreateProduct"}
+            );
+            endpoints.MapControllerRoute(
+                name: "adminProductUpdate",
                 pattern: "admin/products/{id?}",
                 defaults: new{controller="Admin",action = "UpdateProduct"}
             );
-            
+
+
+
             endpoints.MapControllerRoute(
                 name: "products",
                 pattern: "products/{category?}",
                 defaults: new{controller="User",action = "List"}
             );
+
+
             endpoints.MapControllerRoute(
                 name: "search",
                 pattern: "search",

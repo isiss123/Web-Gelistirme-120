@@ -14,9 +14,11 @@ namespace Main.Controllers
     public class AdminController : Controller
     {
         public IProductService _productService { get; set; }
-        public AdminController(IProductService productService)
+        public ICategoryService _categoryService { get; set; }
+        public AdminController(IProductService productService, ICategoryService categoryService)
         {
             this._productService = productService;
+            this._categoryService = categoryService;
         }
         public IActionResult ProductList()
         {
@@ -49,6 +51,7 @@ namespace Main.Controllers
                 AlertType = "success"
             };
             TempData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
             return RedirectToAction("productlist","admin");
         }
 
@@ -91,6 +94,7 @@ namespace Main.Controllers
                 AlertType = "success"
             };
             TempData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"Hp Gaming adlı mehsul yeniləndi.","AlertType":"success"}
             return RedirectToAction("productlist","admin");
         }
 
@@ -106,9 +110,94 @@ namespace Main.Controllers
                     AlertType = "danger"
                 };
                 TempData["message"] = JsonConvert.SerializeObject(msg);
+                // {"Message":"Hp Gaming adlı mehsul silindi.","AlertType":"danger"}
             }
             
             return RedirectToAction("ProductList","Admin");
+        }
+
+        public IActionResult CategoryList()
+        {
+            var CategoryView = new CategoryListViewModel{
+                Categories = _categoryService.GetAll()
+            };
+            return View(CategoryView);
+        }
+
+        [HttpGet]
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateCategory( CategoryModel model )
+        {
+            var entity = new Category{
+                Name = model.Name,
+                Url = model.Url
+            };
+            _categoryService.Create(entity);
+            var msg = new AlertMessage{
+                Message = $"{entity.Name} adlı kategoriya əlavə edildi.",
+                AlertType = "success"
+            };
+            ViewData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"mavi reng adli kategoriya əlavə edildi.","AlertType":"success"}
+            return RedirectToAction("categorylist","admin");
+        }
+    
+        [HttpGet]
+        public IActionResult UpdateCategory( int? id ){
+
+            if( id == null)
+                return NotFound();
+
+            var entity = _categoryService.GetById((int)id);
+
+            if(entity==null)
+                return NotFound();
+
+            var model = new CategoryModel{
+                CategoryId = entity.CategoryId,
+                Name = entity.Name,
+                Url = entity.Url
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult UpdateCategory( CategoryModel model )
+        {
+            var entity = _categoryService.GetById(model.CategoryId);
+            if(entity==null){
+                return NotFound();
+            }
+            entity.Name = model.Name;
+            entity.Url = model.Url;
+
+            _categoryService.Update(entity);
+            var msg = new AlertMessage{
+                Message = $"{entity.Name} adlı kategoriya yeniləndi.",
+                AlertType = "success"
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"Qara reng adlı kategoriya yeniləndi.","AlertType":"success"}
+            return RedirectToAction("CategoryList","Admin");
+        }
+    
+        public IActionResult DeleteCategory( int categoryId)
+        {
+            var entity = _categoryService.GetById(categoryId);
+            if(entity != null)
+            {
+                _categoryService.Delete(entity);
+
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı kategoriya silindi.",
+                    AlertType = "danger"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+            }
+            return RedirectToAction("CategoryList","Admin");
         }
     }
 }
