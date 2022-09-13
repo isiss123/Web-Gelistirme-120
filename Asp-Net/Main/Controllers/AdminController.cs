@@ -62,7 +62,7 @@ namespace Main.Controllers
                 return NotFound();
             }
 
-            var entity = _productService.GetById((int)id);
+            var entity = _productService.GetByIdWIthCategory((int)id);
             if(entity==null){
                 return NotFound();
             }
@@ -72,8 +72,10 @@ namespace Main.Controllers
                 Url = entity.Url,
                 Description = entity.Description,
                 ImageUrl = entity.ImageUrl,
-                Price = entity.Price
+                Price = entity.Price,
+                SelectedCategories = entity.ProductCategories.Select(i=>i.Category).ToList(),
             };
+            ViewBag.Categories = _categoryService.GetAll();
             return View(model);
         }
         [HttpPost]

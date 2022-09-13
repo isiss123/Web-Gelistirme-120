@@ -67,5 +67,10 @@ namespace Main.Business.Concrete
         {
             return _productRepository.GetSearchResult(search);
         }
+
+        public Product GetByIdWIthCategory(int productId)
+        {
+            return _productRepository.GetByIdWIthCategory(productId);
+        }
     }
 }

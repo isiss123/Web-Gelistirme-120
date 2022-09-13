@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Entity;
 
 namespace Main.Models
 {
@@ -17,5 +18,7 @@ namespace Main.Models
         public string ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
+
+        public List<Category> SelectedCategories { get; set; }
     }
 }

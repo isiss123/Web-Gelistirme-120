@@ -10,6 +10,18 @@ namespace Main.Data.Concrete.EfCore
 {
     public class EfCoreProductRepository : EfCoreGenericRepository<Product, MainContext>, IProductRepository
     {
+        public Product GetByIdWIthCategory(int productId)
+        {
+            using( var db = new MainContext())
+            {
+                return db.Products.Where(p=>p.ProductId==productId)
+                                            .Include(i=>i.ProductCategories)
+                                            .ThenInclude(i=>i.Category)
+                                            .FirstOrDefault();
+                
+            }
+        }
+
         public int GetCountByCategory(string category)
         {
             using (var db = new MainContext())

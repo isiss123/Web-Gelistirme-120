@@ -13,5 +13,6 @@ namespace Main.Data.Abstract
         int GetCountByCategory(string category);
         List<Product> GetProductForHome();
         List<Product> GetSearchResult(string search);
+        Product GetByIdWIthCategory(int productId);
     }
 }
