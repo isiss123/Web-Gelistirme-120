@@ -86,5 +86,28 @@ namespace Main.Data.Concrete.EfCore
                 return products.ToList();
             }
         }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            using( var db = new MainContext())
+            {
+                var product = db.Products.Include(i=>i.ProductCategories)
+                                            .FirstOrDefault(i=>i.ProductId == entity.ProductId);
+                if( product != null)
+                {
+                    product.ProductId = entity.ProductId;
+                    product.Name = entity.Name;
+                    product.Url = entity.Url;
+                    product.Description = entity.Description;
+                    product.Price = entity.Price;
+                    product.ImageUrl = entity.ImageUrl;
+                    product.ProductCategories = categoryIds.Select(c_id=>new ProductCategory(){
+                        ProductId = entity.ProductId,
+                        CategoryId = c_id
+                    }).ToList();
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

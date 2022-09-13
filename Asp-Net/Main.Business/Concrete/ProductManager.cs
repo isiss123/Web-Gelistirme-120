@@ -72,5 +72,10 @@ namespace Main.Business.Concrete
         {
             return _productRepository.GetByIdWIthCategory(productId);
         }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            _productRepository.Update(entity, categoryIds);
+        }
     }
 }

@@ -79,18 +79,22 @@ namespace Main.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult UpdateProduct(ProductModel model)
+        public IActionResult UpdateProduct(ProductModel model, int[] categoryIds)
         {
             var entity = _productService.GetById(model.ProductId);
             if(entity==null){
                 return NotFound();
             }
+
             entity.Name = model.Name;
             entity.Url = model.Url;
             entity.Description = model.Description;
             entity.ImageUrl = model.ImageUrl;
             entity.Price = model.Price;
-            _productService.Update(entity);
+
+            _productService.Update(entity, categoryIds);
+
+
             var msg = new AlertMessage{
                 Message = $"{entity.Name} adlı mehsul yeniləndi.",
                 AlertType = "success"
