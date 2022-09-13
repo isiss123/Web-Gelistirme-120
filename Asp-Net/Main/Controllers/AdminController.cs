@@ -200,5 +200,12 @@ namespace Main.Controllers
             }
             return RedirectToAction("CategoryList","Admin");
         }
+    
+        [HttpPost]
+        public IActionResult DeleteFromCategory(int productId, int categoryId)
+        {
+            _categoryService.Delete_Product_FromCategory(productId,categoryId);
+            return Redirect("/admin/categories/"+categoryId);
+        }
     }
 }

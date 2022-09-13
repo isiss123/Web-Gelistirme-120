@@ -14,5 +14,6 @@ namespace Main.Business.Abstract
         void Delete(Category entity);
         void Update(Category entity);
         Category GetById_with_Product(int id);
+        void Delete_Product_FromCategory(int productId, int categoryId);
     }
 }

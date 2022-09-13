@@ -10,5 +10,6 @@ namespace Main.Data.Abstract
     {
         List<Category> GetPopularCategories();
         Category GetById_with_Product(int id);
+        void Delete_Product_FromCategory(int productId, int categoryId);
     }
 }

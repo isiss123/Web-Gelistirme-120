@@ -45,5 +45,10 @@ namespace Main.Business.Concrete
         {
             return _categoryRepository.GetById_with_Product(id);
         }
+
+        public void Delete_Product_FromCategory(int productId, int categoryId)
+        {
+            _categoryRepository.Delete_Product_FromCategory(productId, categoryId);
+        }
     }
 }

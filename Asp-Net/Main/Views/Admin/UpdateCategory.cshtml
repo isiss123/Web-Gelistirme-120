@@ -70,8 +70,10 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="/admin/products/@product.ProductId" class="btn btn-primary btn-sm ">Edit</a>
-                                    <form action="/admin/deleteproduct" method="POST" style="display: inline;">
+                                    <form action="/admin/deletefromcategory" method="POST" style="display: inline;">
                                         <input type="hidden" name="productId" value="@product.ProductId">
+                                        <input type="hidden" name="categoryId" value="@Model.CategoryId">
+
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>
