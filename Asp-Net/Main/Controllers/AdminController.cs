@@ -37,22 +37,26 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult CreateProduct(ProductModel model)
         {
-            var entity = new Product{
-                Name = model.Name,
-                Url = model.Url,
-                Description = model.Description,
-                ImageUrl = model.ImageUrl,
-                Price = model.Price
-            };
+            if(ModelState.IsValid) // melumatlarin VALIDATION-a uygun olaraq girilmesi
+            {
+                var entity = new Product{
+                    Name = model.Name,
+                    Url = model.Url,
+                    Description = model.Description,
+                    ImageUrl = model.ImageUrl,
+                    Price = model.Price
+                };
 
-            _productService.Create(entity);
-            var msg = new AlertMessage{
-                Message = $"{entity.Name} adlı mehsul əlavə edildi.",
-                AlertType = "success"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
-            // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
-            return RedirectToAction("productlist","admin");
+                _productService.Create(entity);
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı mehsul əlavə edildi.",
+                    AlertType = "success"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+                // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
+                return RedirectToAction("productlist","admin");
+            }
+            return View(model);
         }
 
         [HttpGet]
@@ -81,27 +85,32 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult UpdateProduct(ProductModel model, int[] categoryIds)
         {
-            var entity = _productService.GetById(model.ProductId);
-            if(entity==null){
-                return NotFound();
+            if(ModelState.IsValid) // melumatlarin VALIDATION-a uygun olaraq girilmesi
+            {
+                var entity = _productService.GetById(model.ProductId);
+                if(entity==null){
+                    return NotFound();
+                }
+
+                entity.Name = model.Name;
+                entity.Url = model.Url;
+                entity.Description = model.Description;
+                entity.ImageUrl = model.ImageUrl;
+                entity.Price = model.Price;
+
+                _productService.Update(entity, categoryIds);
+
+
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı mehsul yeniləndi.",
+                    AlertType = "success"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+                // {"Message":"Hp Gaming adlı mehsul yeniləndi.","AlertType":"success"}
+                return RedirectToAction("productlist","admin");
             }
-
-            entity.Name = model.Name;
-            entity.Url = model.Url;
-            entity.Description = model.Description;
-            entity.ImageUrl = model.ImageUrl;
-            entity.Price = model.Price;
-
-            _productService.Update(entity, categoryIds);
-
-
-            var msg = new AlertMessage{
-                Message = $"{entity.Name} adlı mehsul yeniləndi.",
-                AlertType = "success"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
-            // {"Message":"Hp Gaming adlı mehsul yeniləndi.","AlertType":"success"}
-            return RedirectToAction("productlist","admin");
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
         }
 
         [HttpPost]
