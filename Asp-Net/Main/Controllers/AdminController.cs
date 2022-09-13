@@ -131,6 +131,11 @@ namespace Main.Controllers
             return RedirectToAction("ProductList","Admin");
         }
 
+
+
+
+        //  CATEGORY
+
         public IActionResult CategoryList()
         {
             var CategoryView = new CategoryListViewModel{
@@ -147,18 +152,22 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult CreateCategory( CategoryModel model )
         {
-            var entity = new Category{
-                Name = model.Name,
-                Url = model.Url
-            };
-            _categoryService.Create(entity);
-            var msg = new AlertMessage{
-                Message = $"{entity.Name} adlı kategoriya əlavə edildi.",
-                AlertType = "success"
-            };
-            ViewData["message"] = JsonConvert.SerializeObject(msg);
-            // {"Message":"mavi reng adli kategoriya əlavə edildi.","AlertType":"success"}
-            return RedirectToAction("categorylist","admin");
+            if(ModelState.IsValid)
+            {
+                var entity = new Category{
+                    Name = model.Name,
+                    Url = model.Url
+                };
+                _categoryService.Create(entity);
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı kategoriya əlavə edildi.",
+                    AlertType = "success"
+                };
+                ViewData["message"] = JsonConvert.SerializeObject(msg);
+                // {"Message":"mavi reng adli kategoriya əlavə edildi.","AlertType":"success"}
+                return RedirectToAction("categorylist","admin");
+            }
+            return View(model);
         }
     
         [HttpGet]
@@ -183,21 +192,25 @@ namespace Main.Controllers
         [HttpPost]
         public IActionResult UpdateCategory( CategoryModel model )
         {
-            var entity = _categoryService.GetById(model.CategoryId);
-            if(entity==null){
-                return NotFound();
-            }
-            entity.Name = model.Name;
-            entity.Url = model.Url;
+            if(ModelState.IsValid)
+            {
+                var entity = _categoryService.GetById(model.CategoryId);
+                if(entity==null){
+                    return NotFound();
+                }
+                entity.Name = model.Name;
+                entity.Url = model.Url;
 
-            _categoryService.Update(entity);
-            var msg = new AlertMessage{
-                Message = $"{entity.Name} adlı kategoriya yeniləndi.",
-                AlertType = "success"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
-            // {"Message":"Qara reng adlı kategoriya yeniləndi.","AlertType":"success"}
-            return RedirectToAction("CategoryList","Admin");
+                _categoryService.Update(entity);
+                var msg = new AlertMessage{
+                    Message = $"{entity.Name} adlı kategoriya yeniləndi.",
+                    AlertType = "success"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+                // {"Message":"Qara reng adlı kategoriya yeniləndi.","AlertType":"success"}
+                return RedirectToAction("CategoryList","Admin");
+            }
+            return View(model);
         }
     
         public IActionResult DeleteCategory( int categoryId)
