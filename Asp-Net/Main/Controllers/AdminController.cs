@@ -46,15 +46,13 @@ namespace Main.Controllers
                     ImageUrl = model.ImageUrl,
                     Price = model.Price
                 };
-
-                _productService.Create(entity);
-                var msg = new AlertMessage{
-                    Message = $"{entity.Name} adlı mehsul əlavə edildi.",
-                    AlertType = "success"
-                };
-                TempData["message"] = JsonConvert.SerializeObject(msg);
-                // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
-                return RedirectToAction("productlist","admin");
+                if(_productService.Create(entity))
+                {
+                    CreateMessage($"{entity.Name} adlı mehsul qeyd edildi","success");
+                    return RedirectToAction("productlist","admin");
+                }
+                CreateMessage("Xəta baş verdi","danger");
+                return View(model);
             }
             return View(model);
         }
@@ -234,6 +232,17 @@ namespace Main.Controllers
         {
             _categoryService.Delete_Product_FromCategory(productId,categoryId);
             return Redirect("/admin/categories/"+categoryId);
+        }
+    
+    
+        private void CreateMessage(string name, string type)
+        {
+            var msg = new AlertMessage{
+                Message = name,
+                AlertType = type
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
         }
     }
 }

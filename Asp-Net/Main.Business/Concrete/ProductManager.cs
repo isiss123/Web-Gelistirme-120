@@ -13,14 +13,21 @@ namespace Main.Business.Concrete
     public class ProductManager : IProductService
     {
         public IProductRepository _productRepository { get; set; }
+        
+
         public ProductManager(IProductRepository productRepository)
         {
             this._productRepository = productRepository;
         }
-        public void Create(Product entity)
+        public bool Create(Product entity)
         {
-            // iş qaydalarını tətbiq etmək   
-            _productRepository.Create(entity);
+            // iş qaydalarını tətbiq etmək
+            if(Validation(entity))
+            {
+                _productRepository.Create(entity);
+                return true;
+            }
+            return false;
         }
 
         public void Delete(Product entity)
@@ -77,5 +84,25 @@ namespace Main.Business.Concrete
         {
             _productRepository.Update(entity, categoryIds);
         }
+
+        // Validation
+        public string ErrorMessage { get; set; }
+        public bool Validation(Product entity)
+        {
+            var isValid = true;
+            if(string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += "Mehsul adı olmalıdır \n";
+                isValid = false;
+            }
+            if(entity.Price<0.5 || entity.Price>100000)
+            {
+                ErrorMessage += "Dəyər 0.5-100000 olmalıdır \n";
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        
     }
 }

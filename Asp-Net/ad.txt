@@ -1,0 +1,1 @@
+CLIENT VALIDATION  :  tarayici terefinde  Validationlarin yoxlanisi (js ile)

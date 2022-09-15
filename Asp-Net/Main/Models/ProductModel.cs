@@ -15,12 +15,12 @@ namespace Main.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage ="Url məcburi bölümdür")]
-        [StringLength(60,MinimumLength = 3, ErrorMessage = "Name üçün 3-60 karakter uzunluğu aralığında olmadlıdır")]
+        [StringLength(60,MinimumLength = 3, ErrorMessage = "Url üçün 3-60 karakter uzunluğu aralığında olmadlıdır")]
         public string Url { get; set; }
 
         [Required(ErrorMessage ="Price məcburi bölümdür")]
         [Range(0.5,100000,ErrorMessage ="Price üçün 0.5-100000 arasında dəyər girə bilərsiniz")]
-        [RegularExpression(@"[0-9]*$", ErrorMessage = "Bir double tipinde reqem girin")]
+        // [RegularExpression(@"[0-9]*$", ErrorMessage = "Bir double tipinde reqem girin")]
         public double? Price { get; set; }
 
         [Required(ErrorMessage ="Description məcburi bölümdür")]
