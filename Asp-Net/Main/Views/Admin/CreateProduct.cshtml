@@ -7,7 +7,7 @@
         <div class="row">
             <div asp-validation-summary="All" class="text-danger"></div>
         </div>
-        <form asp-controller="admin" asp-action="createproduct" method="POST">
+        <form asp-controller="admin" asp-action="createproduct" method="POST" enctype="multipart/form-data">
             <div class="mb-3 row">
                 <label asp-for="Name" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
@@ -65,6 +65,11 @@
 {
     <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/modules/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Description')
+    </script>
+
 }
 
 

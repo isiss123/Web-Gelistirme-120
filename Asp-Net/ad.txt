@@ -1,1 +1,3 @@
 CLIENT VALIDATION  :  tarayici terefinde  Validationlarin yoxlanisi (js ile)
+
+FILE UPLOAD        : resmin yuklenmesi

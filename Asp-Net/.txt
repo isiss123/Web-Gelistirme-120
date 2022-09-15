@@ -62,6 +62,9 @@ dotnet ef database update --startup-project ../Main
 npm install jquery-validation
 npm install jquery-validation-unobtrusive
 
+        HTML EDITOR
+npm install ckeditor
+
 
 
 

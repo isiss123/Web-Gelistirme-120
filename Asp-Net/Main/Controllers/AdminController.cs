@@ -35,7 +35,7 @@ namespace Main.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateProduct(ProductModel model)
+        public  IActionResult CreateProduct(ProductModel model)
         {
             if(ModelState.IsValid) // melumatlarin VALIDATION-a uygun olaraq girilmesi
             {
