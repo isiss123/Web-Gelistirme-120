@@ -83,7 +83,7 @@ namespace Main.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult UpdateProduct(ProductModel model, int[] categoryIds)
+        public async Task<IActionResult> UpdateProduct(ProductModel model, int[] categoryIds, IFormFile File)
         {
             if(ModelState.IsValid) // melumatlarin VALIDATION-a uygun olaraq girilmesi
             {
@@ -95,10 +95,22 @@ namespace Main.Controllers
                 entity.Name = model.Name;
                 entity.Url = model.Url;
                 entity.Description = model.Description;
-                entity.ImageUrl = model.ImageUrl;
                 entity.Price = model.Price;
                 entity.IsApproved = model.IsApproved;
                 entity.IsHome = model.IsHome;
+                if(File!= null)
+                {
+                    var extantion = Path.GetExtension(File.FileName); // Faylin uzantisini gosterir (.jpg, .pdf, ...)
+                    // var randomName = DateTime.Now.Ticks; // tarix melumatini verir
+                    var randomName = Guid.NewGuid(); // benzersiz uzun ededler verir
+                    var randomFileName = $"{randomName}{extantion}";
+                    entity.ImageUrl = randomFileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot\\images",randomFileName);
+                    using( var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await File.CopyToAsync(stream);
+                    }
+                }
 
                 if(_productService.Update(entity,categoryIds))
                 {

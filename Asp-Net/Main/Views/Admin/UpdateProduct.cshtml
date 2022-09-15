@@ -2,7 +2,7 @@
 
 <h5>Edit Product</h5>
 <hr>
-<form asp-controller="admin" asp-action="updateproduct" method="POST">
+<form asp-controller="admin" asp-action="updateproduct" method="POST" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-8">
             
@@ -34,7 +34,9 @@
                 <div class="mb-3 row">
                     <label asp-for="ImageUrl" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <input class="form-control" asp-for="ImageUrl">
+                        <input type="hidden" asp-for="ImageUrl">
+                        <img src="~/images/@Model.ImageUrl" width="70">
+                        <input type="file" name="File" id="File" class="form-control">
                         <span asp-validation-for="ImageUrl" class="text-danger"></span>
                     </div>
                 </div>
