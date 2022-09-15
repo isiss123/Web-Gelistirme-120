@@ -101,6 +101,9 @@ namespace Main.Data.Concrete.EfCore
                     product.Description = entity.Description;
                     product.Price = entity.Price;
                     product.ImageUrl = entity.ImageUrl;
+                    product.IsApproved = entity.IsApproved;
+                    product.IsHome = entity.IsHome;
+
                     product.ProductCategories = categoryIds.Select(c_id=>new ProductCategory(){
                         ProductId = entity.ProductId,
                         CategoryId = c_id

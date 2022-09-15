@@ -80,9 +80,20 @@ namespace Main.Business.Concrete
             return _productRepository.GetByIdWIthCategory(productId);
         }
 
-        public void Update(Product entity, int[] categoryIds)
+        public bool Update(Product entity, int[] categoryIds)
         {
-            _productRepository.Update(entity, categoryIds);
+            if(Validation(entity))
+            {
+                if(categoryIds.Length == 0 )
+                {
+                    ErrorMessage += "Mehsul üçün ən az 1 kategoriya seçməlisiniz \n";
+                    return false;
+                }
+                _productRepository.Update(entity, categoryIds);
+                return true;
+
+            }
+            return false;
         }
 
         // Validation

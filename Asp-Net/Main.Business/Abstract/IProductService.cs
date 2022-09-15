@@ -22,6 +22,6 @@ namespace Main.Business.Abstract
         List<Product> GetSearchResult(string search);
 
         Product GetByIdWIthCategory(int productId);
-        void Update(Product entity, int[] categoryIds);
+        bool Update(Product entity, int[] categoryIds);
     }
 }

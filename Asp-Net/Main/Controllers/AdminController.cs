@@ -75,6 +75,8 @@ namespace Main.Controllers
                 Description = entity.Description,
                 ImageUrl = entity.ImageUrl,
                 Price = entity.Price,
+                IsApproved = entity.IsApproved,
+                IsHome = entity.IsHome,
                 SelectedCategories = entity.ProductCategories.Select(i=>i.Category).ToList(),
             };
             ViewBag.Categories = _categoryService.GetAll();
@@ -95,17 +97,15 @@ namespace Main.Controllers
                 entity.Description = model.Description;
                 entity.ImageUrl = model.ImageUrl;
                 entity.Price = model.Price;
+                entity.IsApproved = model.IsApproved;
+                entity.IsHome = model.IsHome;
 
-                _productService.Update(entity, categoryIds);
-
-
-                var msg = new AlertMessage{
-                    Message = $"{entity.Name} adlı mehsul yeniləndi.",
-                    AlertType = "success"
-                };
-                TempData["message"] = JsonConvert.SerializeObject(msg);
-                // {"Message":"Hp Gaming adlı mehsul yeniləndi.","AlertType":"success"}
-                return RedirectToAction("productlist","admin");
+                if(_productService.Update(entity,categoryIds))
+                {
+                    CreateMessage($"{entity.Name} adlı mehsul yeniləndi.","success");
+                    return RedirectToAction("productlist","admin");
+                }
+                CreateMessage(_productService.ErrorMessage,"danger");
             }
             ViewBag.Categories = _categoryService.GetAll();
             return View(model);
