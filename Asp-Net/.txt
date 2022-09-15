@@ -53,3 +53,16 @@ dotnet ef database update --startup-project ../Main
 
 
 
+
+
+
+
+
+		CLIENT VALIDATION
+npm install jquery-validation
+npm install jquery-validation-unobtrusive
+
+
+
+
+

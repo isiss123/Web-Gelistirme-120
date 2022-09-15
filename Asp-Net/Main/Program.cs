@@ -96,7 +96,7 @@ internal class Program
         {
             FileProvider = new PhysicalFileProvider(
                 Path.Combine(builder.Environment.ContentRootPath, "node_modules")),
-            RequestPath = "/node_modules"
+            RequestPath = "/modules"
         });
         app.Run();
     }
