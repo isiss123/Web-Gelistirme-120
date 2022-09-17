@@ -18,11 +18,35 @@ namespace Main.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Login()
+        public IActionResult Login(string ReturnUrl=null)
         {
-            return View();
+            return View(new LoginModel{
+                ReturnUrl = ReturnUrl
+            });
         }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            if(user == null)
+            {
+                ModelState.AddModelError("UserName","Bu istifadəçi adı ilə daha öncə giriş edilməyib");
+                return View(model);
+            }
+            var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
+                                                                //(..., ..., tarayici baglananda cookie silinsin, lockout aktivlestirme)
+            if(result.Succeeded)
+            {
+                return Redirect(model.ReturnUrl??"~/");
+            }
+            ModelState.AddModelError("","Girilən istifadəçi adı vəya şifrə yanlışdır");
 
+            return View(model);
+        }
         public IActionResult Register()
         {
             return View();

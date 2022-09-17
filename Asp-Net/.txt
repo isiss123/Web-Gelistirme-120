@@ -1,4 +1,6 @@
-                    PROYEKTLER
+string??"axot"  : gelen string null-a beraberdirse axot ol
+ 
+            PROYEKTLER
 Main -> Main.Business -> Main.Data
 
 Mainden ( internetden ) gelen meluamat Main.Business-de verilen qaydalara uygun olaraq yoxlanildiqdan sonra Main.Data-a gonderilerek Database-e qeyd edilir
@@ -68,7 +70,10 @@ npm install ckeditor
 
 
 
-
+  ./Program.cs
 AddIdentity : Istifade edeceyim User ve Role tablolarim
 AddEntityFrameworkStores : Istifade edeceyim DbContext : ApplicationContext
 AddDefaultTokenProviders : şifrə sıfırlamaq üçün verilən bənzərsiz kodu yaradacaq
+
+./Controllers/AccountController
+_signInManager.PasswordSignInAsync(user,password,tarayici baglananda cookie silinsin, lockout aktivlestirme)
