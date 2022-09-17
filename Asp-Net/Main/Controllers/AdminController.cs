@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Main.Business.Abstract;
 using Main.Entity;
 using Main.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Main.Controllers
 {
-    
+    [Authorize] 
     public class AdminController : Controller
     {
         public IProductService _productService { get; set; }

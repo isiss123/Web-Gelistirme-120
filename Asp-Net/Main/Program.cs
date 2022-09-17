@@ -25,13 +25,14 @@ internal class Program
                 options.Password.RequireLowercase = true; // Mutleq icerisinde balaca herf olmalidir
                 options.Password.RequireUppercase = true; // Mutleq icerisinde boyuk herf olmalidir
                 options.Password.RequireNonAlphanumeric = true; // icerisinde herfler, reqemler ve isareler olmalidir
+
             // lockout : hesap kilidleme
                 options.Lockout.MaxFailedAccessAttempts = 5; // 5 yanlis sifre girisinden sonra hesab kilidlenir
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // 5 deqiqe sonra istifadeci hesabina tekrar gire biler
                 options.Lockout.AllowedForNewUsers = true; // hesap kilidlemeyi aktiv etmek ucun
             // user 
                 // options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnm1234567890_."; // istifadeci adinda icaze verilen karakterler
-                options.User.RequireUniqueEmail = false; // her bir istifadecinin ferqli email adresi olmalidir
+                options.User.RequireUniqueEmail = true; // her bir istifadecinin ferqli email adresi olmalidir
             // signin
                 options.SignIn.RequireConfirmedEmail = false; // yeni hesap acarken email dogruladiqdan sonra hesab aktiv olur
                 options.SignIn.RequireConfirmedPhoneNumber = false; // yeni hesap acarken nomreni dogruladiqdan sonra hesab aktiv olur
@@ -72,6 +73,8 @@ internal class Program
 
 
         app.UseRouting();
+        app.UseAuthorization();
+
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
         {
