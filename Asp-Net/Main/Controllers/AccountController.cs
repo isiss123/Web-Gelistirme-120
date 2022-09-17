@@ -73,5 +73,11 @@ namespace Main.Controllers
             ModelState.AddModelError("","Bilinməyən xəta baş verdi");
             return View(model);
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("~/");
+        }
     }
 }
