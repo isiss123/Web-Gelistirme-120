@@ -2,13 +2,23 @@ using Main.Business.Abstract;
 using Main.Business.Concrete;
 using Main.Data.Abstract;
 using Main.Data.Concrete.EfCore;
+using Main.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        var conntectionString = @"server=localhost;port=3306;user=root;password=12345;database=AspDb";
+        var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
         var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddDbContext<ApplicationContext>(options=>options.UseMySql(conntectionString,serverVersion));
+        builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+        // AddIdentity : Istifade edeceyim User ve Role tablolarim
+        // AddEntityFrameworkStores : Istifade edeceyim DbContext : ApplicationContext
+        // AddDefaultTokenProviders : şifrə sıfırlamaq üçün verilən bənzərsiz kodu yaradacaq
 
         // Repository
         builder.Services.AddScoped<IProductRepository,EfCoreProductRepository>();
@@ -26,6 +36,12 @@ internal class Program
         {
             SeedingDatabase.Seed();
         }
+
+
+        // servisleri istifade et
+        app.UseAuthentication();
+
+
         app.UseRouting();
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
@@ -90,7 +106,8 @@ internal class Program
                 pattern: "{controller=Home}/{action=Index}/{id?}"
             );
         });
-        
+
+
         app.UseStaticFiles();
         app.UseStaticFiles(new StaticFileOptions
         {

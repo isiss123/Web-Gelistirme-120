@@ -69,3 +69,6 @@ npm install ckeditor
 
 
 
+AddIdentity : Istifade edeceyim User ve Role tablolarim
+AddEntityFrameworkStores : Istifade edeceyim DbContext : ApplicationContext
+AddDefaultTokenProviders : şifrə sıfırlamaq üçün verilən bənzərsiz kodu yaradacaq
