@@ -77,3 +77,10 @@ AddDefaultTokenProviders : şifrə sıfırlamaq üçün verilən bənzərsiz kod
 
 ./Controllers/AccountController
 _signInManager.PasswordSignInAsync(user,password,tarayici baglananda cookie silinsin, lockout aktivlestirme)
+
+
+
+
+
+          CSRF TOKEN
+ValidateAntiForgeryToken  :  formlarda olan "__RequestVerificationToken"  bolumununun verdiyi token tarayicidan sayta gonderilen istekdeki ile saytdan tarayiciya gonderilen cavabdaki ile beraber olmasini yoxlayir. Beraber deyilse bunu CSRF hucumu kimi taniyib elaqeni kesir

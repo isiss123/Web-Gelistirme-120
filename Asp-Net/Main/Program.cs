@@ -46,7 +46,8 @@ internal class Program
             options.ExpireTimeSpan = TimeSpan.FromDays(1); // 1 gun sonra tarayicida olan cookies silinir
             options.Cookie = new CookieBuilder{
                 HttpOnly = true, // yalniz http isteklerini qebul edir
-                Name = ".AxotApp.Security.Cookie"
+                Name = ".AxotApp.Security.Cookie",
+                SameSite = SameSiteMode.Strict // cookie-nin basqa biri terefinden istifade edilmesinin qarsini alir
             };
         });
 

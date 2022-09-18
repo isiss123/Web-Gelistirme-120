@@ -25,6 +25,7 @@ namespace Main.Controllers
             });
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
             if(!ModelState.IsValid)
@@ -52,6 +53,7 @@ namespace Main.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if(!ModelState.IsValid)
