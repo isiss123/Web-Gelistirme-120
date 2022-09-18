@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 
 namespace Main.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
         private UserManager<User> _userManager; // istifadeci melumatlari
@@ -120,7 +121,65 @@ namespace Main.Controllers
             return View();
         }
 
-
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string Email)
+        {
+            if(string.IsNullOrEmpty(Email))
+            {
+                CreateMessage("Email bölümü boş ola bilməz","warning");
+                return View();
+            }
+            var user = await _userManager.FindByEmailAsync(Email);
+            if(user == null)
+            {
+                CreateMessage("Bu emailə sahib istifadəçi yoxdur","warning");
+                return View();
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url = Url.Action("resetpassword","account",new {
+                userId = user.Id,
+                token = token
+            });
+            await _emailSender.SendEmailAsync(Email,"Şifrə sıfırlama",$"Şifrənizi sıfırlamaq üçün <a href='https://localhost:7048{url}'>linkə daxil olun</a>");
+            return View();
+        }
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            if(userId == null || token == null)
+            {
+                CreateMessage("Link tapılmadı","danger");
+                return RedirectToAction("index","home");
+            }
+            var model = new ResetPasswordModel(){Token = token,UserId = userId};
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model )
+        {
+            if(!ModelState.IsValid)
+            {
+                CreateMessage("Hərşeyi doğru girdiyinizdən əmin olun","danger");
+                return View(model);
+            }
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if(user == null)
+            {
+                CreateMessage("İstifadəçi tapılmadı","danger");
+                return RedirectToAction("index","home");
+            }
+            var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
+            if(result.Succeeded)
+            {
+                CreateMessage("Şifreniz dəyişdi","success");
+                return RedirectToAction("login","account");
+            }
+            CreateMessage("Gözlənilməyən xəta baş verdi","danger");
+            return View();
+        }
         private void CreateMessage(string name, string type)
         {
             var msg = new AlertMessage{
