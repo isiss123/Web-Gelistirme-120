@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.EmailService;
 using Main.Identity;
 using Main.Models;
 using Microsoft.AspNetCore.Identity;
@@ -14,10 +15,12 @@ namespace Main.Controllers
     {
         private UserManager<User> _userManager; // istifadeci melumatlari
         private SignInManager<User> _signInManager; // cookie melumatlari
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private IEmailSender _emailSender;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
         }
         public IActionResult Login(string ReturnUrl=null)
         {
@@ -83,6 +86,7 @@ namespace Main.Controllers
                 });
                 Console.WriteLine(url);
                 // email gonderir
+                await _emailSender.SendEmailAsync(model.Email,"Hesab Onaylama", $"Hesabınızı aktiv etmək üçün linkə <a href='https://localhost:7048{url}'>daxil olun</a>");
                 return RedirectToAction("login","account");
             }
             ModelState.AddModelError("","Bilinməyən xəta baş verdi");

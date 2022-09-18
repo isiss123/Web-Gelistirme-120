@@ -2,6 +2,7 @@ using Main.Business.Abstract;
 using Main.Business.Concrete;
 using Main.Data.Abstract;
 using Main.Data.Concrete.EfCore;
+using Main.EmailService;
 using Main.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,16 @@ using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
+
     private static void Main(string[] args)
     {
+        IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
+
         var conntectionString = @"server=localhost;port=3306;user=root;password=12345;database=AspDb";
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddDbContext<ApplicationContext>(options=>options.UseMySql(conntectionString,serverVersion));
         builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
@@ -59,6 +66,18 @@ internal class Program
         builder.Services.AddScoped<ICategoryService,CategoryManager>();
         builder.Services.AddScoped<IProductService,ProductManager>();
         // Program IProductRepository cagiranda EfCoreProductRepository-den object yaradib gonderir
+
+        builder.Services.AddScoped<IEmailSender,SmtpEmailSender>(i=>
+            new SmtpEmailSender(
+                configuration["EmailSender:Host"],
+                configuration.GetValue<int>("EmailSender:Port"),
+                configuration.GetValue<bool>("EmailSender:EnableSSl"),
+                configuration["EmailSender:UserName"],
+                configuration["EmailSender:Password"]
+
+            )
+        );
+        
         
         builder.Services.AddControllersWithViews();
         
@@ -148,6 +167,7 @@ internal class Program
                 Path.Combine(builder.Environment.ContentRootPath, "node_modules")),
             RequestPath = "/modules"
         });
+        
         app.Run();
     }
 }
