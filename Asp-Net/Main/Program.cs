@@ -34,7 +34,7 @@ internal class Program
                 // options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnm1234567890_."; // istifadeci adinda icaze verilen karakterler
                 options.User.RequireUniqueEmail = true; // her bir istifadecinin ferqli email adresi olmalidir
             // signin
-                options.SignIn.RequireConfirmedEmail = false; // yeni hesap acarken email dogruladiqdan sonra hesab aktiv olur
+                options.SignIn.RequireConfirmedEmail = true; // yeni hesap acarken email dogruladiqdan sonra hesab aktiv olur
                 options.SignIn.RequireConfirmedPhoneNumber = false; // yeni hesap acarken nomreni dogruladiqdan sonra hesab aktiv olur
 
         });

@@ -6,6 +6,7 @@ using Main.Identity;
 using Main.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Main.Controllers
 {
@@ -36,6 +37,11 @@ namespace Main.Controllers
             if(user == null)
             {
                 ModelState.AddModelError("UserName","Bu istifadəçi adı ilə daha öncə giriş edilməyib");
+                return View(model);
+            }
+            if(!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                ModelState.AddModelError("","Emailinizə gələn linkdən hesabınızı doğrulandıqdan sonra təkrar yoxlayın");
                 return View(model);
             }
             var result = await _signInManager.PasswordSignInAsync(user,model.Password,true,false);
@@ -69,7 +75,14 @@ namespace Main.Controllers
             var result = await _userManager.CreateAsync(user,model.Password);
             if(result.Succeeded)
             {
-                // indi yox :  token yaradir ve emaile gonderir
+                // token yaradir
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var url = Url.Action("confirmemail","account", new {
+                    userId = user.Id,
+                    token = token
+                });
+                Console.WriteLine(url);
+                // email gonderir
                 return RedirectToAction("login","account");
             }
             ModelState.AddModelError("","Bilinməyən xəta baş verdi");
@@ -80,6 +93,38 @@ namespace Main.Controllers
         {
             await _signInManager.SignOutAsync();
             return Redirect("~/");
+        }
+    
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if(userId == null || token == null)
+            {
+                CreateMessage("Geçərsiz URL","danger");
+                return View();
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if(user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user,token);
+                if(result.Succeeded)
+                {
+                    CreateMessage("Hesabınız doğrulandı","success");
+                    return View();
+                }
+            }
+            CreateMessage("Hesabınız onaylanmadı","danger");
+            return View();
+        }
+
+
+        private void CreateMessage(string name, string type)
+        {
+            var msg = new AlertMessage{
+                Message = name,
+                AlertType = type
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+            // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
         }
     }
 }
