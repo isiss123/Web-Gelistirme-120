@@ -84,3 +84,10 @@ _signInManager.PasswordSignInAsync(user,password,tarayici baglananda cookie sili
 
           CSRF TOKEN
 ValidateAntiForgeryToken  :  formlarda olan "__RequestVerificationToken"  bolumununun verdiyi token tarayicidan sayta gonderilen istekdeki ile saytdan tarayiciya gonderilen cavabdaki ile beraber olmasini yoxlayir. Beraber deyilse bunu CSRF hucumu kimi taniyib elaqeni kesir
+
+
+
+
+
+
+[Authorize] etiketlenmis controller de [AllowAnonymous] ile etiketlenmis funksiya rolu olan ve olmayan herkesin gire bileceyi link olur

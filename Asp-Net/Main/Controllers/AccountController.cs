@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Main.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Main.Controllers
 {
@@ -100,7 +101,7 @@ namespace Main.Controllers
             await _signInManager.SignOutAsync();
             return Redirect("~/");
         }
-    
+
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             if(userId == null || token == null)
@@ -241,6 +242,11 @@ namespace Main.Controllers
             };
             TempData["message"] = JsonConvert.SerializeObject(msg);
             // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
+        }
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

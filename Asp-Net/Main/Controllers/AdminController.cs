@@ -14,7 +14,7 @@ using Main.Extensions;
 
 namespace Main.Controllers
 {
-    [Authorize] 
+    [Authorize(Roles="Admin,Designer,Mod,Satici")] 
     public class AdminController : Controller
     {
         private IProductService _productService;
@@ -32,15 +32,19 @@ namespace Main.Controllers
             _userManager = userManager;
         }
         // ROLE
+        [Authorize(Roles="Admin,Mod")]
         public IActionResult RoleList()
         {
             return View(_roleManager.Roles);
         }
+        
+        [Authorize(Roles="Admin")]
         public IActionResult CreateRole()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> CreateRole(RoleModel model)
         {
             if(ModelState.IsValid)
@@ -66,6 +70,7 @@ namespace Main.Controllers
             return View(model);
         }
 
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> UpdateRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
@@ -97,6 +102,7 @@ namespace Main.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> UpdateRole(RoleEditModel model)
         {
             if(ModelState.IsValid)
@@ -389,6 +395,11 @@ namespace Main.Controllers
             };
             TempData["message"] = JsonConvert.SerializeObject(msg);
             // {"Message":"Hp Gaming adlı mehsul əlavə edildi.","AlertType":"success"}
+        }
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }
