@@ -98,6 +98,21 @@ internal class Program
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
         {
+            // admin ROLE
+            endpoints.MapControllerRoute(
+                name: "adminRoleList",
+                pattern: "admin/roles",
+                defaults: new{controller="Admin",action = "RoleList"}
+            );
+            endpoints.MapControllerRoute(
+                name: "adminRoleCreate",
+                pattern: "admin/roles/create",
+                defaults: new{controller="Admin",action = "CreateRole"}
+            );
+
+
+
+            // admin CATEGORY
             endpoints.MapControllerRoute(
                 name: "adminCategoryList",
                 pattern: "admin/categories",
@@ -115,7 +130,7 @@ internal class Program
             );
 
 
-
+            // admin PRODUCT
             endpoints.MapControllerRoute(
                 name: "adminProductList",
                 pattern: "admin/products",

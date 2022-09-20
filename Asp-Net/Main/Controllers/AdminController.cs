@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Main.Business.Abstract;
 using Main.Entity;
+using Main.Identity;
 using Main.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Main.Extensions;
 
 namespace Main.Controllers
 {
@@ -16,11 +19,57 @@ namespace Main.Controllers
     {
         public IProductService _productService { get; set; }
         public ICategoryService _categoryService { get; set; }
-        public AdminController(IProductService productService, ICategoryService categoryService)
+        private UserManager<User> _userManager;
+        private RoleManager<IdentityRole> _roleManager;
+        public AdminController(IProductService productService, ICategoryService categoryService,
+                                UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             this._productService = productService;
             this._categoryService = categoryService;
+            this._roleManager = roleManager;
+            this._userManager = userManager;
         }
+        // ROLE
+        public IActionResult RoleList()
+        {
+            return View(_roleManager.Roles);
+        }
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(RoleModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _roleManager.CreateAsync(new IdentityRole(model.Name));
+                if(result.Succeeded)
+                {
+                    var createRole_Message = new AlertMessage{
+                        Title = "Role Create",
+                        Message = "Yeni rol yaradıldı",
+                        AlertType = "success"
+                    };
+                    TempData.Put<AlertMessage>("message",createRole_Message);
+                    return RedirectToAction("rolelist");
+                }else{
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("",error.Description);
+                        return View(model);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+
+
+
+
+
+        // PRODUCT
         public IActionResult ProductList()
         {
             var productView = new ProductListViewModel{
