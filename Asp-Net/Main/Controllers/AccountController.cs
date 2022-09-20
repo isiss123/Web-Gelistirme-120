@@ -8,6 +8,7 @@ using Main.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Main.Extensions;
 
 namespace Main.Controllers
 {
@@ -113,7 +114,12 @@ namespace Main.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user,token);
                 if(result.Succeeded)
                 {
-                    CreateMessage("Hesabınız doğrulandı","success");
+                    var Confirm_Alert = new AlertMessage{
+                        Title = "Hesab onayı",
+                        Message = "Hesabınız uğurla onaylandı",
+                        AlertType = "success"
+                    };
+                    TempData.Put<AlertMessage>("message",Confirm_Alert);
                     return View();
                 }
             }
@@ -130,13 +136,25 @@ namespace Main.Controllers
         {
             if(string.IsNullOrEmpty(Email))
             {
-                CreateMessage("Email bölümü boş ola bilməz","warning");
+                // CreateMessage("Email bölümü boş ola bilməz","warning");
+                var Forgot1_Alert = new AlertMessage{
+                    Title = "Forgot Password",
+                    Message = "Email bölümü boş ola bilməz",
+                    AlertType = "warning"
+                };
+                TempData.Put<AlertMessage>("message",Forgot1_Alert);
                 return View();
             }
             var user = await _userManager.FindByEmailAsync(Email);
             if(user == null)
             {
-                CreateMessage("Bu emailə sahib istifadəçi yoxdur","warning");
+                // CreateMessage("Bu emailə sahib istifadəçi yoxdur","warning");
+                var Forgot2_Alert = new AlertMessage{
+                    Title = "Forgot Password",
+                    Message = "Bu emailə sahib istifadəçi yoxdur",
+                    AlertType = "warning"
+                };
+                TempData.Put<AlertMessage>("message",Forgot2_Alert);
                 return View();
             }
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
@@ -145,13 +163,26 @@ namespace Main.Controllers
                 token = token
             });
             await _emailSender.SendEmailAsync(Email,"Şifrə sıfırlama",$"Şifrənizi sıfırlamaq üçün <a href='https://localhost:7048{url}'>linkə daxil olun</a>");
+
+            var Forgot3_Alert = new AlertMessage{
+                    Title = "Forgot Password",
+                    Message = "Şifrə sıfırlama linki emailə göndərildi",
+                    AlertType = "primary"
+                };
+            TempData.Put<AlertMessage>("message",Forgot3_Alert);
             return View();
         }
         public IActionResult ResetPassword(string userId, string token)
         {
             if(userId == null || token == null)
             {
-                CreateMessage("Link tapılmadı","danger");
+                // CreateMessage("Link tapılmadı","danger");
+                var Reset_Alert = new AlertMessage{
+                    Title = "Link uyğunsuzluğu",
+                    Message = "Link tapılmadı",
+                    AlertType = "danger"
+                };
+                TempData.Put<AlertMessage>("message",Reset_Alert);
                 return RedirectToAction("index","home");
             }
             var model = new ResetPasswordModel(){Token = token,UserId = userId};
@@ -162,22 +193,44 @@ namespace Main.Controllers
         {
             if(!ModelState.IsValid)
             {
-                CreateMessage("Hərşeyi doğru girdiyinizdən əmin olun","danger");
+                // CreateMessage("Hərşeyi doğru girdiyinizdən əmin olun","danger");
+                var Reset1_Alert = new AlertMessage{
+                    Title = "Boş vəya uyğunsuz içərik",
+                    Message = "Hərşeyi doğru girdiyinizdən əmin olun",
+                    AlertType = "warning"
+                };
+                TempData.Put<AlertMessage>("message",Reset1_Alert);
                 return View(model);
             }
             var user = await _userManager.FindByIdAsync(model.UserId);
             if(user == null)
             {
-                CreateMessage("İstifadəçi tapılmadı","danger");
+                // CreateMessage("İstifadəçi tapılmadı","danger");
+                var Reset2_Alert = new AlertMessage{
+                    Title = "User Error",
+                    Message = "Belə bir istifadəçi tapılmadı",
+                    AlertType = "danger"
+                };
+                TempData.Put<AlertMessage>("message",Reset2_Alert);
                 return RedirectToAction("index","home");
             }
             var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
             if(result.Succeeded)
             {
-                CreateMessage("Şifreniz dəyişdi","success");
+                // CreateMessage("Şifreniz dəyişdi","success");
+                var Reset3_Alert = new AlertMessage{
+                    Message = "Şifreniz uğurla dəyişdi",
+                    AlertType = "success"
+                };
+                TempData.Put<AlertMessage>("message",Reset3_Alert);
                 return RedirectToAction("login","account");
             }
-            CreateMessage("Gözlənilməyən xəta baş verdi","danger");
+            // CreateMessage("Gözlənilməyən xəta baş verdi","danger");
+            var Reset_Alert = new AlertMessage{
+                    Message = "Gözlənilməyən xəta baş verdi",
+                    AlertType = "danger"
+                };
+            TempData.Put<AlertMessage>("message",Reset_Alert);
             return View();
         }
         private void CreateMessage(string name, string type)

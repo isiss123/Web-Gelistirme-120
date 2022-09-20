@@ -1,0 +1,10 @@
+@model AlertMessage
+
+<div class="row mb-2">
+    <div class="col-md-12">
+        <div class="alert alert-@Model.AlertType">
+            <h4>@Model.Title</h4>
+            @Model.Message
+        </div>
+    </div>
+</div>
