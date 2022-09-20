@@ -106,8 +106,13 @@ internal class Program
             );
             endpoints.MapControllerRoute(
                 name: "adminRoleCreate",
-                pattern: "admin/roles/create",
+                pattern: "admin/role/create",
                 defaults: new{controller="Admin",action = "CreateRole"}
+            );
+            endpoints.MapControllerRoute(
+                name: "adminRoleUpdate",
+                pattern: "admin/role/{id?}",
+                defaults: new{controller="Admin",action = "UpdateRole"}
             );
 
 

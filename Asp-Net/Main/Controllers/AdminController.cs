@@ -17,17 +17,19 @@ namespace Main.Controllers
     [Authorize] 
     public class AdminController : Controller
     {
-        public IProductService _productService { get; set; }
-        public ICategoryService _categoryService { get; set; }
-        private UserManager<User> _userManager;
+        private IProductService _productService;
+        private ICategoryService _categoryService;
         private RoleManager<IdentityRole> _roleManager;
-        public AdminController(IProductService productService, ICategoryService categoryService,
-                                UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        private UserManager<User> _userManager;
+        public AdminController(IProductService productService,
+                               ICategoryService categoryService,
+                               RoleManager<IdentityRole> roleManager,
+                               UserManager<User> userManager)
         {
-            this._productService = productService;
-            this._categoryService = categoryService;
-            this._roleManager = roleManager;
-            this._userManager = userManager;
+            _productService = productService;
+            _categoryService = categoryService;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
         // ROLE
         public IActionResult RoleList()
@@ -64,7 +66,89 @@ namespace Main.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> UpdateRole(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
 
+            var members = new List<User>();
+            var nonmembers = new List<User>();
+
+            // foreach (var user in _userManager.Users)
+            // {
+            //     var list = await _userManager.IsInRoleAsync(user,role.Name)
+            //                     ?members:nonmembers;
+            //     list.Add(user);
+            // }
+            foreach (var user in _userManager.Users.ToList())
+            {
+                if(await _userManager.IsInRoleAsync(user,role.Name))
+                {
+                    members.Add(user);
+                }else{
+                    nonmembers.Add(user);
+                }
+            }
+            var model = new RoleDetailsModel()
+            {
+                Role = role,
+                Members = members,
+                NonMembers = nonmembers
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateRole(RoleEditModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                foreach (var userId in model.IdsToAdd ?? new string[]{})
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if(user!=null)
+                    {
+                        var result = await _userManager.AddToRoleAsync(user,model.RoleName);
+                        if(!result.Succeeded)
+                        {
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError("",error.Description);
+                            }
+                        }else
+                        {
+                            TempData.Put<AlertMessage>("message",new AlertMessage{
+                                Message = "Rol yeniləndi",
+                                AlertType = "success"
+                            });
+                            RedirectToAction("rolelist");
+                        }
+                    }
+                }
+                foreach (var userId in model.IdsToDelete ?? new string[]{})
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if(user!=null)
+                    {
+                        var result = await _userManager.RemoveFromRoleAsync(user,model.RoleName);
+                        if(!result.Succeeded)
+                        {
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError("",error.Description);
+                            }
+                        }else
+                        {
+                            TempData.Put<AlertMessage>("message",new AlertMessage{
+                                Message = "Rol yeniləndi",
+                                AlertType = "success"
+                            });
+                            RedirectToAction("rolelist");
+                        }
+                    }
+                }
+            }
+
+            return Redirect("/admin/role/"+model.RoleId);
+        }
 
 
 
