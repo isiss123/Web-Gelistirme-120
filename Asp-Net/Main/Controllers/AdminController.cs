@@ -31,6 +31,16 @@ namespace Main.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+        // User
+        [Authorize(Roles="Admin")]
+        public IActionResult UserList()
+        {
+            return View(_userManager.Users);
+        }
+
+
+
+
         // ROLE
         [Authorize(Roles="Admin,Mod")]
         public IActionResult RoleList()
