@@ -1,15 +1,16 @@
 @model IEnumerable<User>
 @section Links{
-    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-    <style>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    @* <style>
         .dataTables_length, .myTable_filter
         {
             padding: 1rem 0;
         }
-    </style>
+    </style> *@
 }
 @section Scripts{
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready( function () {
             $('#myTable').DataTable();
@@ -19,8 +20,10 @@
 <h1>Admin User</h1>
 <hr>
 <a asp-controller="admin" asp-action="createuser" class="btn btn-primary">Create User</a>
+<div style="width: 100%; margin: 1rem 0;"></div>
+@* <hr> *@
 
-<table class="table table-bordered" style="margin-top: 1rem;" id="myTable">
+<table class="table table-bordered" style="margin-top: 1rem;" id="myTable" data-page-length='3'>
     <thead>
         <tr>
             <th>First Name</th>

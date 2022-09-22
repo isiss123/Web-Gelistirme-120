@@ -37,8 +37,103 @@ namespace Main.Controllers
         {
             return View(_userManager.Users);
         }
+        public async Task<IActionResult> UpdateUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if(user!=null)
+            {
+                var selectedRoles = await _userManager.GetRolesAsync(user);
+                
+                var roles = _roleManager.Roles.Select(i=>i.Name);
+                var userDetail = new UserDetailsModel{
+                    UserId = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    SelectedRoles = (List<string>)selectedRoles
+                };
+                ViewBag.Roles = roles;
+                return View(userDetail);
+            }
+            var Alert = new AlertMessage{
+                Message = "İstənilməyən xəta baş verdi.a",
+                AlertType = "danger"
+            };
+            TempData.Put<AlertMessage>("message",Alert);
+            return RedirectToAction("userlist");
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser(UserDetailsModel model, string[] selected_Roles)
+        {
+            if(ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                if(user==null)
+                {
+                    var danger_Alert = new AlertMessage{
+                        Message = "İstənilməyən xəta baş verdi.q",
+                        AlertType = "danger"
+                    };
+                    TempData.Put<AlertMessage>("message",danger_Alert);
+
+                    return RedirectToAction("userlist");
+                }
+
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.UserName = model.UserName;
+                user.Email = model.Email;
+                user.EmailConfirmed = model.EmailConfirmed;
+                var result = await _userManager.UpdateAsync(user);
+
+                if(!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        var danger_Alert = new AlertMessage{
+                            Message = error.Description,
+                            AlertType = "danger"
+                        };
+                        TempData.Put<AlertMessage>("message",danger_Alert);
+                    }
+                    
+                }
+                
+                if(selected_Roles.Length == 0)
+                {
+                    var warning_Alert = new AlertMessage{
+                            Message = "Ən az 1 rola sahib olmalısınız",
+                            AlertType = "warning"
+                        };
+                    TempData.Put<AlertMessage>("message",warning_Alert);
+                    ViewBag.Roles = _roleManager.Roles.Select(i=>i.Name);
+                    return View(model);
+                }
+                
+
+                var userRoles = await _userManager.GetRolesAsync(user);
+                selected_Roles = selected_Roles ?? new string[]{};
+                await _userManager.AddToRolesAsync(user, selected_Roles.Except(userRoles).ToArray<string>());
+                await _userManager.RemoveFromRolesAsync(user, userRoles.Except(selected_Roles).ToArray<string>());
+                
+                var success_Alert = new AlertMessage
+                {
+                    Message = $"{user.FirstName} adlı istifadəçi yeniləndi",
+                    AlertType = "success"
+                };
+                TempData.Put<AlertMessage>("message",success_Alert);
+
+                return RedirectToAction("userlist");
 
 
+            }
+            ModelState.AddModelError("","Məlumatları doğru girdiyinizdən əmin olun ");
+
+            ViewBag.Roles = _roleManager.Roles.Select(i=>i.Name);
+            return View(model);
+        }
 
 
         // ROLE
