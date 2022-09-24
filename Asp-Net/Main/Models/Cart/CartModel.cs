@@ -9,6 +9,14 @@ namespace Main.Models.Cart
     {
         public int CartId { get; set; }
         public List<CartItemModel> CartItems { get; set; }
+        public double TotalPrice()
+        {
+            return CartItems.Sum(i=> i.Price*i.Quantity);
+        }
+        public double EDV()
+        {
+            return CartItems.Sum(i=> i.Price*i.Quantity)*18/100;
+        }
     }
     public class CartItemModel
     {
