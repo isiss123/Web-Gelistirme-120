@@ -48,5 +48,14 @@ namespace Main.Business.Concrete
             }
             return false;
         }
+
+        public void DeleteFromCart(string userId, int productId)
+        {
+            var cart = GetCartByUserId(userId);
+            if(cart!=null)
+            {
+                _cartRepository.DeleteFromCart(cart.Id, productId);
+            }
+        }
     }
 }

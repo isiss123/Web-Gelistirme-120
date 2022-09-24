@@ -43,7 +43,16 @@ namespace Main.Controllers
         {
             var user = _userManager.GetUserId(User);
             _cartService.AddToCart(user,productId,quantity);
-            return RedirectToAction("Index","Home");
+            // return RedirectToAction("Index","Home");
+            return Redirect("~/");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteFromCart(int productId)
+        {
+            var userId = _userManager.GetUserId(User);
+            _cartService.DeleteFromCart(userId, productId);
+            return RedirectToAction("index");
         }
     }
 }
