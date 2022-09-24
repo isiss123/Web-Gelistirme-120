@@ -1,0 +1,52 @@
+@model CartModel
+
+<h3 class="h3">Səbətiniz</h3>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price <i class="fa-solid fa-dollar-sign fa-xs" style="color: #737373;"></i></th>
+                    <th>Quantity</th>
+                    <th>Total <i class="fa-solid fa-dollar-sign fa-xs" style="color: #737373;"></i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CartItems.Count !=0)
+                {
+                    @foreach (var item in Model.CartItems)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/images/@item.ImageUrl" alt="" width="80px">
+                            </td>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>@item.Quantity</td>
+                            <td>@((double)item.Quantity*item.Price)</td>
+                            <td>
+                                <form asp-controller="Cart" asp-action="RemoveFromCart" style="display: inline;" method="POST">
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fa-solid fa-square-xmark fa-xl" style="color: #cc0000;"></i>
+                                    </button>
+                                </form>
+                            </td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+@section Links
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
