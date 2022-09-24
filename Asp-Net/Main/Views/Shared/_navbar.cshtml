@@ -14,7 +14,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
-                    @if(User.IsInRole("Satici") || User.IsInRole("Mod"))
+                    @if(User.IsInRole("satici") || User.IsInRole("mod"))
                     {
                         <li class="nav-item">
                             <a asp-controller="admin" asp-action="productlist" class="nav-link">Products</a>
@@ -23,7 +23,7 @@
                             <a asp-controller="admin" asp-action="categorylist" class="nav-link">Categories</a>
                         </li>
                     }
-                    @if(User.IsInRole("Admin"))
+                    @if(User.IsInRole("admin"))
                     {
                         <li class="nav-item">
                             <a asp-controller="admin" asp-action="productlist" class="nav-link">Products</a>

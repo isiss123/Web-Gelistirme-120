@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Main.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using Main.Business.Abstract;
 
 namespace Main.Controllers
 {
@@ -19,11 +20,13 @@ namespace Main.Controllers
         private UserManager<User> _userManager; // istifadeci melumatlari
         private SignInManager<User> _signInManager; // cookie melumatlari
         private IEmailSender _emailSender;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender)
+        private ICartService _cartService;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _cartService = cartService;
         }
         public IActionResult Login(string ReturnUrl=null)
         {
@@ -87,9 +90,9 @@ namespace Main.Controllers
                     userId = user.Id,
                     token = token
                 });
-                Console.WriteLine(url);
                 // email gonderir
                 await _emailSender.SendEmailAsync(model.Email,"Hesab Onaylama", $"Hesabınızı aktiv etmək üçün linkə <a href='https://localhost:7048{url}'>daxil olun</a>");
+                await _userManager.AddToRoleAsync(user,"alici");
                 return RedirectToAction("login","account");
             }
             ModelState.AddModelError("","Bilinməyən xəta baş verdi");
@@ -115,6 +118,8 @@ namespace Main.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user,token);
                 if(result.Succeeded)
                 {
+                    // Səbət yaranır
+                    _cartService.InitializeCart(user.Id);
                     var Confirm_Alert = new AlertMessage{
                         Title = "Hesab onayı",
                         Message = "Hesabınız uğurla onaylandı",

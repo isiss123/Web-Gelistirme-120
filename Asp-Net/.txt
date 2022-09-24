@@ -52,6 +52,10 @@ Concrete   - Interfacei esas goturerek yaranan
 dotnet ef migrations add InitialCreate --startup-project ../Main
 dotnet ef database update --startup-project ../Main
 
+birden cox context olanda
+
+dotnet ef migrations add InitialCreate --startup-project ../Main --context ...  (Context adi)
+dotnet ef database update --startup-project ../Main --context ...  (Context adi)
 
 
 

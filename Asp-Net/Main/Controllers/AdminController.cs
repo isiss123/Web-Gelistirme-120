@@ -14,7 +14,7 @@ using Main.Extensions;
 
 namespace Main.Controllers
 {
-    [Authorize(Roles="Admin,Designer,Mod,Satici")] 
+    [Authorize(Roles="admin,designer,mod,satici")] // (Roles="Admin,Designer,Mod,Satici")
     public class AdminController : Controller
     {
         private IProductService _productService;
@@ -32,7 +32,7 @@ namespace Main.Controllers
             _userManager = userManager;
         }
         // User
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="admin")]
         public IActionResult UserList()
         {
             return View(_userManager.Users);
@@ -137,19 +137,19 @@ namespace Main.Controllers
 
 
         // ROLE
-        [Authorize(Roles="Admin,Mod")]
+        [Authorize(Roles="admin,mod")]
         public IActionResult RoleList()
         {
             return View(_roleManager.Roles);
         }
         
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="admin")]
         public IActionResult CreateRole()
         {
             return View();
         }
         [HttpPost]
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> CreateRole(RoleModel model)
         {
             if(ModelState.IsValid)
@@ -175,7 +175,7 @@ namespace Main.Controllers
             return View(model);
         }
 
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> UpdateRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
@@ -207,7 +207,7 @@ namespace Main.Controllers
             return View(model);
         }
         [HttpPost]
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> UpdateRole(RoleEditModel model)
         {
             if(ModelState.IsValid)

@@ -7,7 +7,6 @@ using Main.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-
 internal class Program
 {
 
@@ -21,6 +20,7 @@ internal class Program
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
         var builder = WebApplication.CreateBuilder(args);
+        
         builder.Services.AddDbContext<ApplicationContext>(options=>options.UseMySql(conntectionString,serverVersion));
         builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
         // AddIdentity : Istifade edeceyim User ve Role tablolarim
@@ -61,10 +61,12 @@ internal class Program
         // Repository
         builder.Services.AddScoped<IProductRepository,EfCoreProductRepository>();
         builder.Services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
+        builder.Services.AddScoped<ICartRepository,EfCoreCartRepository>();
 
         //Service
         builder.Services.AddScoped<ICategoryService,CategoryManager>();
         builder.Services.AddScoped<IProductService,ProductManager>();
+        builder.Services.AddScoped<ICartService,CartManager>();
         // Program IProductRepository cagiranda EfCoreProductRepository-den object yaradib gonderir
 
         builder.Services.AddScoped<IEmailSender,SmtpEmailSender>(i=>
@@ -209,7 +211,9 @@ internal class Program
                 Path.Combine(builder.Environment.ContentRootPath, "node_modules")),
             RequestPath = "/modules"
         });
-        
+
+        // await SeedIdentity.Seed(configuration);
         app.Run();
+        
     }
 }
