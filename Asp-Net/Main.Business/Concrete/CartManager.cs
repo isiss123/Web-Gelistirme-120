@@ -26,5 +26,27 @@ namespace Main.Business.Concrete
         {
             return _cartRepository.GetByUserId(userId);
         }
+
+        public bool AddToCart(string userId, int productId, int quantity)
+        {
+            var cart = _cartRepository.GetByUserId(userId);
+            if(cart!=null)
+            {
+                var index = cart.CartItems.FindIndex(i=>i.ProductId==productId);
+                if(index<0)
+                {
+                    cart.CartItems.Add(new CartItem{
+                        ProductId = productId,
+                        Quantity = quantity,
+                        CartId = cart.Id
+                    });
+                }else{
+                    cart.CartItems[index].Quantity += quantity;
+                }
+                _cartRepository.Update(cart);
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -20,5 +20,13 @@ namespace Main.Data.Concrete.EfCore
                         .FirstOrDefault(i=>i.UserId==userId);
             }
         }
+        public override void Update(Cart entity)
+        {
+            using( var db = new MainContext())
+            {
+                db.Carts.Update(entity);
+                db.SaveChanges();
+            }
+        }
     }
 }

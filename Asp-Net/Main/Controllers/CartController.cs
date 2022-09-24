@@ -39,9 +39,11 @@ namespace Main.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToCart()
+        public IActionResult AddToCart(int productId, int quantity)
         {
-            return View();
+            var user = _userManager.GetUserId(User);
+            _cartService.AddToCart(user,productId,quantity);
+            return RedirectToAction("Index","Home");
         }
     }
 }

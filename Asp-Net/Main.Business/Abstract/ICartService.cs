@@ -10,5 +10,6 @@ namespace Main.Business.Abstract
     {
         void InitializeCart(string userId);
         Cart GetCartByUserId(string userId);
+        bool AddToCart(string userId, int productId, int quantity);
     }
 }
