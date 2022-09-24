@@ -31,6 +31,7 @@ namespace Main.Controllers
                     CartItemId = i.Id,
                     ProductId = i.ProductId,
                     Name = i.Product.Name,
+                    Description = i.Product.Description,
                     Price = (double)i.Product.Price,
                     ImageUrl = i.Product.ImageUrl,
                     Quantity = i.Quantity
@@ -53,6 +54,27 @@ namespace Main.Controllers
             var userId = _userManager.GetUserId(User);
             _cartService.DeleteFromCart(userId, productId);
             return RedirectToAction("index");
+        }
+
+
+        public IActionResult Checkout()
+        {
+            var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
+            var orderModel = new OrderModel();
+            orderModel.CartModel = new CartModel{
+                CartId = cart.Id,
+                CartItems = cart.CartItems.Select(i=> new CartItemModel
+                {
+                    CartItemId = i.Id,
+                    ProductId = i.ProductId,
+                    Name = i.Product.Name,
+                    Description = i.Product.Description,
+                    Price = (double)i.Product.Price,
+                    ImageUrl = i.Product.ImageUrl,
+                    Quantity = i.Quantity
+                }).ToList()
+            };
+            return View(orderModel);
         }
     }
 }

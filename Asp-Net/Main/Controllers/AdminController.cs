@@ -134,6 +134,34 @@ namespace Main.Controllers
             ViewBag.Roles = _roleManager.Roles.Select(i=>i.Name);
             return View(model);
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if(user!=null)
+            {
+                var result = await _userManager.DeleteAsync(user);
+                if(!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        TempData.Put<AlertMessage>("message",new AlertMessage{
+                            Message = error.Description,
+                            AlertType= "danger"
+                        });
+                    }
+                    return RedirectToAction("userlist");
+                }
+                TempData.Put<AlertMessage>("message",new AlertMessage{
+                    Title= "Role Delete",
+                    Message = $"{user.UserName} adlı istifadəçi silindi",
+                    AlertType= "warning"
+                });
+            }
+            return RedirectToAction("userlist");
+        }
+
+
 
 
         // ROLE
@@ -261,7 +289,32 @@ namespace Main.Controllers
             return Redirect("/admin/role/"+model.RoleId);
         }
 
-
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if(role!=null)
+            {
+                var result = await _roleManager.DeleteAsync(role);
+                if(!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        TempData.Put<AlertMessage>("message",new AlertMessage{
+                            Message = error.Description,
+                            AlertType= "danger"
+                        });
+                    }
+                    return RedirectToAction("rolelist");
+                }
+                TempData.Put<AlertMessage>("message",new AlertMessage{
+                    Title= "Role Delete",
+                    Message = $"{role.Name} adlı rol silindi",
+                    AlertType= "warning"
+                });
+            }
+            return Redirect("rolelist");
+        }
 
 
         // PRODUCT

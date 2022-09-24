@@ -23,8 +23,8 @@
                     <td> @role.Name</td>
                     <td class="text-center">
                         <a asp-controller="admin" asp-action="updaterole" asp-route-id="@role.Id" class="btn btn-primary btn-sm me-2">Edit</a>
-                        <form action="/admin/deleterole" style="display: inline;">
-                            <input type="hidden" name="categoryId" value="@role.Id">
+                        <form action="/admin/deleterole" style="display: inline;" method="POST">
+                            <input type="hidden" name="roleId" value="@role.Id">
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </td>

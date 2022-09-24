@@ -106,6 +106,11 @@ internal class Program
                 pattern: "cart",
                 defaults: new{controller="Cart",action = "Index"}
             );
+            endpoints.MapControllerRoute(
+                name: "CartCheckout",
+                pattern: "checkout",
+                defaults: new{controller="Cart",action = "Checkout"}
+            );
 
 
 
