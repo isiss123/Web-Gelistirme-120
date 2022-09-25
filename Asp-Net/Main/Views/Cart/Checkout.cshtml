@@ -3,13 +3,12 @@
 <hr>
 <div class="row">
     <div class="col-md-8">
-        <h4 class="mb-3">
+        <h5 class="mb-3">
             <span>Əlaqə məlumatları</span>
-        </h4>
+        </h5>
         <hr>
         <form method="POST">
             <input type="hidden" name="cartId" value="1">
-            <input type="hidden" value="@Model.CartModel.TotalPrice()" name="TotalPrice">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label asp-for="FirstName" class="form-label">First Name</label>
@@ -39,6 +38,33 @@
                 </div>
             </div>
             <div class="mb-3"></div>
+            
+            <hr>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label asp-for="CartName" class="form-label"></label>
+                    <input type="text" class="form-control" asp-for="CartName">
+                </div>
+                <div class="col-md-8">
+                    <label asp-for="CartNumber" class="form-label"></label>
+                    <input type="text" class="form-control" asp-for="CartNumber">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label asp-for="ExpirationMonth" class="form-label"></label>
+                    <input type="text" class="form-control" asp-for="ExpirationMonth">
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="ExpirationYear" class="form-label"></label>
+                    <input type="text" class="form-control" asp-for="ExpirationYear">
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Cvc" class="form-label"></label>
+                    <input type="text" class="form-control" asp-for="Cvc">
+                </div>
+            </div>
+
             <div class="d-grid">
                 <button class="btn btn-primary" type="submit">Ödə</button>
             </div>

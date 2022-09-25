@@ -62,11 +62,13 @@ internal class Program
         builder.Services.AddScoped<IProductRepository,EfCoreProductRepository>();
         builder.Services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
         builder.Services.AddScoped<ICartRepository,EfCoreCartRepository>();
+        builder.Services.AddScoped<IOrderRepository,EfCoreOrderRepository>();
 
         //Service
         builder.Services.AddScoped<ICategoryService,CategoryManager>();
         builder.Services.AddScoped<IProductService,ProductManager>();
         builder.Services.AddScoped<ICartService,CartManager>();
+        builder.Services.AddScoped<IOrderService,OrderManager>();
         // Program IProductRepository cagiranda EfCoreProductRepository-den object yaradib gonderir
 
         builder.Services.AddScoped<IEmailSender,SmtpEmailSender>(i=>
