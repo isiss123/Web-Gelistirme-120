@@ -102,6 +102,16 @@ internal class Program
         // app.MapGet("/", () => "Hello World!");
         app.UseEndpoints(endpoints =>
         {
+            // ORDER
+            endpoints.MapControllerRoute(
+                name: "Order",
+                pattern: "orders",
+                defaults: new{controller="Order",action = "GetOrders"}
+            );
+
+
+
+
             // CART
             endpoints.MapControllerRoute(
                 name: "CartIndex",

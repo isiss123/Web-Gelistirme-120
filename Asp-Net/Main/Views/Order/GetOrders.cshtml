@@ -1,0 +1,58 @@
+@model List<OrderViewModel> ;
+<h3 class="h3">Sifarişlərim</h3>
+<hr>
+
+@foreach (var order in Model)
+{
+    <table class="table table-bordered mb-3">
+        <thead>
+            <tr>
+                <td colspan="2">Order Number #@order.OrderNumber</td>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in order.OrderDetails)
+            {
+                <tr>
+                    <td colspan="2"><img src="~/images/@item.ImageUrl" alt="" width="100px"></td>
+                    <td style="width: 350px;">@item.Price</td>
+                    <td style="width: 150px;">@item.Quantity</td>
+                </tr>
+            }
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <td colspan="2">Customer Name</td>
+                <td>@order.FirstName @order.LastName</td>
+                <td rowspan="7">Total: @order.TotalPrice().ToString("c")</td>
+            </tr>
+            <tr>
+                <td colspan="2">Address</td>
+                <td>@order.Address</td>
+            </tr>
+            <tr>
+                <td colspan="2">City</td>
+                <td>@order.City</td>
+            </tr>
+            <tr>
+                <td colspan="2">Phone</td>
+                <td>@order.Phone</td>
+            </tr>
+            <tr>
+                <td colspan="2">Email</td>
+                <td>@order.Email</td>
+            </tr>
+            <tr>
+                <td colspan="2">Payment Type</td>
+                <td>@order.PaymentType</td>
+            </tr>
+            <tr>
+                <td colspan="2">Order State</td>
+                <td>@order.OrderState</td>
+            </tr>
+        </tfoot>
+    </table>
+}
