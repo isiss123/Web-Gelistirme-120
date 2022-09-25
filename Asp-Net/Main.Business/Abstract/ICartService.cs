@@ -12,5 +12,6 @@ namespace Main.Business.Abstract
         Cart GetCartByUserId(string userId);
         bool AddToCart(string userId, int productId, int quantity);
         void DeleteFromCart(string userId, int productId);
+        void ClearCart(int cartId);
     }
 }

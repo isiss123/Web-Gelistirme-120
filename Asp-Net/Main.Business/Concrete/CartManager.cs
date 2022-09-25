@@ -57,5 +57,10 @@ namespace Main.Business.Concrete
                 _cartRepository.DeleteFromCart(cart.Id, productId);
             }
         }
+
+        public void ClearCart(int cartId)
+        {
+            _cartRepository.ClearCart(cartId);
+        }
     }
 }
