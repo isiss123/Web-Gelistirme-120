@@ -21,6 +21,9 @@ namespace Main.Controllers
     [Authorize]
     public class CartController : Controller
     {
+        IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
         private ICartService _cartService { get; set; }
         private UserManager<User> _userManager { get; set; }
         private IOrderService _orderService { get; set;}
@@ -168,9 +171,9 @@ namespace Main.Controllers
         private Payment PaymentProcess(OrderModel model)
         {
             Options options = new Options();
-            options.ApiKey = "sandbox-RXarvRSnzubPWCKRCWe6QFbHuNqm00Tn";
-            options.SecretKey = "sandbox-FJePVfShrLB2LcsAraMG9npReLbfVqmB";
-            options.BaseUrl = "https://sandbox-api.iyzipay.com";
+            options.ApiKey = configuration["Payment:ApiKey"];
+            options.SecretKey = configuration["Payment:SecretKey"];
+            options.BaseUrl = configuration["Payment:BaseUrl"];
                     
             CreatePaymentRequest request = new CreatePaymentRequest();
             request.Locale = Locale.TR.ToString();

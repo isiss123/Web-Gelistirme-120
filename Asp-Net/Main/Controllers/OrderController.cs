@@ -24,9 +24,6 @@ namespace Main.Controllers
         public IActionResult GetOrders()
         {
             var userId = _userManager.GetUserId(User);
-            // Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            // Console.WriteLine(userId);
-            // Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n");
             var orders = _orderService.GetOrders(userId);
             var orderViewModel = new List<OrderViewModel>();
             OrderViewModel orderModel;

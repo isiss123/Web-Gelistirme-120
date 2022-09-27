@@ -34,6 +34,7 @@ namespace Main.Data.Concrete.EfCore
             modelBuilder.ApplyConfiguration(new ProductConfigration());
             modelBuilder.ApplyConfiguration(new ProductCategoryConfigration());
             modelBuilder.ApplyConfiguration(new CategoryConfigration());
+            modelBuilder.Seed();
         }
     }
 }
