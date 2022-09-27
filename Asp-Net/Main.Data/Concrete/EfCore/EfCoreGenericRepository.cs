@@ -7,51 +7,41 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Main.Data.Concrete.EfCore
 {
-    public class EfCoreGenericRepository<TEtitiy, TContext> : IRepository<TEtitiy>
+    public class EfCoreGenericRepository<TEtitiy> : IRepository<TEtitiy>
         where TEtitiy : class  // classdan yaranir
-        where TContext : DbContext, new()   // DbContextden yaranir ve newlene(yeni object yarana ) bilen
+        // where TContext : DbContext, new()   // DbContextden yaranir ve newlene(yeni object yarana ) bilen
     {
+        protected readonly DbContext db;
+        public EfCoreGenericRepository(DbContext _db)
+        {
+            db = _db;
+        }
         public void Create(TEtitiy entity)
         {
-            using( var db = new TContext() )
-            {
-                db.Set<TEtitiy>().Add(entity);
-                db.SaveChanges();
-            }
+            db.Set<TEtitiy>().Add(entity);
+            db.SaveChanges();
         }
 
         public void Delete(TEtitiy entity)
         {
-            using( var db = new TContext() )
-            {
-                db.Set<TEtitiy>().Remove(entity);
-                db.SaveChanges();
-            }
+            db.Set<TEtitiy>().Remove(entity);
+            db.SaveChanges();
         }
 
         public List<TEtitiy> GetAll()
         {
-            using( var db = new TContext() )
-            {
-                return db.Set<TEtitiy>().ToList();
-            }
+            return db.Set<TEtitiy>().ToList();
         }
 
         public TEtitiy GetById(int id)
         {
-            using( var db = new TContext() )
-            {
-                return db.Set<TEtitiy>().Find(id);
-            }
+            return db.Set<TEtitiy>().Find(id);
         }
 
         public virtual void Update(TEtitiy entity)
         {
-            using( var db = new TContext())
-            {
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            db.Entry(entity).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

@@ -16,12 +16,16 @@ internal class Program
                             .AddJsonFile("appsettings.json")
                             .Build();
 
-        var conntectionString = @"server=localhost;port=3306;user=root;password=12345;database=AspDb";
+        var conntectionString = configuration.GetConnectionString(@"MySqlConnection");
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
         var builder = WebApplication.CreateBuilder(args);
         
+        // DataBase Connection 
         builder.Services.AddDbContext<ApplicationContext>(options=>options.UseMySql(conntectionString,serverVersion));
+        builder.Services.AddDbContext<MainContext>(options=>options.UseMySql(conntectionString, serverVersion));
+
+
         builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
         // AddIdentity : Istifade edeceyim User ve Role tablolarim
         // AddEntityFrameworkStores : Istifade edeceyim DbContext : ApplicationContext
@@ -88,7 +92,7 @@ internal class Program
         using var app = builder.Build();
         if(app.Environment.IsDevelopment())
         {
-            SeedingDatabase.Seed();
+            // SeedingDatabase.Seed();
         }
 
 
