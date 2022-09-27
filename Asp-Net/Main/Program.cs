@@ -1,12 +1,17 @@
 using Main.Business.Abstract;
 using Main.Business.Concrete;
+
 using Main.Data.Abstract;
 using Main.Data.Concrete.EfCore;
+
 using Main.EmailService;
 using Main.Identity;
+using Main.Extensions;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+
 internal class Program
 {
 
@@ -20,7 +25,7 @@ internal class Program
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
         var builder = WebApplication.CreateBuilder(args);
-        
+
         // DataBase Connection 
         builder.Services.AddDbContext<ApplicationContext>(options=>options.UseMySql(conntectionString,serverVersion));
         builder.Services.AddDbContext<MainContext>(options=>options.UseMySql(conntectionString, serverVersion));
@@ -95,6 +100,7 @@ internal class Program
         {
             // SeedingDatabase.Seed();
         }
+        app.MigrateDatabase();
 
 
         // servisleri istifade et
@@ -241,7 +247,7 @@ internal class Program
             RequestPath = "/modules"
         });
 
-        // await SeedIdentity.Seed(configuration);
+        // await SeedIdentity.Seed(configuration).Wait();
         app.Run();
         
     }

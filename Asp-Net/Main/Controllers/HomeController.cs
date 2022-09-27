@@ -4,16 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Main.Business.Abstract;
 using Main.Data.Abstract;
+using Main.Identity;
 using Main.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 namespace Yoxlama.Controllers
 {
     public class HomeController : Controller
     {
-        private IProductService _productService { get; set; }
-        public HomeController( IProductService productService )
+        private IProductService _productService;
+        public HomeController(IProductService productService)
         {
-            this._productService = productService;
+            _productService = productService;
         }
         public IActionResult Index(){
             var products = _productService.GetProductForHome();
@@ -28,5 +30,6 @@ namespace Yoxlama.Controllers
         public IActionResult Contact(){
             return View();
         }
+
     }
 }

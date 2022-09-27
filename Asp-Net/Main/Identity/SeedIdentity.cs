@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Business.Abstract;
 using Microsoft.AspNetCore.Identity;
 
 namespace Main.Identity
@@ -9,30 +10,53 @@ namespace Main.Identity
     public  class SeedIdentity
     {
         
-        public static async Task Seed(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public static async Task Seed(UserManager<User> userManager, RoleManager<IdentityRole> roleManager,ICartService cartService,IConfiguration configuration)
         {
-        
 
-            var username = configuration["Data:UserAdmin:username"];
-            var password = configuration["Data:UserAdmin:password"];
-            var role = configuration["Data:UserAdmin:role"];
-            var email = configuration["Data:UserAdmin:email"];
-            if(await userManager.FindByNameAsync(username)==null)
+            var roles = configuration.GetSection("Data:Roles").GetChildren().Select(x=>x.Value).ToArray();
+
+            foreach (var role in roles)
             {
-                await roleManager.CreateAsync(new IdentityRole(role));
-                var user = new User{
-                    FirstName = "admin",
-                    LastName = "admin",
-                    UserName = username,
-                    Email = email,
-                    EmailConfirmed = true
-                };
-                var result = await userManager.CreateAsync(user,password);
-                if(result.Succeeded)
+                if (!await roleManager.RoleExistsAsync(role))
                 {
-                    await userManager.AddToRoleAsync(user,role);
+                    await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
+
+            var users = configuration.GetSection("Data:Users");
+
+            foreach (var section in users.GetChildren())
+            {
+                var username = section.GetValue<string>("username");
+                var password = section.GetValue<string>("password");
+                var email = section.GetValue<string>("email");
+                var role = section.GetValue<string>("role");
+                var firstName = section.GetValue<string>("firstName");
+                var lastName = section.GetValue<string>("lastName");
+
+                if(await userManager.FindByNameAsync(username)==null)
+                {
+                    var user = new User()
+                    {
+                        UserName = username,
+                        Email = email,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        EmailConfirmed = true
+                    };
+
+                    var result = await userManager.CreateAsync(user,password);
+                    if(result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(user,role);
+                        cartService.InitializeCart(user.Id);
+                    }
+                }
+                
+            }
+         
+
+          
         }
     }
 }
