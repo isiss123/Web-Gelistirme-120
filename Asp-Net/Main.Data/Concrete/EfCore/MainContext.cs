@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Main.Data.Configuration;
 using Main.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,11 +31,9 @@ namespace Main.Data.Concrete.EfCore
         // }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductCategory>()
-                .HasKey(i=> new{i.ProductId, i.CategoryId});
-            modelBuilder.Entity<Category>()
-                .HasIndex(i=>i.Url)
-                .IsUnique();
+            modelBuilder.ApplyConfiguration(new ProductConfigration());
+            modelBuilder.ApplyConfiguration(new ProductCategoryConfigration());
+            modelBuilder.ApplyConfiguration(new CategoryConfigration());
         }
     }
 }

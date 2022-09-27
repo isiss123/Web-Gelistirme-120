@@ -67,6 +67,7 @@ internal class Program
         builder.Services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
         builder.Services.AddScoped<ICartRepository,EfCoreCartRepository>();
         builder.Services.AddScoped<IOrderRepository,EfCoreOrderRepository>();
+        // builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 
         //Service
         builder.Services.AddScoped<ICategoryService,CategoryManager>();
