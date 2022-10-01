@@ -37,6 +37,9 @@ ModelState.IsValid  : melumatlarin VALIDATION-a uygun olaraq girilmesi  (true/fa
 ENTITY yaratmaq ucun 
 dotnet new classlib -o ...
 
+WEB API yaratmaq ucun
+dotnet new webapi -o ...
+
 
 
 

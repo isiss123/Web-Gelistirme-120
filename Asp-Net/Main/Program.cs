@@ -96,6 +96,14 @@ internal class Program
         builder.Services.AddControllersWithViews();
         
         using var app = builder.Build();
+        // admin ve role elave edir
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+
+            Seed.Initialize(services,configuration).Wait();
+        }
+        
         if(app.Environment.IsDevelopment())
         {
             // SeedingDatabase.Seed();
@@ -246,8 +254,6 @@ internal class Program
                 Path.Combine(builder.Environment.ContentRootPath, "node_modules")),
             RequestPath = "/modules"
         });
-
-        // await SeedIdentity.Seed(configuration).Wait();
         app.Run();
         
     }
