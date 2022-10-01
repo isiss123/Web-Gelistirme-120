@@ -12,7 +12,7 @@ namespace Main.Business.Abstract
         
         Product GetById(int id);
         Product GetProductDetails(string url);
-        List<Product> GetAll();
+        Task<List<Product>> GetAll();
         List<Product> GetProductByCategory(string name, int page, int pageSize);
         bool Create(Product entity);
         void Delete(Product entity);

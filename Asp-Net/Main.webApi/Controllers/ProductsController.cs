@@ -18,9 +18,9 @@ namespace Main.webApi.Controllers
             _productService = productService;
         }
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            var products = _productService.GetAll();
+            var products = await _productService.GetAll();
 
             return Ok(products); // 200 status kodu ile birlikte gonderir
         }

@@ -35,9 +35,9 @@ namespace Main.Business.Concrete
             _productRepository.Delete(entity);
         }
 
-        public List<Product> GetAll()
+        public async Task<List<Product>> GetAll()
         {
-            return _productRepository.GetAll();
+            return await _productRepository.GetAll();
         }
 
         public Product GetById(int id)

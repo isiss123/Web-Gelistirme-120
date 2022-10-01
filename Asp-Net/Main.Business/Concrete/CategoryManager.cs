@@ -28,9 +28,9 @@ namespace Main.Business.Concrete
             _categoryRepository.Delete(entity);
         }
 
-        public List<Category> GetAll()
+        public async Task<List<Category>> GetAll()
         {
-            return _categoryRepository.GetAll();
+            return await _categoryRepository.GetAll();
         }
 
         public Category GetById(int id)

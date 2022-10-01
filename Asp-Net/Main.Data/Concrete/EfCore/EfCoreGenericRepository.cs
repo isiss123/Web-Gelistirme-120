@@ -28,9 +28,9 @@ namespace Main.Data.Concrete.EfCore
             db.SaveChanges();
         }
 
-        public List<TEtitiy> GetAll()
+        public async Task<List<TEtitiy>> GetAll()
         {
-            return db.Set<TEtitiy>().ToList();
+            return await db.Set<TEtitiy>().ToListAsync();
         }
 
         public TEtitiy GetById(int id)

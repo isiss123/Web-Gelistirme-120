@@ -9,7 +9,7 @@ namespace Main.Business.Abstract
     public interface ICategoryService : IValidator<Category>
     {
         Category GetById(int id);
-        List<Category> GetAll();
+        Task<List<Category>> GetAll();
         void Create(Category entity);
         void Delete(Category entity);
         void Update(Category entity);

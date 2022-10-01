@@ -318,10 +318,11 @@ namespace Main.Controllers
 
 
         // PRODUCT
-        public IActionResult ProductList()
-        {
+        public async Task<IActionResult> ProductList()
+        { 
+            var products = await _productService.GetAll();
             var productView = new ProductListViewModel{
-                Products = _productService.GetAll()
+                Products = products
             };
             
             return View(productView);
@@ -444,10 +445,11 @@ namespace Main.Controllers
 
         //  CATEGORY
 
-        public IActionResult CategoryList()
+        public async Task<IActionResult> CategoryList()
         {
+            var categories = await _categoryService.GetAll();
             var CategoryView = new CategoryListViewModel{
-                Categories = _categoryService.GetAll()
+                Categories = categories
             };
             return View(CategoryView);
         }
