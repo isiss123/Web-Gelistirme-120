@@ -98,3 +98,8 @@ ValidateAntiForgeryToken  :  formlarda olan "__RequestVerificationToken"  bolumu
 
 
 [Authorize] etiketlenmis controller de [AllowAnonymous] ile etiketlenmis funksiya rolu olan ve olmayan herkesin gire bileceyi link olur
+
+
+                                WEB API
+Ok(...)            : 200 status kodu ile verilen parametri geriye gonderir
+NotFound()         : 404 status kodunu geriye gonderir
