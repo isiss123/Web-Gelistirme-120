@@ -10,7 +10,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-
+        string MyAllowOrigins = "_myAllowOrigins";
         IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("appsettings.json")
                             .Build();
@@ -21,6 +21,17 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(
+                name: MyAllowOrigins,
+                policy  =>
+                {
+                    policy  .AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod(); // .WithMethods("PUT", "DELETE", "GET")
+                });
+        });
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -51,6 +62,10 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.UseRouting();
+
+        app.UseCors(MyAllowOrigins);
 
         app.UseAuthorization();
 
