@@ -11,3 +11,5 @@ Entity Configurations  : MainContext-deki modelleri Configurations qovlugunun ic
 Seed data in Configurations : Test melumatlarinin model.hasData ile gonderilmesi 
 
 Migrations Manager : seyfe acildigi anda  gozleyen migrationslar bazaya gonderiril
+
+Asekron Methodlar  : async & await

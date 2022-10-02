@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using Main.Business.Abstract;
+using Main.Entity;
 
 namespace Main.webApi.Controllers
 {
@@ -25,14 +26,21 @@ namespace Main.webApi.Controllers
             return Ok(products); // 200 status kodu ile birlikte gonderir
         }
         [HttpGet("{id}")]
-        public IActionResult GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
-            var product = _productService.GetById(id);
+            var product = await _productService.GetById(id);
 
             if(product == null)
                 return NotFound(); // 404 status kodu ile birlikte gonderir
 
             return Ok(product); // 200 status kodu ile birlikte gonderir
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(Product entity)
+        {
+            await _productService.CreateAsync(entity);
+            return CreatedAtAction(nameof(GetProduct),new {id=entity.ProductId},entity);
         }
     }
 }

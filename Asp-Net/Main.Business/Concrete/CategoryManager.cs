@@ -22,6 +22,10 @@ namespace Main.Business.Concrete
         {
             _categoryRepository.Create(entity);
         }
+        public async Task CreateAsync(Category entity)
+        {
+            await _categoryRepository.CreateAsync(entity);
+        }
 
         public void Delete(Category entity)
         {
@@ -33,9 +37,9 @@ namespace Main.Business.Concrete
             return await _categoryRepository.GetAll();
         }
 
-        public Category GetById(int id)
+        public async Task<Category> GetById(int id)
         {
-            return _categoryRepository.GetById(id);
+            return await _categoryRepository.GetById(id);
         }
 
         public void Update(Category entity)
@@ -57,6 +61,9 @@ namespace Main.Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+        
+
         public string ErrorMessage { 
             get => throw new NotImplementedException(); 
             set => throw new NotImplementedException(); 

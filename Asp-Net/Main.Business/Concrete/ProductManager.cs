@@ -29,6 +29,15 @@ namespace Main.Business.Concrete
             }
             return false;
         }
+        public async Task<bool> CreateAsync(Product entity)
+        {
+            if(Validation(entity))
+            {
+                await _productRepository.CreateAsync(entity);
+                return true;
+            }
+            return false;
+        }
 
         public void Delete(Product entity)
         {
@@ -40,9 +49,9 @@ namespace Main.Business.Concrete
             return await _productRepository.GetAll();
         }
 
-        public Product GetById(int id)
+        public async Task<Product> GetById(int id)
         {
-            return _productRepository.GetById(id);
+            return await _productRepository.GetById(id);
         }
 
         public void Update(Product entity)

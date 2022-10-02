@@ -357,7 +357,7 @@ namespace Main.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateProduct(int? id)
+        public async Task<IActionResult> UpdateProduct(int? id)
         {
             if(id==null){
                 return NotFound();
@@ -378,7 +378,7 @@ namespace Main.Controllers
                 IsHome = entity.IsHome,
                 SelectedCategories = entity.ProductCategories.Select(i=>i.Category).ToList(),
             };
-            ViewBag.Categories = _categoryService.GetAll();
+            ViewBag.Categories = await _categoryService.GetAll();
             return View(model);
         }
         [HttpPost]
@@ -386,7 +386,7 @@ namespace Main.Controllers
         {
             if(ModelState.IsValid) // melumatlarin VALIDATION-a uygun olaraq girilmesi
             {
-                var entity = _productService.GetById(model.ProductId);
+                var entity = await _productService.GetById(model.ProductId);
                 if(entity==null){
                     return NotFound();
                 }
@@ -418,14 +418,14 @@ namespace Main.Controllers
                 }
                 CreateMessage(_productService.ErrorMessage,"danger");
             }
-            ViewBag.Categories = _categoryService.GetAll();
+            ViewBag.Categories = await _categoryService.GetAll();
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult DeleteProduct(int productId)
+        public async Task<IActionResult> DeleteProduct(int productId)
         {
-            var entity = _productService.GetById(productId);
+            var entity = await _productService.GetById(productId);
             if(entity != null)
             {
                 _productService.Delete(entity);
@@ -500,11 +500,11 @@ namespace Main.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult UpdateCategory( CategoryModel model )
+        public async Task<IActionResult> UpdateCategory( CategoryModel model )
         {
             if(ModelState.IsValid)
             {
-                var entity = _categoryService.GetById(model.CategoryId);
+                var entity = await _categoryService.GetById(model.CategoryId);
                 if(entity==null){
                     return NotFound();
                 }
@@ -523,9 +523,9 @@ namespace Main.Controllers
             return View(model);
         }
     
-        public IActionResult DeleteCategory( int categoryId)
+        public async Task<IActionResult> DeleteCategory( int categoryId)
         {
-            var entity = _categoryService.GetById(categoryId);
+            var entity = await _categoryService.GetById(categoryId);
             if(entity != null)
             {
                 _categoryService.Delete(entity);

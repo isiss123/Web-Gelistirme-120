@@ -8,9 +8,10 @@ namespace Main.Business.Abstract
 {
     public interface ICategoryService : IValidator<Category>
     {
-        Category GetById(int id);
+        Task<Category> GetById(int id);
         Task<List<Category>> GetAll();
         void Create(Category entity);
+        Task CreateAsync(Category entity);
         void Delete(Category entity);
         void Update(Category entity);
         Category GetById_with_Product(int id);

@@ -22,6 +22,12 @@ namespace Main.Data.Concrete.EfCore
             db.SaveChanges();
         }
 
+        public async Task CreateAsync(TEtitiy entity)
+        {
+            await db.Set<TEtitiy>().AddAsync(entity);
+            await db.SaveChangesAsync();
+        }
+
         public void Delete(TEtitiy entity)
         {
             db.Set<TEtitiy>().Remove(entity);
@@ -33,9 +39,9 @@ namespace Main.Data.Concrete.EfCore
             return await db.Set<TEtitiy>().ToListAsync();
         }
 
-        public TEtitiy GetById(int id)
+        public async Task<TEtitiy> GetById(int id)
         {
-            return db.Set<TEtitiy>().Find(id);
+            return await db.Set<TEtitiy>().FindAsync(id);
         }
 
         public virtual void Update(TEtitiy entity)

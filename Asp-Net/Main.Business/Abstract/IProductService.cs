@@ -10,11 +10,12 @@ namespace Main.Business.Abstract
     public interface IProductService : IValidator<Product>
     {
         
-        Product GetById(int id);
+        Task<Product> GetById(int id);
         Product GetProductDetails(string url);
         Task<List<Product>> GetAll();
         List<Product> GetProductByCategory(string name, int page, int pageSize);
         bool Create(Product entity);
+        Task<bool> CreateAsync(Product entity);
         void Delete(Product entity);
         void Update(Product entity);
         int GetCountByCategory(string category);
