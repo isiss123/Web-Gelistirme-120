@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Main.Business.Abstract;
 using Main.Entity;
+using Main.webApi.DTO;
 
 namespace Main.webApi.Controllers
 {
@@ -22,8 +23,12 @@ namespace Main.webApi.Controllers
         public async Task<IActionResult> GetProducts()
         {
             var products = await _productService.GetAll();
-
-            return Ok(products); // 200 status kodu ile birlikte gonderir
+            List<ProductDTO> productsDTO = new List<ProductDTO>();
+            foreach (var p in products)
+            {
+                productsDTO.Add(ProductToDTO(p));
+            }
+            return Ok(productsDTO); // 200 status kodu ile birlikte gonderir
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
@@ -33,14 +38,14 @@ namespace Main.webApi.Controllers
             if(product == null)
                 return NotFound(); // 404 status kodu ile birlikte gonderir
 
-            return Ok(product); // 200 status kodu ile birlikte gonderir
+            return Ok(ProductToDTO(product)); // 200 status kodu ile birlikte gonderir
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateProduct(Product entity)
         {
             await _productService.CreateAsync(entity);
-            return CreatedAtAction(nameof(GetProduct),new {id=entity.ProductId},entity);
+            return CreatedAtAction(nameof(GetProduct),new {id=entity.ProductId},ProductToDTO(entity));
         }
 
         [HttpPut("{id}")]
@@ -68,6 +73,19 @@ namespace Main.webApi.Controllers
             
             _productService.Delete(product);
             return NoContent();
+        }
+
+
+        public static ProductDTO ProductToDTO(Product product)
+        {
+            return new ProductDTO{
+                ProductId = product.ProductId,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                Url = product.Url,
+                ImageUrl = product.ImageUrl
+            };
         }
     }
 }
