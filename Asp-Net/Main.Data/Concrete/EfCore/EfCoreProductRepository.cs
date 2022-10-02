@@ -94,8 +94,15 @@ namespace Main.Data.Concrete.EfCore
                         ProductId = entity.ProductId,
                         CategoryId = c_id
                     }).ToList();
-                    db.SaveChanges();
+                    _db.SaveChanges();
                 }
+        }
+        public async Task UpdateAsync(Product entityToUpdate, Product entity)
+        {
+            entityToUpdate.Name = entity.Name;
+            entityToUpdate.Description = entity.Description;
+            entityToUpdate.Price = entity.Price;
+            await _db.SaveChangesAsync();
         }
     }
 }

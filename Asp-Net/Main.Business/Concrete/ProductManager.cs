@@ -123,6 +123,9 @@ namespace Main.Business.Concrete
             return isValid;
         }
 
-        
+        public async Task UpdateAsync(Product product, Product entity)
+        {
+            await _productRepository.UpdateAsync(product, entity);
+        }
     }
 }

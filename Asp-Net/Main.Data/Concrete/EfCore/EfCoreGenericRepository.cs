@@ -49,5 +49,6 @@ namespace Main.Data.Concrete.EfCore
             db.Entry(entity).State = EntityState.Modified;
             db.SaveChanges();
         }
+
     }
 }

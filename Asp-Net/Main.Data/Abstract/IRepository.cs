@@ -13,5 +13,6 @@ namespace Main.Data.Abstract
         Task CreateAsync(T entity);
         void Delete(T entity);
         void Update(T entity);
+        
     }
 }

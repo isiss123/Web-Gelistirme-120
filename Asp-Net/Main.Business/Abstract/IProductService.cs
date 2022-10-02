@@ -18,6 +18,8 @@ namespace Main.Business.Abstract
         Task<bool> CreateAsync(Product entity);
         void Delete(Product entity);
         void Update(Product entity);
+        Task UpdateAsync(Product product, Product entity);
+
         int GetCountByCategory(string category);
         List<Product> GetProductForHome();
         List<Product> GetSearchResult(string search);

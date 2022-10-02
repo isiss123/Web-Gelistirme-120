@@ -15,5 +15,6 @@ namespace Main.Data.Abstract
         List<Product> GetSearchResult(string search);
         Product GetByIdWIthCategory(int productId);
         void Update(Product entity, int[] categoryIds);
+        Task UpdateAsync(Product entityToUpdate, Product entity);
     }
 }
