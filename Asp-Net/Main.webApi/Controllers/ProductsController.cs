@@ -58,5 +58,16 @@ namespace Main.webApi.Controllers
             await _productService.UpdateAsync(product, entity);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var product = await _productService.GetById(id);
+            
+            if(product == null)
+                return NotFound();
+            
+            _productService.Delete(product);
+            return NoContent();
+        }
     }
 }

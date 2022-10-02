@@ -101,5 +101,7 @@ ValidateAntiForgeryToken  :  formlarda olan "__RequestVerificationToken"  bolumu
 
 
                                 WEB API
+  link : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 Ok(...)            : 200 status kodu ile verilen parametri geriye gonderir
 NotFound()         : 404 status kodunu geriye gonderir
+BadRequest()       : 400 status kodunu geriye gonderir (Xetalı sorğu)
